@@ -54,6 +54,8 @@ public class ViewDataActivity extends Activity
         btnResetPw = (Button) findViewById(R.id.btnResetPw);
         clear = (Button) findViewById(R.id.clear_all_saved);
 
+        DBAdapter.init(this);
+
         // Check user login
         // If User is not logged in , This will redirect user to LoginActivity.
         if (session.checkLogin())

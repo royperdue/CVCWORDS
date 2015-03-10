@@ -1,16 +1,12 @@
 package com.game.one;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-
-import java.util.ArrayList;
 
 public class MainActivity extends Activity
 {
@@ -19,9 +15,6 @@ public class MainActivity extends Activity
 	private ImageButton settingsButton;
 	private ImageButton playButton;
 	private ImageButton about;
-	private SharedPreferences prefs;
-	private Editor edit;
-	private ArrayList<String> results = new ArrayList<String>();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -34,11 +27,16 @@ public class MainActivity extends Activity
 		Config.readVolume(this);
 		Util.initMusicPlayer(this);
 		Util.musicPlayer.start();
-		
-		prefs = getApplicationContext().getSharedPreferences("com.game.one",
-				Context.MODE_PRIVATE);
 
-		edit = prefs.edit();
+        SharedPreferences userDetails = getSharedPreferences("USER_INFO",
+                MODE_PRIVATE);
+        SharedPreferences.Editor edit = userDetails.edit();
+
+        if(userDetails.getBoolean("DATA_EXISTS", false) != true)
+        {
+            edit.putBoolean("DATA_EXISTS", false);
+            edit.commit();
+        }
 	}
 	
 	private void setDisplaySpecs()
@@ -54,6 +52,9 @@ public class MainActivity extends Activity
 
 	private void setUp()
 	{
+        final SharedPreferences userDetails = getSharedPreferences("USER_INFO",
+                MODE_PRIVATE);
+
 		exitButton = (ImageButton) findViewById(R.id.exitButton);
 		exitButton.setImageBitmap(Sprite.createBitmap(getResources()
 				.getDrawable(R.drawable.close)));
@@ -64,20 +65,22 @@ public class MainActivity extends Activity
 				if(Game.theGame != null)
 					Game.theGame.getGameView().gameOver();
 
-                if(isPackageInstalled())
+                if(userDetails.getBoolean("DATA_EXISTS", false) == true)
                 {
-                    Intent intent = new Intent();
-                    intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.SaveActivity");
+                    if (isPackageInstalled())
+                    {
+                        Intent intent = new Intent();
+                        intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.TransmitData");
 
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                    //startActivity(intent);
+                        startService(intent);
+                    }
+                    if (!isPackageInstalled())
+                    {
+                        finish();
+                    }
                 }
-                if(!isPackageInstalled())
-                {
-                    finish();
-                }
-                System.exit(0);
+                //finish();
+                //System.exit(0);
 			}
 		});
 
