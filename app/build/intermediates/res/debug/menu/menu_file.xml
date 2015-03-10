@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.game.one.FileProviderActivity">
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          android:orderInCategory="100"
+          android:showAsAction="never"/>
+</menu>
+<!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/menu/menu_file.xml -->

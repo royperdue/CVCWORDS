@@ -1,0 +1,4 @@
+/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/build/intermediates/classes/debug
+/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-dd0e3e24a118da4b7bd2652ce799f129643f7608.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-242d3ccbac0ca3df2926684738a1b068cd7482ac.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/build/intermediates/pre-dexed/debug/classes-74137f985265dc40c2628c73123dc5fcc3e1e02f.jar

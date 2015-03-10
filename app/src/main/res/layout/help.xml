@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/SaladGreen" >
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/backbutton"
+        android:src="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/helpImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/fly"
+        android:src="@drawable/flya" />
+
+   <TextView
+        android:id="@+id/help1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/help1"
+        android:textSize="25dp"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/help2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/help1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/help2"
+        android:textSize="25dp"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/help3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/help2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/help3"
+        android:textSize="25dp"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/help4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/help3"
+        android:layout_centerHorizontal="true"
+        android:text="@string/help4"
+        android:textSize="25dp"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/help5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/help4"
+        android:layout_centerHorizontal="true"
+        android:text="@string/help5"
+        android:textSize="25dp"
+        tools:ignore="SpUsage" />
+     
+</RelativeLayout>

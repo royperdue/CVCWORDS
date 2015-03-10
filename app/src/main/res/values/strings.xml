@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CVC Words</string>
+    <string name="title">CVC Words</string>
+    <string name="title_activity_main">CVC Words</string>
+    <string name="back_button">back</string>
+    <string name="mute_button">Mute</string>
+    <string name="help1">Help 1</string>
+    <string name="help2">Help 2</string>
+    <string name="help3">Help 3</string>
+    <string name="help4">Help 4</string>
+    <string name="help5">Help 5</string>
+    <string name="score_textview">What is your name?</string>
+    <string name="config_music_volume">Music volume</string>
+    <string name="config_sound_volume">Sound volume</string>
+    <string name="reset_highscore">Reset highscore</string>
+    <string name="developer">Roy Perdue</string>
+    <string name="graphics">Roy Perdue</string>
+    <string name="music">Roy Perdue</string>
+    <string name="ingamemenu">Do you want to exit the game?</string>
+    <string name="ingamemenuSettingsButton">Settings</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="about">About</string>
+    <string name="yourScoreIs">Your score is</string>
+    <string name="menu_settings">Settings</string>
+    <string name="bestScoreText">Your High Score:</string>
+    <string name="backbutton">backbutton</string>
+    <string name="mutebutton">mutebutton</string>
+    <string name="graphics_">Graphics:</string>
+    <string name="developer_">Developer:</string>
+    <string name="music_">Music:</string>
+    <string name="settingsbutton">settingsbutton</string>
+    <string name="helpbutton">helpbutton</string>
+    <string name="exitbutton">exitbutton</string>
+    <string name="aboutbutton">aboutbutton</string>
+    <string name="playbutton">playbutton</string>
+    <string name="fly">fly</string>
+    <string name="toastlayout">toastLayout</string>
+    <string name="password">Password</string>
+    <string name="create_login_credentials_">Create Login Credentials:</string>
+    <string name="create">Create</string>
+    <string name="password_">Password :</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="lblHeader">|  NUMBER  |  WORD  |  SELECTION  |  CORRECT  |</string>
+    <string name="title_activity_file_provider">FileProviderActivity</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textsize2sp">2sp</dimen>
+    <dimen name="textsize5sp">5sp</dimen>
+    <dimen name="textsize8sp">8sp</dimen>
+    <dimen name="textsize10sp">10sp</dimen>
+    <dimen name="textsize12sp">12sp</dimen>
+    <dimen name="textsize15sp">15sp</dimen>
+    <dimen name="textsize20sp">20sp</dimen>
+    <dimen name="textsize25sp">25sp</dimen>
+    <dimen name="textsize30sp">30sp</dimen>
+    <dimen name="textsize35sp">35sp</dimen>
+    <dimen name="textsize40sp">40sp</dimen>
+    <dimen name="textsize45sp">45sp</dimen>
+    <dimen name="textsize50sp">50sp</dimen>
+</resources>

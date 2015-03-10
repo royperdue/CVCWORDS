@@ -1,0 +1,180 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .DS_Store
+* android-simple-storage-master/
+* android-simple-storage-master/.gitignore
+* android-simple-storage-master/LICENSE
+* android-simple-storage-master/README.md
+* android-simple-storage-master/Simple Storage Tests/
+* android-simple-storage-master/Simple Storage Tests/.classpath
+* android-simple-storage-master/Simple Storage Tests/.gitignore
+* android-simple-storage-master/Simple Storage Tests/.project
+* android-simple-storage-master/Simple Storage Tests/.settings/
+* android-simple-storage-master/Simple Storage Tests/.settings/org.eclipse.jdt.core.prefs
+* android-simple-storage-master/Simple Storage Tests/AndroidManifest.xml
+* android-simple-storage-master/Simple Storage Tests/bin/
+* android-simple-storage-master/Simple Storage Tests/bin/AndroidManifest.xml
+* android-simple-storage-master/Simple Storage Tests/bin/classes/
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/test/
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/test/BuildConfig.class
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/test/R$attr.class
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/test/R$string.class
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/test/R.class
+* android-simple-storage-master/Simple Storage Tests/bin/classes/com/sromku/simple/storage/test/StorageTestCase.class
+* android-simple-storage-master/Simple Storage Tests/build.gradle
+* android-simple-storage-master/Simple Storage Tests/gen/
+* android-simple-storage-master/Simple Storage Tests/gen/com/
+* android-simple-storage-master/Simple Storage Tests/gen/com/sromku/
+* android-simple-storage-master/Simple Storage Tests/gen/com/sromku/simple/
+* android-simple-storage-master/Simple Storage Tests/gen/com/sromku/simple/storage/
+* android-simple-storage-master/Simple Storage Tests/gen/com/sromku/simple/storage/test/
+* android-simple-storage-master/Simple Storage Tests/gen/com/sromku/simple/storage/test/BuildConfig.java
+* android-simple-storage-master/Simple Storage Tests/gen/com/sromku/simple/storage/test/R.java
+* android-simple-storage-master/Simple Storage Tests/proguard-project.txt
+* android-simple-storage-master/Simple Storage Tests/project.properties
+* android-simple-storage-master/Simple Storage Tests/res/
+* android-simple-storage-master/Simple Storage Tests/res/values/
+* android-simple-storage-master/Simple Storage Tests/res/values/strings.xml
+* android-simple-storage-master/Simple Storage Tests/src/
+* android-simple-storage-master/Simple Storage Tests/src/com/
+* android-simple-storage-master/Simple Storage Tests/src/com/sromku/
+* android-simple-storage-master/Simple Storage Tests/src/com/sromku/simple/
+* android-simple-storage-master/Simple Storage Tests/src/com/sromku/simple/storage/
+* android-simple-storage-master/Simple Storage Tests/src/com/sromku/simple/storage/test/
+* android-simple-storage-master/Simple Storage Tests/src/com/sromku/simple/storage/test/StorageTestCase.java
+* android-simple-storage-master/build.gradle
+* android-simple-storage-master/gradle.properties
+* android-simple-storage-master/gradle/
+* android-simple-storage-master/gradle/wrapper/
+* android-simple-storage-master/gradle/wrapper/gradle-wrapper.jar
+* android-simple-storage-master/gradle/wrapper/gradle-wrapper.properties
+* android-simple-storage-master/gradlew
+* android-simple-storage-master/gradlew.bat
+* android-simple-storage-master/library/
+* android-simple-storage-master/library/.classpath
+* android-simple-storage-master/library/.gitignore
+* android-simple-storage-master/library/.project
+* android-simple-storage-master/library/.settings/
+* android-simple-storage-master/library/.settings/org.eclipse.jdt.core.prefs
+* android-simple-storage-master/library/AndroidManifest.xml
+* android-simple-storage-master/library/bin/
+* android-simple-storage-master/library/bin/AndroidManifest.xml
+* android-simple-storage-master/library/bin/classes/
+* android-simple-storage-master/library/bin/classes/com/
+* android-simple-storage-master/library/bin/classes/com/sromku/
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/AbstractDiskStorage$1.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/AbstractDiskStorage$1Reader.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/AbstractDiskStorage$2.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/AbstractDiskStorage.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/BuildConfig.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/ExternalStorage.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/InternalStorage.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/SimpleStorage$StorageType.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/SimpleStorage.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/SimpleStorageConfiguration$Builder.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/SimpleStorageConfiguration.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/Storable.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/Storage.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/StorageException.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/ImmutablePair.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/OrderType$1.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/OrderType$2.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/OrderType$3.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/OrderType.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/helpers/SizeUnit.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/security/
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/security/CipherAlgorithmType.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/security/CipherModeType.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/security/CipherPaddingType.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/security/CipherTransformationType.class
+* android-simple-storage-master/library/bin/classes/com/sromku/simple/storage/security/SecurityUtil.class
+* android-simple-storage-master/library/bin/simple storage.jar
+* android-simple-storage-master/library/build.gradle
+* android-simple-storage-master/library/gen/
+* android-simple-storage-master/library/gen/com/
+* android-simple-storage-master/library/gen/com/sromku/
+* android-simple-storage-master/library/gen/com/sromku/simple/
+* android-simple-storage-master/library/gen/com/sromku/simple/storage/
+* android-simple-storage-master/library/gen/com/sromku/simple/storage/BuildConfig.java
+* android-simple-storage-master/library/proguard-project.txt
+* android-simple-storage-master/library/project.properties
+* android-simple-storage-master/library/src/
+* android-simple-storage-master/library/src/com/
+* android-simple-storage-master/library/src/com/sromku/
+* android-simple-storage-master/library/src/com/sromku/simple/
+* android-simple-storage-master/library/src/com/sromku/simple/storage/
+* android-simple-storage-master/library/src/com/sromku/simple/storage/AbstractDiskStorage.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/ExternalStorage.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/InternalStorage.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/SimpleStorage.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/SimpleStorageConfiguration.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/Storable.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/Storage.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/StorageException.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/helpers/
+* android-simple-storage-master/library/src/com/sromku/simple/storage/helpers/ImmutablePair.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/helpers/OrderType.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/helpers/SizeUnit.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/security/
+* android-simple-storage-master/library/src/com/sromku/simple/storage/security/CipherAlgorithmType.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/security/CipherModeType.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/security/CipherPaddingType.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/security/CipherTransformationType.java
+* android-simple-storage-master/library/src/com/sromku/simple/storage/security/SecurityUtil.java
+* android-simple-storage-master/settings.gradle
+* app_info/
+* app_info/.DS_Store
+* app_info/cvcword_UML.graphml
+* app_info/descriptions_app_inner_workings.txt
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:21.0.3
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* assets/ => app/src/main/assets/
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
