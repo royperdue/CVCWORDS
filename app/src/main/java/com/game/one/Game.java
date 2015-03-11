@@ -3,10 +3,11 @@ package com.game.one;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff.Mode;
@@ -56,6 +57,7 @@ public class Game extends Activity implements OnTouchListener
 	private TextView levelNumber;
 	private TextView timer;
 	private ImageView image;
+    private Context sharedContext = null;
 	private RatingBar rateBar;
 	private Button leftLetterBtn;
 	private Button middleLetterBtn;
@@ -65,7 +67,6 @@ public class Game extends Activity implements OnTouchListener
 	volatile private int points = 0;
 	private Dialog inGameMenu;
 	private int attemptNumber = 0;
-	private String date;
 	private String word = "";
 	private String[] words =
 		{"C A B", "L A B", "C A P", "M A P", "N A P", "D A D", "M A D",
@@ -190,8 +191,23 @@ public class Game extends Activity implements OnTouchListener
 		spriteTimer.start();
 		wordTimer.start();
 
-        DBAdapter.init(this);
+        if(isPackageInstalled())
+        {
+            try
+            {
+                sharedContext = getApplicationContext().createPackageContext("com.gradebookdynamics.gradebook", Context.CONTEXT_INCLUDE_CODE);
+                if (sharedContext == null)
+                {
+                    return;
+                }
+            } catch (Exception e)
+            {
 
+                return;
+            }
+
+            DBAdapter.init(sharedContext);
+        }
 		// System.out.println("The game has " + words.length + " words.");
 	}
 
@@ -542,22 +558,14 @@ public class Game extends Activity implements OnTouchListener
 					rightLetterBtn.setText(letters[2]);
 
 
+                    if(isPackageInstalled())
+                    {
+                        String attempt = Integer.toString(getAttemptNumber());
 
-					String attempt = Integer.toString(getAttemptNumber());
+                        String output = getDateTime() + "|" + attempt + "|" + word + "|" + flyId + "|YES";
 
-					String output = getDateTime() + "&" + "|        " + attempt
-							+ "       |   " + word + "        |        "
-							+ flyId + "            |        YES        |";
-
-                    DBAdapter.addUserData(new UserData("com.game.one", output));
-
-                    SharedPreferences userDetails = getSharedPreferences("USER_INFO",
-                            MODE_PRIVATE);
-                    SharedPreferences.Editor edit = userDetails.edit();
-
-                    edit.putBoolean("DATA_EXISTS", true);
-                    edit.commit();
-
+                        DBAdapter.addUserData(new UserData("com.game.one", output));
+                    }
 
 					// sets the contents of the textbox holding the word to the
 					// word variable,
@@ -572,21 +580,14 @@ public class Game extends Activity implements OnTouchListener
 				{
 					decreaseStarPoints();
 
-					String attempt = Integer.toString(getAttemptNumber());
+                    if(isPackageInstalled())
+                    {
+                        String attempt = Integer.toString(getAttemptNumber());
 
-					String output = getDateTime() + "&" + "|        " + attempt
-							+ "       |   " + word + "        |        "
-							+ flyId + "            |        NO         |";
+                        String output = getDateTime() + "|" + attempt + "|" + word + "|" + flyId + "|NO";
 
-                    DBAdapter.addUserData(new UserData("com.game.one", output));
-
-                    SharedPreferences userDetails = getSharedPreferences("USER_INFO",
-                            MODE_PRIVATE);
-                    SharedPreferences.Editor edit = userDetails.edit();
-
-                    edit.putBoolean("DATA_EXISTS", true);
-                    edit.commit();
-
+                        DBAdapter.addUserData(new UserData("com.game.one", output));
+                    }
 					flyId = "X";
 				}
 
@@ -596,6 +597,21 @@ public class Game extends Activity implements OnTouchListener
 		});
 
 	}
+
+    private boolean isPackageInstalled()
+    {
+        PackageManager pm = getApplicationContext().getPackageManager();
+
+        try
+        {
+            pm.getPackageInfo("com.gradebookdynamics.gradebook", PackageManager.GET_ACTIVITIES);
+            return true;
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            return false;
+        }
+    }
 
 	// ########## UPDATES TEXTBOX THAT GOES WITH WORDTIMER ###########
 	private void updateTimer()

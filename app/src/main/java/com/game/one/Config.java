@@ -1,14 +1,13 @@
 package com.game.one;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 public class Config extends Activity
 {
@@ -87,19 +86,6 @@ public class Config extends Activity
 					boolean fromUser)
 			{
 				Util.soundVolume = (float) (progress / 100.0);
-			}
-		});
-		
-		viewDataButton = (ImageButton) findViewById(R.id.viewDataButton);
-		viewDataButton.setOnClickListener(new View.OnClickListener()
-		{
-			public void onClick(View v)
-			{
-				Intent intent = new Intent(getApplicationContext(), ViewDataActivity.class);
-			
-			    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-			    startActivity(intent);
-				finish();
 			}
 		});
 	}

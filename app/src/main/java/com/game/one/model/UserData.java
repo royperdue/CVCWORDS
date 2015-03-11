@@ -73,7 +73,7 @@ public class UserData
     @Override
     public String toString()
     {
-        return "UserInfo [name=" + _name + ", email=" + _data + "]";
+        return "UserInfo [name=" + _name + ", data=" + _data + "]";
     }
 
 }
