@@ -53,18 +53,7 @@ public class MainActivity extends Activity
                 if (Game.theGame != null)
                         Game.theGame.getGameView().gameOver();
 
-                if (isPackageInstalled())
-                {
-                    Intent intent = new Intent();
-                    intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.TransmitData");
 
-                    startService(intent);
-
-                    if (!isPackageInstalled())
-                    {
-                        finish();
-                    }
-                }
                 finish();
                 //System.exit(0);
             }

@@ -562,9 +562,14 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = getDateTime() + "|" + attempt + "|" + word + "|" + flyId + "|YES";
+                        String output = "| " + getDateTime() + " | " + attempt + " | " + word + " | " + flyId + " | true |";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
+
+                        Intent intent = new Intent();
+                        intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.TransmitData");
+
+                        startService(intent);
                     }
 
 					// sets the contents of the textbox holding the word to the
@@ -584,9 +589,14 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = getDateTime() + "|" + attempt + "|" + word + "|" + flyId + "|NO";
+                        String output = "| " + getDateTime() + " | " + attempt + " | " + word + " | " + flyId + " | false |";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
+
+                        Intent intent = new Intent();
+                        intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.TransmitData");
+
+                        startService(intent);
                     }
 					flyId = "X";
 				}
