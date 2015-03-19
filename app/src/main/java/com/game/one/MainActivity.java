@@ -55,7 +55,7 @@ public class MainActivity extends Activity
 
 
                 finish();
-                //System.exit(0);
+                System.exit(0);
             }
         });
 
