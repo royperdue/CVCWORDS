@@ -195,7 +195,7 @@ public class Game extends Activity implements OnTouchListener
         {
             try
             {
-                sharedContext = getApplicationContext().createPackageContext("com.gradebookdynamics.gradebook", Context.CONTEXT_INCLUDE_CODE);
+                sharedContext = getApplicationContext().createPackageContext("com.gradebookdynamics.utility", Context.CONTEXT_INCLUDE_CODE);
                 if (sharedContext == null)
                 {
                     return;
@@ -562,14 +562,9 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = "| " + getDateTime() + " | " + attempt + " | " + word + " | " + flyId + " | true |";
+                        String output = " | " + attempt + " | " + word + " | " + flyId + " | true |";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
-
-                        Intent intent = new Intent();
-                        intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.TransmitData");
-
-                        startService(intent);
                     }
 
 					// sets the contents of the textbox holding the word to the
@@ -589,14 +584,9 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = "| " + getDateTime() + " | " + attempt + " | " + word + " | " + flyId + " | false |";
+                        String output = " | " + attempt + " | " + word + " | " + flyId + " | false |";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
-
-                        Intent intent = new Intent();
-                        intent.setClassName("com.gradebookdynamics.gradebook", "com.gradebookdynamics.gradebook.TransmitData");
-
-                        startService(intent);
                     }
 					flyId = "X";
 				}
@@ -614,7 +604,7 @@ public class Game extends Activity implements OnTouchListener
 
         try
         {
-            pm.getPackageInfo("com.gradebookdynamics.gradebook", PackageManager.GET_ACTIVITIES);
+            pm.getPackageInfo("com.gradebookdynamics.utility", PackageManager.GET_ACTIVITIES);
             return true;
         }
         catch (PackageManager.NameNotFoundException e)

@@ -53,6 +53,14 @@ public class MainActivity extends Activity
                 if (Game.theGame != null)
                         Game.theGame.getGameView().gameOver();
 
+                if(isPackageInstalled())
+                {
+                    Intent intent = new Intent();
+                    intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.TransmitData");
+
+                    startService(intent);
+                }
+
 
                 finish();
                 System.exit(0);
@@ -146,7 +154,7 @@ public class MainActivity extends Activity
 
         try
         {
-            pm.getPackageInfo("com.gradebookdynamics.gradebook", PackageManager.GET_ACTIVITIES);
+            pm.getPackageInfo("com.gradebookdynamics.utility", PackageManager.GET_ACTIVITIES);
             return true;
         } catch (PackageManager.NameNotFoundException e)
         {
