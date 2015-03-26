@@ -3,6 +3,7 @@ package com.game.one;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ public class MainActivity extends Activity
     private ImageButton playButton;
     private ImageButton about;
     private Context sharedContext = null;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor edit;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -28,6 +31,8 @@ public class MainActivity extends Activity
         Config.readVolume(this);
         Util.initMusicPlayer(this);
         Util.musicPlayer.start();
+        prefs = getApplicationContext().getSharedPreferences("com.came.one",
+                Context.MODE_PRIVATE);
     }
 
     private void setDisplaySpecs()
@@ -53,8 +58,13 @@ public class MainActivity extends Activity
                 if (Game.theGame != null)
                         Game.theGame.getGameView().gameOver();
 
-                if(isPackageInstalled())
+                // CHECK IF DATA IS AVAILABLE BEFORE LAUNCHING UTILITY APP.
+                if(isPackageInstalled() && prefs.getBoolean("HAS_DATA", false) == true)
                 {
+                    edit = prefs.edit();
+                    edit.putBoolean("HAS_DATA", false);
+                    edit.commit();
+
                     Intent intent = new Intent();
                     intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.AddGame");
 
@@ -63,7 +73,7 @@ public class MainActivity extends Activity
 
 
                 finish();
-                //System.exit(0);
+                System.exit(0);
             }
         });
 

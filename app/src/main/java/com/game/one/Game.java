@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -58,6 +59,8 @@ public class Game extends Activity implements OnTouchListener
 	private TextView timer;
 	private ImageView image;
     private Context sharedContext = null;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor edit;
 	private RatingBar rateBar;
 	private Button leftLetterBtn;
 	private Button middleLetterBtn;
@@ -190,6 +193,9 @@ public class Game extends Activity implements OnTouchListener
 		view.setOnTouchListener(this);
 		spriteTimer.start();
 		wordTimer.start();
+
+        prefs = getApplicationContext().getSharedPreferences("com.came.one",
+                Context.MODE_PRIVATE);
 
         if(isPackageInstalled())
         {
@@ -562,9 +568,14 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true";
+                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true" +
+                                " CORE_STANDARD_NAME" + " SUBJECT_NAME" + " CVC_WORD_FROG";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
+
+                        edit = prefs.edit();
+                        edit.putBoolean("HAS_DATA", true);
+                        edit.commit();
                     }
 
 					// sets the contents of the textbox holding the word to the
@@ -584,9 +595,13 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false";
+                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false" +
+                                " CORE_STANDARD_NAME" + " SUBJECT_NAME" + " CVC_WORD_FROG";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
+                        edit = prefs.edit();
+                        edit.putBoolean("HAS_DATA", true);
+                        edit.commit();
                     }
 					flyId = "X";
 				}
