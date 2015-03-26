@@ -56,14 +56,14 @@ public class MainActivity extends Activity
                 if(isPackageInstalled())
                 {
                     Intent intent = new Intent();
-                    intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.TransmitData");
+                    intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.AddGame");
 
                     startService(intent);
                 }
 
 
                 finish();
-                System.exit(0);
+                //System.exit(0);
             }
         });
 

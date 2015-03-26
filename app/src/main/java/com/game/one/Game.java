@@ -562,7 +562,7 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = " | " + attempt + " | " + word + " | " + flyId + " | true |";
+                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
                     }
@@ -584,7 +584,7 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = " | " + attempt + " | " + word + " | " + flyId + " | false |";
+                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
                     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/bools.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/bools.xml -->
     <eat-comment/>
     <bool name="layout_true">true</bool>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/color.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="AlgaeGreen">#64E986</color>
     <color name="AliceBlue">#F0F8FF</color>
@@ -410,11 +410,11 @@
     <color name="orange">#ff5500</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/%20dimensions.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/%20dimensions.xml -->
     <eat-comment/>
     <dimen name="textsize10sp">10sp</dimen>
     <dimen name="textsize12sp">12sp</dimen>
@@ -429,10 +429,10 @@
     <dimen name="textsize50sp">50sp</dimen>
     <dimen name="textsize5sp">5sp</dimen>
     <dimen name="textsize8sp">8sp</dimen>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/integers.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/integers.xml -->
     <eat-comment/>
     <integer name="int_max_lines1">1</integer>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about">About</string>
     <string name="aboutbutton">aboutbutton</string>
@@ -479,7 +479,7 @@
     <string name="toastlayout">toastLayout</string>
     <string name="yes">yes</string>
     <string name="yourScoreIs">Your score is</string>
-    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/Gradebook-Backend/ANDROID_TEMPLATE_ANDROID_STUDIO/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Light"/>
     <style name="Theme.Transparent" parent="android:Theme">

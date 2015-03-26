@@ -7,7 +7,6 @@ public class UserData
     int _id;
     String _name;
     String _data;
-    String _subject = "ENGLISH";
 
     // Empty constructor
     public UserData()
@@ -40,11 +39,6 @@ public class UserData
     public void setID(int id)
     {
         this._id = id;
-    }
-
-    public String get_subject()
-    {
-        return _subject;
     }
 
     // getting name
