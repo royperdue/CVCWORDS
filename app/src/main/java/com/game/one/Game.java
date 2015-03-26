@@ -197,6 +197,10 @@ public class Game extends Activity implements OnTouchListener
         prefs = getApplicationContext().getSharedPreferences("com.came.one",
                 Context.MODE_PRIVATE);
 
+        edit = prefs.edit();
+        edit.putBoolean("HAS_DATA", false);
+        edit.commit();
+
         if(isPackageInstalled())
         {
             try
