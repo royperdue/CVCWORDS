@@ -31,7 +31,6 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RatingBar;
 import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.game.one.model.UserData;
 import com.game.one.persistence.DBAdapter;
@@ -128,7 +127,7 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onTick()
         {
-            if (mediaTimer.getElapsedTime() >= mediaPlayer.getDuration())
+            if (mediaTimer.getElapsedTime() >= (mediaPlayer.getDuration() - 4000))
             {
                 onFinish();
             }
@@ -562,19 +561,7 @@ public class Game extends Activity implements OnTouchListener
 
                         wordDuration = 70000;
                     }
-                    /*
-                    * @@@@@@@ ADD SOUND FOR REACHING NEW LEVEL @@@@@@@
-                    *
-                    * mediaPlayer = MediaPlayer.create(this, R.raw.burp);
-                      mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                      mediaPlayer.start();
-                      mediaTimer.start();
-                    * */
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Great Job! You have reached level "
-                                    + Integer.toString(level + 1),
-                            Toast.LENGTH_LONG).show();
+                   
                 }
             }
         });
@@ -651,7 +638,7 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true" +
+                        String output = getDateTime() + " " + attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true" +
                                 " CORE_STANDARD_NAME" + " SUBJECT_NAME" + " CVC_WORD_FROG";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
@@ -678,7 +665,7 @@ public class Game extends Activity implements OnTouchListener
                     {
                         String attempt = Integer.toString(getAttemptNumber());
 
-                        String output = attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false" +
+                        String output = getDateTime() + " " + attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false" +
                                 " CORE_STANDARD_NAME" + " SUBJECT_NAME" + " CVC_WORD_FROG";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
@@ -971,7 +958,7 @@ public class Game extends Activity implements OnTouchListener
     public static String getDateTime()
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                "yyyy-MM-dd", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
