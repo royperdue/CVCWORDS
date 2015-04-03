@@ -1,5 +1,17 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
                 android:oneshot="true">
-    <item android:drawable="@drawable/scene" android:duration="200" />
+    <!--Welcome to CVC Words! -->
+    <item android:drawable="@drawable/help_animation_start" android:duration="3000" />
+    <!--To play...match the letter on the fly...-->
+    <item android:drawable="@drawable/help_animation_one" android:duration="3500" />
+    <!--to the missing letter in the word. If you need help picking which letter...-->
+    <item android:drawable="@drawable/help_animation_two" android:duration="5500" />
+    <!--tap the letters in the word. -->
+    <item android:drawable="@drawable/help_animation_three" android:duration="2000" />
+    <item android:drawable="@drawable/help_animation_four" android:duration="2000" />
+    <!--When you are finished playing...-->
+    <item android:drawable="@drawable/help_animation_five" android:duration="4500" />
+    <!--click the button in the corner to exit!-->
+    <item android:drawable="@drawable/help_animation_six" android:duration="4000" />
 
 </animation-list><!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/drawable-hdpi/help_animation.xml -->

@@ -2,8 +2,238 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    android:background="@color/blue">
-    
+    android:background="@color/LightSlateGray"
+    android:gravity="left">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/backButton">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/textsize45sp">
+
+                    <ImageView
+                        android:background="@drawable/symb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2"
+                        android:layout_column="0"
+                        android:paddingLeft="@dimen/textsize40sp"
+                        android:paddingTop="@dimen/textsize10sp"
+                        android:layout_gravity="center_horizontal"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="www.gradebookdynamics.com"
+                        android:id="@+id/textView"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize5sp"
+                        android:textSize="@dimen/textsize10sp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CVC Words"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize30sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/about_description1"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/textsize10sp"
+                    android:layout_below="@+id/tableLayout"
+                    android:layout_alignRight="@+id/backButton"
+                    android:layout_alignEnd="@+id/backButton"
+                    android:layout_marginTop="48dp"
+                    android:textSize="@dimen/textsize30sp"
+                    android:textColor="@color/white"
+                    android:text="@string/a1"
+                    android:paddingRight="@dimen/textsize10sp"
+                    android:paddingBottom="@dimen/textsize5sp"
+                    android:paddingTop="@dimen/textsize5sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/about_description2"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/textsize10sp"
+                    android:layout_below="@+id/tableLayout"
+                    android:layout_alignRight="@+id/backButton"
+                    android:layout_alignEnd="@+id/backButton"
+                    android:layout_marginTop="48dp"
+                    android:textSize="@dimen/textsize30sp"
+                    android:textColor="@color/white"
+                    android:text="@string/a2"
+                    android:paddingRight="@dimen/textsize10sp"
+                    android:paddingBottom="@dimen/textsize15sp"
+                    android:paddingTop="@dimen/textsize5sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout"
+                android:weightSum="1"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/scrollView"
+                android:layout_alignEnd="@+id/scrollView">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Developer:"
+                        android:id="@+id/developer"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Roy Perdue"
+                        android:id="@+id/developerDescription"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Educational Content:"
+                        android:id="@+id/eduContent"
+                        android:layout_above="@+id/linearLayout"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Carol Schotte"
+                        android:id="@+id/eduContentName"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Graphics:"
+                        android:id="@+id/graphics"
+                        android:layout_alignBaseline="@+id/version"
+                        android:layout_alignBottom="@+id/version"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Roy Perdue"
+                        android:id="@+id/graphicsName"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Audio:"
+                        android:id="@+id/audio"
+                        android:layout_below="@+id/scrollView"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Carol Schotte"
+                        android:id="@+id/audioName"
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:paddingLeft="@dimen/textsize10sp"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Version: 1.00"
+                        android:id="@+id/version"
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:paddingTop="@dimen/textsize5sp"/>
+                </TableRow>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -12,85 +242,7 @@
         android:layout_alignParentRight="true"
         android:background="@android:color/transparent"
         android:contentDescription="@string/backbutton"
-        android:src="@drawable/back" />
+        android:src="@drawable/back_about" />
 
-    <TextView
-        android:id="@+id/graphics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/developer"
-        android:layout_marginTop="40sp"
-        android:text="@string/graphics"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-    <TextView
-        android:id="@+id/music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/graphics"
-        android:layout_marginTop="40sp"
-        android:text="@string/music"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-    <TextView
-        android:id="@+id/graphics0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/graphics"
-        android:layout_alignParentLeft="true"
-        android:text="@string/graphics_"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-    <TextView
-        android:id="@+id/developer0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/graphics"
-        android:layout_alignParentLeft="true"
-        android:text="@string/developer_"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-    <TextView
-        android:id="@+id/music0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/music"
-        android:layout_alignParentLeft="true"
-        android:text="@string/music_"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-
-    <TextView
-        android:id="@+id/version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
-
-    <TextView
-        android:id="@+id/about_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="@string/about"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/developer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_tv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="@string/developer"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout><!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/layout/about.xml -->

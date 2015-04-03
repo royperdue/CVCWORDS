@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:background="@android:color/transparent"
         android:contentDescription="@string/settingsbutton"
-        android:src="@drawable/settings" />
+        android:src="@drawable/settings_btn" />
 
     <ImageButton
         android:id="@+id/helpButton"

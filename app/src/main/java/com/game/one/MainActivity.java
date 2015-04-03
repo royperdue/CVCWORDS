@@ -90,7 +90,7 @@ public class MainActivity extends Activity
 
         settingsButton = (ImageButton) findViewById(R.id.settingsButton);
         settingsButton.setImageBitmap(Sprite.createBitmap(getResources()
-                .getDrawable(R.drawable.settings)));
+                .getDrawable(R.drawable.settings_btn)));
         settingsButton.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)

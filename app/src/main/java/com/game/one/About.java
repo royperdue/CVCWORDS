@@ -25,8 +25,6 @@ public class About extends Activity
 				finish();
 			}
 		});
-		((TextView) findViewById(R.id.about_tv)).setTextSize((int) (Util
-				.getTextSize() * 1.5));
 
 		try
 		{
@@ -44,14 +42,18 @@ public class About extends Activity
 		((TextView) findViewById(R.id.version)).setTextSize(Util.getTextSize());
 		((TextView) findViewById(R.id.developer)).setTextSize(Util
 				.getTextSize());
+        ((TextView) findViewById(R.id.eduContent)).setTextSize(Util
+                .getTextSize());
+        ((TextView) findViewById(R.id.eduContentName)).setTextSize(Util
+                .getTextSize());
 		((TextView) findViewById(R.id.graphics))
 				.setTextSize(Util.getTextSize());
-		((TextView) findViewById(R.id.music)).setTextSize(Util.getTextSize());
-		((TextView) findViewById(R.id.developer0)).setTextSize(Util
+		((TextView) findViewById(R.id.audio)).setTextSize(Util.getTextSize());
+		((TextView) findViewById(R.id.developerDescription)).setTextSize(Util
 				.getTextSize());
-		((TextView) findViewById(R.id.graphics0)).setTextSize(Util
+		((TextView) findViewById(R.id.graphicsName)).setTextSize(Util
 				.getTextSize());
-		((TextView) findViewById(R.id.music0)).setTextSize(Util.getTextSize());
+		((TextView) findViewById(R.id.audioName)).setTextSize(Util.getTextSize());
 	}
 
 	@Override

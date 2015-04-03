@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -29,6 +30,7 @@ public class Help extends Activity
     private Button middleLetterBtn;
     private Button rightLetterBtn;
     private Button pauseButton;
+    private ImageView imageView;
     private Dialog inGameMenu;
     private LinearLayout wordLayout;
 
@@ -42,52 +44,52 @@ public class Help extends Activity
                 onFinish();
             }*/
 
-            if (mediaTimer.getElapsedTime() >= 4000 && mediaTimer.getElapsedTime() < 4400)
+            if (mediaTimer.getElapsedTime() >= 12500 && mediaTimer.getElapsedTime() < 12900)
             {
                 clickLeftButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 5000 && mediaTimer.getElapsedTime() < 5400)
+            if (mediaTimer.getElapsedTime() >= 14000 && mediaTimer.getElapsedTime() < 14400)
             {
                 resetLeftButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 6000 && mediaTimer.getElapsedTime() < 6400)
+            if (mediaTimer.getElapsedTime() >= 15400 && mediaTimer.getElapsedTime() < 16000)
             {
                 clickMiddleButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 7000 && mediaTimer.getElapsedTime() < 7400)
+            if (mediaTimer.getElapsedTime() >= 16000 && mediaTimer.getElapsedTime() < 16400)
             {
                 resetMiddleButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 8000 && mediaTimer.getElapsedTime() < 8400)
+            if (mediaTimer.getElapsedTime() >= 17400 && mediaTimer.getElapsedTime() < 18000)
             {
                 clickRightButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 9000 && mediaTimer.getElapsedTime() < 9400)
+            if (mediaTimer.getElapsedTime() >= 18000 && mediaTimer.getElapsedTime() < 18400)
             {
                 resetRightButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 10000 && mediaTimer.getElapsedTime() < 10400)
+            if (mediaTimer.getElapsedTime() >= 22000 && mediaTimer.getElapsedTime() < 22400)
             {
                 clickOpenDialogButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 12000 && mediaTimer.getElapsedTime() < 12400)
+            if (mediaTimer.getElapsedTime() >= 25000 && mediaTimer.getElapsedTime() < 25400)
             {
                 clickExitButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 13500)
+            if (mediaTimer.getElapsedTime() >= 25400)
             {
                 exitHelp();
             }
 
-            if (mediaTimer.getElapsedTime() >= 13500)
+            if (mediaTimer.getElapsedTime() >= 25400)
             {
                 onFinish();
             }
@@ -112,7 +114,7 @@ public class Help extends Activity
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.help);
 
-        //ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
         inGameMenu = new Dialog(this);
         inGameMenu.setContentView(R.layout.ingamemenu);
@@ -517,8 +519,9 @@ public class Help extends Activity
 
         super.onWindowFocusChanged(hasFocus);
 
-
-
+        imageView.setBackgroundResource(R.drawable.help_animation);
+        AnimationDrawable helpAnimation = (AnimationDrawable) imageView.getBackground();
+        helpAnimation.start();
     }
 
 	@Override
