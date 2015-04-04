@@ -439,7 +439,7 @@ public class Help extends Activity
         {
             public void run()
             {
-               mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.to_play);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.to_play);
 
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
@@ -656,6 +656,13 @@ public class Help extends Activity
             start = false;
             welcome();
         }
+    }
+
+    protected void onDestroy()
+    {
+        mediaPlayer.release();
+        mediaPlayer = null;
+        super.onDestroy();
     }
 
     public static Bitmap createBitmap(Drawable drawable)

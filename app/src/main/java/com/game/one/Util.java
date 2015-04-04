@@ -3,7 +3,6 @@ package com.game.one;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 
@@ -14,6 +13,7 @@ public class Util
 	// ---------------------------------------------
 
 	public static final String VERSION = "1.00";
+    public static final String RES_PREFIX = "android.resource://com.game.one/";
 	// Device settings.
 	public static float DENSITY = 1;
 	public static float DISPLAX_SIZE = 5;

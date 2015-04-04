@@ -180,8 +180,8 @@ public class Frog extends Sprite
 
             if(game.getUpdateLevel() == true)
             {
-                game.updateLevel1();
                 game.setUpdateLevel(false);
+                game.updateLevel();
             }
 			else
 			    game.updateWordBoxText();

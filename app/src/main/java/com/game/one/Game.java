@@ -17,7 +17,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +36,7 @@ import android.widget.TextView;
 import com.game.one.model.UserData;
 import com.game.one.persistence.DBAdapter;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -45,6 +48,8 @@ public class Game extends Activity implements OnTouchListener
 {
     public static Game theGame;
     private MediaPlayer mediaPlayer;
+    private int resource = 0;
+    private long duration = 0;
     private boolean updateLevel = false;
     volatile private long wordDuration = 0L;
     private int level = 0;
@@ -122,13 +127,20 @@ public class Game extends Activity implements OnTouchListener
         }
     });
 
-    TimerExec mediaTimer = new TimerExec(1000, -1, new TimerExecTask()
+    TimerExec mediaTimer = new TimerExec(100, -1, new TimerExecTask()
     {
         @Override
         public void onTick()
         {
-            if (mediaTimer.getElapsedTime() >= mediaPlayer.getDuration())
+            if(mediaTimer.getElapsedTime() > duration)
             {
+                try
+                {
+                    initMediaPlayer(resource);
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
                 onFinish();
             }
         }
@@ -136,16 +148,6 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onFinish()
         {
-            // stops the mediaPlayer.
-            mediaPlayer.stop();
-            mediaPlayer.reset();
-            // releases the mediaPlayer instance.
-            mediaPlayer.release();
-            mediaPlayer = null;
-            // cancels the timer.
-            leftLetterBtn.setClickable(true);
-            middleLetterBtn.setClickable(true);
-            rightLetterBtn.setClickable(true);
             mediaTimer.cancel();
         }
     });
@@ -168,6 +170,120 @@ public class Game extends Activity implements OnTouchListener
             starTimer.cancel();
         }
     });
+
+    private void initMediaPlayer(final int resource) throws IOException
+    {
+        if (mediaPlayer == null)
+        {
+            mediaPlayer = new MediaPlayer();
+            mediaPlayer.setDataSource(getApplicationContext(),
+                    Uri.parse(Util.RES_PREFIX + resource));
+            mediaPlayer.setVolume(0.5f, 0.5f);
+            mediaPlayer.prepare();
+
+            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener()
+            {
+                @Override
+                public boolean onError(MediaPlayer mp, int what, int extra)
+                {
+                    Log.e(getPackageName(), String.format("Error(%s%s)", what, extra));
+
+                    if (what == MediaPlayer.MEDIA_ERROR_SERVER_DIED || what == MediaPlayer.MEDIA_ERROR_UNKNOWN)
+                    {
+                        mp.reset();
+                        try
+                        {
+                            initMediaPlayer(resource);
+                        } catch (IOException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    return false;
+                }
+            });
+
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+            {
+                @Override
+                public void onPrepared(MediaPlayer mp)
+                {
+                    mediaPlayer.start();
+                }
+            });
+
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+            {
+                @Override
+                public void onCompletion(MediaPlayer mp)
+                {
+                    mediaPlayer.stop();
+                    mediaPlayer.reset();
+                }
+            });
+        }
+        else if(mediaPlayer.isPlaying())
+        {
+            this.duration = mediaPlayer.getDuration();
+            this.resource = resource;
+            mediaTimer.start();
+        }
+        else
+        {
+            mediaPlayer.setDataSource(getApplicationContext(),
+                    Uri.parse(Util.RES_PREFIX + resource));
+            mediaPlayer.prepare();
+        }
+    }
+
+    private MediaPlayer createNewMediaPlayer(final int res) throws IOException
+    {
+        final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), res);
+        mPlayer.setVolume(0.5f, 0.5f);
+
+        mPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener()
+        {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra)
+            {
+                Log.e(getPackageName(), String.format("Error(%s%s)", what, extra));
+
+                if (what == MediaPlayer.MEDIA_ERROR_SERVER_DIED || what == MediaPlayer.MEDIA_ERROR_UNKNOWN)
+                {
+                    mp.reset();
+                    try
+                    {
+                        createNewMediaPlayer(res);
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
+            }
+        });
+
+        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion(MediaPlayer mp)
+            {
+                mPlayer.stop();
+                mPlayer.reset();
+                mPlayer.release();
+
+            }
+        });
+        return mPlayer;
+    }
+
+    private void destroyMediaPlayer()
+    {
+        mediaPlayer.stop();
+        mediaPlayer.reset();
+        mediaPlayer.release();
+        mediaPlayer = null;
+    }
 
     // ############## ONCREATE ###############
     @Override
@@ -218,37 +334,18 @@ public class Game extends Activity implements OnTouchListener
 
             DBAdapter.init(sharedContext);
         }
-        if(rateBar.getRating() == 0)
+        if (rateBar.getRating() == 0)
         {
-           levelOne();
-        }
-
-    }
-
-    private void levelOne()
-    {
-        mediaPlayer = MediaPlayer.create(this, R.raw.level1);
-
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-        {
-            public void onCompletion(MediaPlayer mp)
+            try
             {
-                mediaPlayer.stop();
-                mediaPlayer.reset();
-                mediaPlayer.release();
+                this.initMediaPlayer(this.getResources().getIdentifier("level1", "raw", this.getPackageName()));
+            } catch (IOException e)
+            {
+                e.printStackTrace();
             }
-        });
-
-        try
-        {
-            mediaPlayer.setVolume(0.5f, 0.5f);
-        } catch (IllegalStateException e)
-        {
         }
 
-        mediaPlayer.start();
     }
-
 
     // ######### SETS UP THE DIALOG LAUNCHED BY THE PAUSE BUTTON ########
     private void setupInGameMenu()
@@ -279,6 +376,7 @@ public class Game extends Activity implements OnTouchListener
                     public void onClick(View v)
                     {
                         theGame.view.gameOver();
+                        destroyMediaPlayer();
                         inGameMenu.dismiss();
                         finish();
                     }
@@ -349,20 +447,13 @@ public class Game extends Activity implements OnTouchListener
                 String w = word.toLowerCase();
                 String[] letters = w.split(" ");
 
-                int resID = getApplicationContext().getResources()
-                        .getIdentifier(letters[0], "raw",
-                                getApplicationContext().getPackageName());
-                // creates a mediaPlayer instance with the correct mp3 file.
-                mediaPlayer = MediaPlayer
-                        .create(getApplicationContext(), resID);
                 try
                 {
-                    // sets volume of mediaPlayer.
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.start();
-                    mediaTimer.start();
-                } catch (IllegalStateException e)
+                    MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier(letters[0], "raw", getApplicationContext().getPackageName()));
+                    mp.start();
+                } catch (IOException e)
                 {
+                    e.printStackTrace();
                 }
 
             }
@@ -383,20 +474,13 @@ public class Game extends Activity implements OnTouchListener
                 String w = word.toLowerCase();
                 String[] letters = w.split(" ");
 
-                int resID = getApplicationContext().getResources()
-                        .getIdentifier(letters[1], "raw",
-                                getApplicationContext().getPackageName());
-                // creates a mediaPlayer instance with the correct mp3 file.
-                mediaPlayer = MediaPlayer
-                        .create(getApplicationContext(), resID);
                 try
                 {
-                    // sets volume of mediaPlayer.
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.start();
-                    mediaTimer.start();
-                } catch (IllegalStateException e)
+                    MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier(letters[1], "raw", getApplicationContext().getPackageName()));
+                    mp.start();
+                } catch (IOException e)
                 {
+                    e.printStackTrace();
                 }
             }
         });
@@ -413,41 +497,18 @@ public class Game extends Activity implements OnTouchListener
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                runOnUiThread(new Runnable()
+
+                String w = word.toLowerCase();
+                String[] letters = w.split(" ");
+
+                try
                 {
-                    public void run()
-                    {
-                        String w = word.toLowerCase();
-                        String[] letters = w.split(" ");
-
-                        int resID = getApplicationContext().getResources()
-                                .getIdentifier(letters[2], "raw",
-                                        getApplicationContext().getPackageName());
-                        // creates a mediaPlayer instance with the correct mp3 file.
-                        mediaPlayer = MediaPlayer
-                                .create(getApplicationContext(), resID);
-
-                        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                        {
-                            public void onCompletion(MediaPlayer mp)
-                            {
-                                mediaPlayer.stop();
-                                mediaPlayer.reset();
-                                mediaPlayer.release();
-                            }
-                        });
-
-                        try
-                        {
-                            // sets volume of mediaPlayer.
-                            mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                            mediaPlayer.start();
-                            //mediaTimer.start();
-                        } catch (IllegalStateException e)
-                        {
-                        }
-                    }
-                });
+                    MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier(letters[2], "raw", getApplicationContext().getPackageName()));
+                    mp.start();
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -555,7 +616,7 @@ public class Game extends Activity implements OnTouchListener
         setContentView(mainLayout);
     }
 
-    public void updateLevel1()
+    public void updateLevel()
     {
         runOnUiThread(new Runnable()
         {
@@ -568,266 +629,99 @@ public class Game extends Activity implements OnTouchListener
                 Random r = new Random();
                 int pick = r.nextInt(18);
 
-                int rID = getApplicationContext().getResources().getIdentifier(audioFileNames[pick], "raw",
-                        getApplicationContext().getPackageName());
-                // creates a mediaPlayer instance with the correct mp3 file.
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), rID);
-
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                {
-                    public void onCompletion(MediaPlayer mp)
-                    {
-                        mediaPlayer.stop();
-                        mediaPlayer.reset();
-                        mediaPlayer.release();
-                        updateLevel2();
-                    }
-                });
-
                 try
                 {
-                    mediaPlayer.setVolume(0.5f, 0.5f);
-                }
-                catch(IllegalStateException e)
+                    initMediaPlayer(getResources().getIdentifier(audioFileNames[pick], "raw", getApplicationContext().getPackageName()));
+                } catch (IOException e)
                 {
+                    e.printStackTrace();
                 }
-                mediaPlayer.start();
-            }
-        });
-    }
 
-    public void updateLevel2()
-    {
-        runOnUiThread(new Runnable()
-        {
-            public void run()
-            {
-                if(level == 2)
+               /* if (level == 2)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level2);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier("level2", "raw", getApplicationContext().getPackageName()));
+                        mp.start();
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 3)
+                } else if (level == 3)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level3);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier("level3", "raw", getApplicationContext().getPackageName()));
+                        mp.start();
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 4)
+                } else if (level == 4)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level4);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level4", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 5)
+                } else if (level == 5)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level5);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level5", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 6)
+                } else if (level == 6)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level6);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level6", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 7)
+                } else if (level == 7)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level7);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level7", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 8)
+                } else if (level == 8)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level8);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level8", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 9)
+                } else if (level == 9)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level9);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level9", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 10)
+                } else if (level == 10)
                 {
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level10);
-
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                            updateWordBoxText();
-                        }
-                    });
-
                     try
                     {
-                        mediaPlayer.setVolume(0.5f, 0.5f);
-                    } catch (IllegalStateException e)
+                        initMediaPlayer(getResources().getIdentifier("level10", "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
                     {
+                        e.printStackTrace();
                     }
-
-                    mediaPlayer.start();
-                }
-
-                else if(level == 11)
+                }*/
+                if (level == 11)
                 {
                     view.getGameWon().setVisible(true);
                     Util.musicPlayer.stop();
@@ -846,8 +740,7 @@ public class Game extends Activity implements OnTouchListener
                     view.getFlyU().speedYDown(20);
 
                     wordDuration = 70000;
-                }
-                else
+                } else
                     updateWordBoxText();
             }
         });
@@ -1046,27 +939,13 @@ public class Game extends Activity implements OnTouchListener
     {
         wordTimer.cancel();
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.applause);
-
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-        {
-            public void onCompletion(MediaPlayer mp)
-            {
-                mediaPlayer.stop();
-                mediaPlayer.reset();
-                mediaPlayer.release();
-            }
-        });
-
         try
         {
-            mediaPlayer.setVolume(0.5f, 0.5f);
-        } catch (IllegalStateException e)
+            initMediaPlayer(getResources().getIdentifier("applause", "raw", getApplicationContext().getPackageName()));
+        } catch (IOException e)
         {
+            e.printStackTrace();
         }
-
-        mediaPlayer.start();
-
         float rate = rateBar.getRating();
         float newRate = rate + 1.0f;
         rateBar.setRating(newRate);
@@ -1077,7 +956,7 @@ public class Game extends Activity implements OnTouchListener
 
     private void updateStars()
     {
-        if(rateBar.getRating() == 4.0f)
+        if (rateBar.getRating() == 4.0f)
         {
             updateScoreUp();
             this.wordDuration = wordDuration - 5000;
@@ -1102,7 +981,7 @@ public class Game extends Activity implements OnTouchListener
         float newRate = rate - 1.0f;
         rateBar.setRating(newRate);
 
-        if(newRate == 0.0f)
+        if (newRate == 0.0f)
         {
             this.updateScoreDown();
             this.wordDuration = wordDuration + 5000;
@@ -1618,6 +1497,7 @@ public class Game extends Activity implements OnTouchListener
     public void onBackPressed()
     {
         this.onPause();
+        this.destroyMediaPlayer();
         inGameMenu.show();
     }
 
