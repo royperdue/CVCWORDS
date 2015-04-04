@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -25,7 +24,6 @@ import android.widget.TextView;
 
 public class Help extends Activity
 {
-    private MediaPlayer mediaPlayer;
     private Button leftLetterBtn;
     private Button middleLetterBtn;
     private Button rightLetterBtn;
@@ -33,63 +31,55 @@ public class Help extends Activity
     private ImageView imageView;
     private Dialog inGameMenu;
     private LinearLayout wordLayout;
+    private boolean start = true;
 
     TimerExec mediaTimer = new TimerExec(500, -1, new TimerExecTask()
     {
         @Override
         public void onTick()
         {
-           /* if (mediaTimer.getElapsedTime() >= (mediaPlayer.getDuration() - 4000))
-            {
-                onFinish();
-            }*/
-
-            if (mediaTimer.getElapsedTime() >= 12500 && mediaTimer.getElapsedTime() < 12900)
+            if (mediaTimer.getElapsedTime() == 1500)
             {
                 clickLeftButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 14000 && mediaTimer.getElapsedTime() < 14400)
+            if (mediaTimer.getElapsedTime() == 2000)
             {
                 resetLeftButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 15400 && mediaTimer.getElapsedTime() < 16000)
+            if (mediaTimer.getElapsedTime() == 2500)
             {
                 clickMiddleButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 16000 && mediaTimer.getElapsedTime() < 16400)
+            if (mediaTimer.getElapsedTime() == 3000)
             {
                 resetMiddleButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 17400 && mediaTimer.getElapsedTime() < 18000)
+            if (mediaTimer.getElapsedTime() == 3500)
             {
                 clickRightButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 18000 && mediaTimer.getElapsedTime() < 18400)
+            if (mediaTimer.getElapsedTime() == 4000)
             {
                 resetRightButton();
+                toExit();
             }
 
-            if (mediaTimer.getElapsedTime() >= 22000 && mediaTimer.getElapsedTime() < 22400)
+            if (mediaTimer.getElapsedTime() == 4500)
             {
-                clickOpenDialogButton();
+               clickOpenDialogButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 25000 && mediaTimer.getElapsedTime() < 25400)
+            if (mediaTimer.getElapsedTime() == 11500)
             {
                 clickExitButton();
             }
 
-            if (mediaTimer.getElapsedTime() >= 25400)
-            {
-                exitHelp();
-            }
-
-            if (mediaTimer.getElapsedTime() >= 25400)
+            if (mediaTimer.getElapsedTime() > 10000)
             {
                 onFinish();
             }
@@ -98,27 +88,23 @@ public class Help extends Activity
         @Override
         public void onFinish()
         {
-            // stops the mediaPlayer.
-            mediaPlayer.stop();
-            mediaPlayer.reset();
-            // releases the mediaPlayer instance.
-            mediaPlayer.release();
-            mediaPlayer = null;
             mediaTimer.cancel();
         }
     });
 
     @Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.help);
+
+        Util.musicPlayer.pause();
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
         inGameMenu = new Dialog(this);
         inGameMenu.setContentView(R.layout.ingamemenu);
-        inGameMenu.setCancelable(true);
+        inGameMenu.setCancelable(false);
 
         ((Button) inGameMenu.findViewById(R.id.ingamemenuYes)).setTextSize(Util
                 .getTextSize());
@@ -136,15 +122,18 @@ public class Help extends Activity
                 onResume();
             }
         });
+
         ((Button) inGameMenu.findViewById(R.id.ingamemenuYes))
-                .setOnClickListener(new View.OnClickListener()
-                {
-                    public void onClick(View v)
-                    {
-                        inGameMenu.dismiss();
-                        finish();
-                    }
-                });
+        .setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Util.musicPlayer.start();
+                inGameMenu.dismiss();
+                finish();
+            }
+        });
+
         ((Button) inGameMenu.findViewById(R.id.ingamemenuNo))
                 .setOnClickListener(new View.OnClickListener()
                 {
@@ -158,13 +147,11 @@ public class Help extends Activity
                 {
                     public void onClick(View v)
                     {
-                        inGameMenu.dismiss();
-                        startActivity(new Intent("com.game.one.Config"));
-                        finish();
+
                     }
                 });
 
-        LinearLayout mainLayout = (LinearLayout)findViewById(R.id.mainLayout);
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setGravity(Gravity.TOP);
         mainLayout.setBackgroundColor(Color.BLUE);
@@ -205,20 +192,26 @@ public class Help extends Activity
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                int resID = getApplicationContext().getResources().getIdentifier("c",
-                        "raw", getApplicationContext().getPackageName());
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.c);
                 try
                 {
-                    // sets volume of mediaPlayer.
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.start();
+                    mPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
-
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                    }
+                });
+                mPlayer.start();
             }
         });
+
 
         middleLetterBtn = new Button(this);
         middleLetterBtn.setTextColor(Color.RED);
@@ -233,17 +226,24 @@ public class Help extends Activity
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                int resID = getApplicationContext().getResources().getIdentifier("a",
-                        "raw", getApplicationContext().getPackageName());
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.a);
                 try
                 {
-                    // sets volume of mediaPlayer.
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.start();
+                    mPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
+
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                    }
+                });
+                mPlayer.start();
             }
         });
 
@@ -260,17 +260,24 @@ public class Help extends Activity
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                int resID = getApplicationContext().getResources().getIdentifier("t",
-                        "raw", getApplicationContext().getPackageName());
-                mediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.t);
                 try
                 {
-                    // sets volume of mediaPlayer.
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.start();
+                    mPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
+
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                    }
+                });
+                mPlayer.start();
             }
         });
 
@@ -389,12 +396,129 @@ public class Help extends Activity
         timer.setText(ms);
         stats.setText("   2/2");
         rateBar.setRating(2.0f);
-        //leftLetterBtn.performClick();
-        mediaTimer.start();
+    }
 
-        //imageView.setBackgroundResource(R.drawable.scene);
+    private void welcome()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.welcome);
 
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                        howToPlay();
+                    }
+                });
 
+                try
+                {
+                    mPlayer.setVolume(0.5f, 0.5f);
+                } catch (IllegalStateException e)
+                {
+                }
+
+                mPlayer.start();
+            }
+        });
+    }
+
+    private void howToPlay()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.to_play);
+
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                        needHelp();
+                    }
+                });
+
+                try
+                {
+                    mPlayer.setVolume(0.5f, 0.5f);
+                } catch (IllegalStateException e)
+                {
+                }
+
+                mPlayer.start();
+            }
+        });
+    }
+
+    private void needHelp()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.help);
+
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                        mediaTimer.start();
+                    }
+                });
+
+                try
+                {
+                    mPlayer.setVolume(0.5f, 0.5f);
+                } catch (IllegalStateException e)
+                {
+                }
+
+                mPlayer.start();
+            }
+        });
+    }
+
+    private void toExit()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.exit);
+
+                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mPlayer.stop();
+                        mPlayer.reset();
+                        mPlayer.release();
+                    }
+                });
+
+                try
+                {
+                    mPlayer.setVolume(0.5f, 0.5f);
+                } catch (IllegalStateException e)
+                {
+                }
+
+                mPlayer.start();
+            }
+        });
     }
 
     private void clickLeftButton()
@@ -485,7 +609,7 @@ public class Help extends Activity
             public void run()
             {
                 pauseButton.setBackgroundColor(Color.LTGRAY);
-                pauseButton.performClick();
+                pauseButton.callOnClick();
             }
         });
     }
@@ -498,8 +622,8 @@ public class Help extends Activity
             {
                 pauseButton.setPressed(false);
                 pauseButton.invalidate();
-                rightLetterBtn.setTextColor(Color.BLACK);
                 inGameMenu.findViewById(R.id.ingamemenuYes).setBackgroundColor(Color.RED);
+                exitHelp();
             }
         });
     }
@@ -515,34 +639,21 @@ public class Help extends Activity
         });
     }
 
-    public void onWindowFocusChanged(boolean hasFocus) {
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
 
         super.onWindowFocusChanged(hasFocus);
 
         imageView.setBackgroundResource(R.drawable.help_animation);
         AnimationDrawable helpAnimation = (AnimationDrawable) imageView.getBackground();
         helpAnimation.start();
+
+        if(hasFocus == true && start == true)
+        {
+            start = false;
+            welcome();
+        }
     }
-
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
-		if(Util.musicPlayer != null)
-		{
-			Util.musicPlayer.start();
-		}
-	}
-
-	@Override
-	protected void onPause()
-	{
-		if(Util.musicPlayer != null)
-		{
-			Util.musicPlayer.pause();
-		}
-		super.onPause();
-	}
 
     public static Bitmap createBitmap(Drawable drawable)
     {

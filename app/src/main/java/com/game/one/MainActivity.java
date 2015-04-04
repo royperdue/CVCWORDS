@@ -84,6 +84,7 @@ public class MainActivity extends Activity
         {
             public void onClick(View v)
             {
+                onPause();
                 startActivity(new Intent("com.game.one.Help"));
             }
         });
