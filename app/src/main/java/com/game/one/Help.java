@@ -38,7 +38,7 @@ public class Help extends Activity
         @Override
         public void onTick()
         {
-            if (mediaTimer.getElapsedTime() == 1500)
+            if (mediaTimer.getElapsedTime() == 1000)
             {
                 clickLeftButton();
             }
@@ -69,17 +69,22 @@ public class Help extends Activity
                 toExit();
             }
 
-            if (mediaTimer.getElapsedTime() == 4500)
+            if (mediaTimer.getElapsedTime() == 11500)
             {
                clickOpenDialogButton();
             }
 
-            if (mediaTimer.getElapsedTime() == 11500)
+            if (mediaTimer.getElapsedTime() == 13000)
             {
                 clickExitButton();
             }
 
-            if (mediaTimer.getElapsedTime() > 10000)
+            if (mediaTimer.getElapsedTime() == 14000)
+            {
+                exitHelp();
+            }
+
+            if (mediaTimer.getElapsedTime() > 14000)
             {
                 onFinish();
             }
@@ -623,7 +628,6 @@ public class Help extends Activity
                 pauseButton.setPressed(false);
                 pauseButton.invalidate();
                 inGameMenu.findViewById(R.id.ingamemenuYes).setBackgroundColor(Color.RED);
-                exitHelp();
             }
         });
     }
