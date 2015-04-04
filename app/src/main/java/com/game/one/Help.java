@@ -31,6 +31,7 @@ public class Help extends Activity
     private ImageView imageView;
     private Dialog inGameMenu;
     private LinearLayout wordLayout;
+    private MediaPlayer mediaPlayer;
     private boolean start = true;
 
     TimerExec mediaTimer = new TimerExec(500, -1, new TimerExecTask()
@@ -102,8 +103,6 @@ public class Help extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help);
-
-        Util.musicPlayer.pause();
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
@@ -409,27 +408,27 @@ public class Help extends Activity
         {
             public void run()
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.welcome);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.welcome);
 
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.release();
                         howToPlay();
                     }
                 });
 
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
 
-                mPlayer.start();
+                mediaPlayer.start();
             }
         });
     }
@@ -440,27 +439,27 @@ public class Help extends Activity
         {
             public void run()
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.to_play);
+               mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.to_play);
 
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.release();
                         needHelp();
                     }
                 });
 
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
 
-                mPlayer.start();
+                mediaPlayer.start();
             }
         });
     }
@@ -471,27 +470,27 @@ public class Help extends Activity
         {
             public void run()
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.help);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.help);
 
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.release();
                         mediaTimer.start();
                     }
                 });
 
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
 
-                mPlayer.start();
+                mediaPlayer.start();
             }
         });
     }
@@ -502,26 +501,26 @@ public class Help extends Activity
         {
             public void run()
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.exit);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.exit);
 
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.release();
                     }
                 });
 
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(0.5f, 0.5f);
                 } catch (IllegalStateException e)
                 {
                 }
 
-                mPlayer.start();
+                mediaPlayer.start();
             }
         });
     }

@@ -29,7 +29,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RatingBar;
-import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
 
 import com.game.one.model.UserData;
@@ -46,6 +45,7 @@ public class Game extends Activity implements OnTouchListener
 {
     public static Game theGame;
     private MediaPlayer mediaPlayer;
+    private boolean updateLevel = false;
     volatile private long wordDuration = 0L;
     private int level = 0;
     volatile private int starPoints = 0;
@@ -127,7 +127,7 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onTick()
         {
-            if (mediaTimer.getElapsedTime() >= (mediaPlayer.getDuration() - 4000))
+            if (mediaTimer.getElapsedTime() >= mediaPlayer.getDuration())
             {
                 onFinish();
             }
@@ -155,7 +155,7 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onTick()
         {
-            if (mediaTimer.getElapsedTime() >= 1000)
+            if (starTimer.getElapsedTime() >= 1000)
             {
                 onFinish();
             }
@@ -218,8 +218,37 @@ public class Game extends Activity implements OnTouchListener
 
             DBAdapter.init(sharedContext);
         }
-        // System.out.println("The game has " + words.length + " words.");
+        if(rateBar.getRating() == 0)
+        {
+           levelOne();
+        }
+
     }
+
+    private void levelOne()
+    {
+        mediaPlayer = MediaPlayer.create(this, R.raw.level1);
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            public void onCompletion(MediaPlayer mp)
+            {
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                mediaPlayer.release();
+            }
+        });
+
+        try
+        {
+            mediaPlayer.setVolume(0.5f, 0.5f);
+        } catch (IllegalStateException e)
+        {
+        }
+
+        mediaPlayer.start();
+    }
+
 
     // ######### SETS UP THE DIALOG LAUNCHED BY THE PAUSE BUTTON ########
     private void setupInGameMenu()
@@ -384,24 +413,41 @@ public class Game extends Activity implements OnTouchListener
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                String w = word.toLowerCase();
-                String[] letters = w.split(" ");
+                runOnUiThread(new Runnable()
+                {
+                    public void run()
+                    {
+                        String w = word.toLowerCase();
+                        String[] letters = w.split(" ");
 
-                int resID = getApplicationContext().getResources()
-                        .getIdentifier(letters[2], "raw",
-                                getApplicationContext().getPackageName());
-                // creates a mediaPlayer instance with the correct mp3 file.
-                mediaPlayer = MediaPlayer
-                        .create(getApplicationContext(), resID);
-                try
-                {
-                    // sets volume of mediaPlayer.
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.start();
-                    mediaTimer.start();
-                } catch (IllegalStateException e)
-                {
-                }
+                        int resID = getApplicationContext().getResources()
+                                .getIdentifier(letters[2], "raw",
+                                        getApplicationContext().getPackageName());
+                        // creates a mediaPlayer instance with the correct mp3 file.
+                        mediaPlayer = MediaPlayer
+                                .create(getApplicationContext(), resID);
+
+                        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                        {
+                            public void onCompletion(MediaPlayer mp)
+                            {
+                                mediaPlayer.stop();
+                                mediaPlayer.reset();
+                                mediaPlayer.release();
+                            }
+                        });
+
+                        try
+                        {
+                            // sets volume of mediaPlayer.
+                            mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
+                            mediaPlayer.start();
+                            //mediaTimer.start();
+                        } catch (IllegalStateException e)
+                        {
+                        }
+                    }
+                });
             }
         });
 
@@ -481,91 +527,6 @@ public class Game extends Activity implements OnTouchListener
         rateBar.setFocusable(false);
         rateBar.setBackgroundColor(Color.TRANSPARENT);
 
-        rateBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener()
-        {
-            public void onRatingChanged(RatingBar ratingBar, float rating,
-                                        boolean fromUser)
-            {
-                // @@@@@@ ADD SOUNDS FOR EACH NEW STAR @@@@@@
-                if (rateBar.getRating() == 1)
-                {
-
-                }
-
-                if (rateBar.getRating() == 2)
-                {
-
-                }
-
-                if (rateBar.getRating() == 3)
-                {
-
-                }
-
-                if (rateBar.getRating() >= 4)
-                {
-                    if(level == 2)
-                    {
-
-                    }
-
-                    if(level == 3)
-                    {
-
-                    }
-
-                    if(level == 4)
-                    {
-
-                    }
-
-                    if(level == 5)
-                    {
-
-                    }
-
-                    if(level == 6)
-                    {
-
-                    }
-
-                    if(level == 7)
-                    {
-
-                    }
-
-                    if(level == 8)
-                    {
-
-                    }
-
-                    if(level == 9)
-                    {
-
-                    }
-
-                    if(level == 10)
-                    {
-                        view.getGameWon().setVisible(true);
-
-                        view.getFlyA().speedXDown(20);
-                        view.getFlyA().speedYDown(20);
-                        view.getFlyE().speedXDown(20);
-                        view.getFlyE().speedYDown(20);
-                        view.getFlyI().speedXDown(20);
-                        view.getFlyI().speedYDown(20);
-                        view.getFlyO().speedXDown(20);
-                        view.getFlyO().speedYDown(20);
-                        view.getFlyU().speedXDown(20);
-                        view.getFlyU().speedYDown(20);
-
-                        wordDuration = 70000;
-                    }
-                   
-                }
-            }
-        });
-
         setStarColor();
 
         stats = new TextView(this);
@@ -592,6 +553,304 @@ public class Game extends Activity implements OnTouchListener
         mainLayout.addView(topLayout);
         mainLayout.addView(view);
         setContentView(mainLayout);
+    }
+
+    public void updateLevel1()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                String[] audioFileNames = {"amazing", "awesome", "excellent", "fab", "fantastic", "good_job", "good_work",
+                        "hopping", "out_of_this_world", "sooper", "super_duper", "stupendious", "yaaaa", "way_to_go", "wonderful",
+                        "yes", "you_did_it", "you_got_it"};
+
+                Random r = new Random();
+                int pick = r.nextInt(18);
+
+                int rID = getApplicationContext().getResources().getIdentifier(audioFileNames[pick], "raw",
+                        getApplicationContext().getPackageName());
+                // creates a mediaPlayer instance with the correct mp3 file.
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), rID);
+
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.release();
+                        updateLevel2();
+                    }
+                });
+
+                try
+                {
+                    mediaPlayer.setVolume(0.5f, 0.5f);
+                }
+                catch(IllegalStateException e)
+                {
+                }
+                mediaPlayer.start();
+            }
+        });
+    }
+
+    public void updateLevel2()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                if(level == 2)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level2);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 3)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level3);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 4)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level4);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 5)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level5);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 6)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level6);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 7)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level7);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 8)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level8);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 9)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level9);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 10)
+                {
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level10);
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                            updateWordBoxText();
+                        }
+                    });
+
+                    try
+                    {
+                        mediaPlayer.setVolume(0.5f, 0.5f);
+                    } catch (IllegalStateException e)
+                    {
+                    }
+
+                    mediaPlayer.start();
+                }
+
+                else if(level == 11)
+                {
+                    view.getGameWon().setVisible(true);
+                    Util.musicPlayer.stop();
+                    wordTimer.cancel();
+                    timer.setText("0:00");
+
+                    view.getFlyA().speedXDown(20);
+                    view.getFlyA().speedYDown(20);
+                    view.getFlyE().speedXDown(20);
+                    view.getFlyE().speedYDown(20);
+                    view.getFlyI().speedXDown(20);
+                    view.getFlyI().speedYDown(20);
+                    view.getFlyO().speedXDown(20);
+                    view.getFlyO().speedYDown(20);
+                    view.getFlyU().speedXDown(20);
+                    view.getFlyU().speedYDown(20);
+
+                    wordDuration = 70000;
+                }
+                else
+                    updateWordBoxText();
+            }
+        });
     }
 
     // ########## PRESENTS NEXT WORD TO PLAYER ###########
@@ -787,20 +1046,34 @@ public class Game extends Activity implements OnTouchListener
     {
         wordTimer.cancel();
 
-        leftLetterBtn.setClickable(false);
-        middleLetterBtn.setClickable(false);
-        rightLetterBtn.setClickable(false);
+        mediaPlayer = MediaPlayer.create(this, R.raw.applause);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.burp);
-        mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            public void onCompletion(MediaPlayer mp)
+            {
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                mediaPlayer.release();
+            }
+        });
+
+        try
+        {
+            mediaPlayer.setVolume(0.5f, 0.5f);
+        } catch (IllegalStateException e)
+        {
+        }
+
         mediaPlayer.start();
-        mediaTimer.start();
 
         float rate = rateBar.getRating();
         float newRate = rate + 1.0f;
         rateBar.setRating(newRate);
+
         starTimer.start();
     }
+
 
     private void updateStars()
     {
@@ -808,7 +1081,18 @@ public class Game extends Activity implements OnTouchListener
         {
             updateScoreUp();
             this.wordDuration = wordDuration - 5000;
+            setUpdateLevel(true);
         }
+    }
+
+    public void setUpdateLevel(boolean b)
+    {
+        this.updateLevel = b;
+    }
+
+    public boolean getUpdateLevel()
+    {
+        return this.updateLevel;
     }
 
     private void decreaseStarPoints()

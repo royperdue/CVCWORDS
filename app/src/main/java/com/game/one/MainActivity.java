@@ -84,7 +84,7 @@ public class MainActivity extends Activity
         {
             public void onClick(View v)
             {
-                onPause();
+                Util.musicPlayer.pause();
                 startActivity(new Intent("com.game.one.Help"));
             }
         });

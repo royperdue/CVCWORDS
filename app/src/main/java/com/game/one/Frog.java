@@ -109,10 +109,12 @@ public class Frog extends Sprite
 			{
 			}
 
-			// sets the status sprite to visible.
+            // sets the status sprite to visible.
 			v.getStatus().setVisible(true);
 
 			gameTimer1.start();
+
+
 
 			return true;
 		}
@@ -156,12 +158,14 @@ public class Frog extends Sprite
 					&& gameTimer1.getElapsedTime() <= 1600)
 			{
 				mediaPlayer.start();
+
 			}
 
-			if(gameTimer1.getElapsedTime() >= 2300)
-			{
-				onFinish();
-			}
+            if(gameTimer1.getElapsedTime() > mediaPlayer.getDuration() + 1500)
+            {
+               onFinish();
+            }
+
 		}
 
 		@Override
@@ -173,16 +177,22 @@ public class Frog extends Sprite
 			v.getFatFrog().setVisible(false);
 			v.getFatFrog().unloadBitmap();
 			v.resetFlys();
-			// updates the word and word pic.
-			game.updateWordBoxText();
+
+            if(game.getUpdateLevel() == true)
+            {
+                game.updateLevel1();
+                game.setUpdateLevel(false);
+            }
+			else
+			    game.updateWordBoxText();
+
 			// stops the mediaPlayer.
 			mediaPlayer.stop();
-			// mediaPlayer.reset();
+			mediaPlayer.reset();
 			// releases the mediaPlayer instance.
 			mediaPlayer.release();
 			mediaPlayer = null;
-			// sets the status sprite visibility to false.
-			v.getStatus().setVisible(false);
+            v.getStatus().setVisible(false);
 			// cancels the timer.
 			gameTimer1.cancel();
 		}
@@ -243,3 +253,4 @@ public class Frog extends Sprite
 		this.unloadBitmap();
 	}
 }
+
