@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    android:background="@color/LightSlateGray"
+    android:background="@color/PaleBlueLily"
     android:gravity="left">
 
     <ScrollView
@@ -52,7 +52,7 @@
                         android:paddingTop="@dimen/textsize5sp"
                         android:paddingLeft="@dimen/textsize5sp"
                         android:textSize="@dimen/textsize10sp"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
                 </TableRow>
 
                 <TextView
@@ -61,7 +61,7 @@
                     android:text="CVC Words"
                     android:id="@+id/textView2"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize30sp"
                     android:textStyle="bold"/>
 
@@ -76,7 +76,7 @@
                     android:layout_alignEnd="@+id/backButton"
                     android:layout_marginTop="48dp"
                     android:textSize="@dimen/textsize30sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:text="@string/a1"
                     android:paddingRight="@dimen/textsize10sp"
                     android:paddingBottom="@dimen/textsize5sp"
@@ -93,7 +93,7 @@
                     android:layout_alignEnd="@+id/backButton"
                     android:layout_marginTop="48dp"
                     android:textSize="@dimen/textsize30sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:text="@string/a2"
                     android:paddingRight="@dimen/textsize10sp"
                     android:paddingBottom="@dimen/textsize15sp"
@@ -124,7 +124,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -133,7 +134,8 @@
                         android:text="Roy Perdue"
                         android:id="@+id/developerDescription"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
                 </TableRow>
 
                 <TableRow
@@ -150,7 +152,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -159,7 +162,8 @@
                         android:text="Carol Schotte"
                         android:id="@+id/eduContentName"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
                 </TableRow>
 
                 <TableRow
@@ -177,7 +181,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -186,7 +191,8 @@
                         android:text="Roy Perdue"
                         android:id="@+id/graphicsName"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
                 </TableRow>
 
                 <TableRow
@@ -203,7 +209,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -212,7 +219,8 @@
                         android:text="Carol Schotte"
                         android:id="@+id/audioName"
                         android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize10sp"/>
+                        android:paddingLeft="@dimen/textsize10sp"
+                        android:textColor="@color/black"/>
                 </TableRow>
 
                 <TableRow
@@ -226,7 +234,8 @@
                         android:text="Version: 1.00"
                         android:id="@+id/version"
                         android:paddingLeft="@dimen/textsize10sp"
-                        android:paddingTop="@dimen/textsize5sp"/>
+                        android:paddingTop="@dimen/textsize5sp"
+                        android:textColor="@color/SlateGray"/>
                 </TableRow>
 
             </LinearLayout>

@@ -13,4 +13,8 @@
     <dimen name="textsize40sp">40sp</dimen>
     <dimen name="textsize45sp">45sp</dimen>
     <dimen name="textsize50sp">50sp</dimen>
+    <dimen name="textsize80sp">80sp</dimen>
+    <dimen name="textsize100sp">100sp</dimen>
+    <dimen name="textsize120sp">120sp</dimen>
+    <dimen name="textsize140sp">140sp</dimen>
 </resources>

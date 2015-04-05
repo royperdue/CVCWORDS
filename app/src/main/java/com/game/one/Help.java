@@ -199,7 +199,7 @@ public class Help extends Activity
                 final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.c);
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
@@ -233,7 +233,7 @@ public class Help extends Activity
                 final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.a);
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
@@ -267,7 +267,7 @@ public class Help extends Activity
                 final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.t);
                 try
                 {
-                    mPlayer.setVolume(0.5f, 0.5f);
+                    mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
@@ -423,7 +423,7 @@ public class Help extends Activity
 
                 try
                 {
-                    mediaPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
@@ -454,7 +454,7 @@ public class Help extends Activity
 
                 try
                 {
-                    mediaPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
@@ -485,7 +485,7 @@ public class Help extends Activity
 
                 try
                 {
-                    mediaPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
@@ -515,7 +515,7 @@ public class Help extends Activity
 
                 try
                 {
-                    mediaPlayer.setVolume(0.5f, 0.5f);
+                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }

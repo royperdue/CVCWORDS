@@ -404,20 +404,29 @@
     <color name="Yellow_PaleGoldenrod">#EEE8AA</color>
     <color name="ZombieGreen">#54C571</color>
     <color name="black">#000000</color>
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="black_overlay">#66000000</color>
+    <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/color.xml -->
+    <eat-comment/>
     <color name="blue">#0066cc</color>
     <color name="date_color">#999999</color>
     <color name="gray">#999999</color>
     <color name="orange">#ff5500</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
+    <declare-styleable name="ButtonBarContainerTheme"><attr format="reference" name="metaButtonBarStyle"/><attr format="reference" name="metaButtonBarButtonStyle"/></declare-styleable>
     <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/%20dimensions.xml -->
     <eat-comment/>
+    <dimen name="textsize100sp">100sp</dimen>
     <dimen name="textsize10sp">10sp</dimen>
+    <dimen name="textsize120sp">120sp</dimen>
     <dimen name="textsize12sp">12sp</dimen>
+    <dimen name="textsize140sp">140sp</dimen>
     <dimen name="textsize15sp">15sp</dimen>
     <dimen name="textsize20sp">20sp</dimen>
     <dimen name="textsize25sp">25sp</dimen>
@@ -428,6 +437,7 @@
     <dimen name="textsize45sp">45sp</dimen>
     <dimen name="textsize50sp">50sp</dimen>
     <dimen name="textsize5sp">5sp</dimen>
+    <dimen name="textsize80sp">80sp</dimen>
     <dimen name="textsize8sp">8sp</dimen>
     <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/integers.xml -->
     <eat-comment/>
@@ -457,6 +467,8 @@
     <string name="create">Create</string>
     <string name="developer">Roy Perdue</string>
     <string name="developer_">Developer:</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="exitbutton">exitbutton</string>
     <string name="fly">fly</string>
     <string name="graphics">Roy Perdue</string>
@@ -472,11 +484,27 @@
     <string name="playbutton">playbutton</string>
     <string name="settingsbutton">settingsbutton</string>
     <string name="title">CVC Words</string>
+    <string name="title_activity_game_board">GameBoardActivity</string>
     <string name="title_activity_main">CVC Words</string>
+    <string name="title_activity_score_board">ScoreBoardActivity</string>
     <string name="yes">yes</string>
     <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Light"/>
+    <style name="ButtonBar">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+    <style name="ButtonBarButton"/>
+    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">@style/ButtonBar</item>
+        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
+    </style>
     <style name="Theme.Transparent" parent="android:Theme">
 		<item name="android:windowIsTranslucent">true</item>
 		<item name="android:windowBackground">@android:color/transparent</item>

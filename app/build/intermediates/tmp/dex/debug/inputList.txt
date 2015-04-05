@@ -1,4 +1,4 @@
 /Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/classes/debug
-/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-dd0e3e24a118da4b7bd2652ce799f129643f7608.jar
-/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-806fdec48ff0f2ab2a227ef68be611b394ace14e.jar
-/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/classes-8c3434322064a136808b8105dc5b76b747975d58.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-93ec38250a8e06c22c83ed1154ebde1fe0cf5994.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-4a9ef59dbf78aa5e2e8afbf2c5e2c0cfc965ca6c.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/classes-64830dc7fd8b2c1e60e4aa1964ff59d3c85a6e1d.jar

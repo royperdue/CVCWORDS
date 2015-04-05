@@ -9,6 +9,14 @@ package com.game.one;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarButtonStyle=0x7f010001;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarStyle=0x7f010000;
     }
     public static final class bool {
         public static final int layout_true=0x7f050000;
@@ -413,29 +421,34 @@ public final class R {
         public static final int Yellow_PaleGoldenrod=0x7f06018c;
         public static final int ZombieGreen=0x7f06018d;
         public static final int black=0x7f06018e;
-        public static final int blue=0x7f06018f;
-        public static final int date_color=0x7f060190;
-        public static final int gray=0x7f060191;
-        public static final int orange=0x7f060192;
-        public static final int transparent=0x7f060193;
-        public static final int white=0x7f060194;
+        public static final int black_overlay=0x7f06018f;
+        public static final int blue=0x7f060190;
+        public static final int date_color=0x7f060191;
+        public static final int gray=0x7f060192;
+        public static final int orange=0x7f060193;
+        public static final int transparent=0x7f060194;
+        public static final int white=0x7f060195;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
-        public static final int textsize10sp=0x7f070002;
-        public static final int textsize12sp=0x7f070003;
-        public static final int textsize15sp=0x7f070004;
-        public static final int textsize20sp=0x7f070005;
-        public static final int textsize25sp=0x7f070006;
-        public static final int textsize2sp=0x7f070007;
-        public static final int textsize30sp=0x7f070008;
-        public static final int textsize35sp=0x7f070009;
-        public static final int textsize40sp=0x7f07000a;
-        public static final int textsize45sp=0x7f07000b;
-        public static final int textsize50sp=0x7f07000c;
-        public static final int textsize5sp=0x7f07000d;
-        public static final int textsize8sp=0x7f07000e;
+        public static final int textsize100sp=0x7f070002;
+        public static final int textsize10sp=0x7f070003;
+        public static final int textsize120sp=0x7f070004;
+        public static final int textsize12sp=0x7f070005;
+        public static final int textsize140sp=0x7f070006;
+        public static final int textsize15sp=0x7f070007;
+        public static final int textsize20sp=0x7f070008;
+        public static final int textsize25sp=0x7f070009;
+        public static final int textsize2sp=0x7f07000a;
+        public static final int textsize30sp=0x7f07000b;
+        public static final int textsize35sp=0x7f07000c;
+        public static final int textsize40sp=0x7f07000d;
+        public static final int textsize45sp=0x7f07000e;
+        public static final int textsize50sp=0x7f07000f;
+        public static final int textsize5sp=0x7f070010;
+        public static final int textsize80sp=0x7f070011;
+        public static final int textsize8sp=0x7f070012;
     }
     public static final class drawable {
         public static final int about=0x7f020000;
@@ -458,39 +471,39 @@ public final class R {
         public static final int bug=0x7f020011;
         public static final int bun=0x7f020012;
         public static final int bus=0x7f020013;
-        public static final int button_check=0x7f020014;
-        public static final int cab=0x7f020015;
-        public static final int can=0x7f020016;
-        public static final int cap=0x7f020017;
-        public static final int car=0x7f020018;
-        public static final int cat=0x7f020019;
-        public static final int chomping_frog=0x7f02001a;
-        public static final int close=0x7f02001b;
-        public static final int cob=0x7f02001c;
-        public static final int cog=0x7f02001d;
-        public static final int cop=0x7f02001e;
-        public static final int cot=0x7f02001f;
-        public static final int cub=0x7f020020;
-        public static final int cup=0x7f020021;
-        public static final int cut=0x7f020022;
-        public static final int dad=0x7f020023;
-        public static final int dam=0x7f020024;
-        public static final int den=0x7f020025;
-        public static final int dig=0x7f020026;
-        public static final int dim=0x7f020027;
-        public static final int dip=0x7f020028;
-        public static final int dog=0x7f020029;
-        public static final int dot=0x7f02002a;
-        public static final int duck_lr=0x7f02002b;
-        public static final int duck_rl=0x7f02002c;
-        public static final int fan=0x7f02002d;
-        public static final int fat_frog=0x7f02002e;
-        public static final int fed=0x7f02002f;
-        public static final int fib=0x7f020030;
-        public static final int fig=0x7f020031;
-        public static final int fin=0x7f020032;
-        public static final int fish=0x7f020033;
-        public static final int fit=0x7f020034;
+        public static final int cab=0x7f020014;
+        public static final int can=0x7f020015;
+        public static final int cap=0x7f020016;
+        public static final int car=0x7f020017;
+        public static final int cat=0x7f020018;
+        public static final int chomping_frog=0x7f020019;
+        public static final int close=0x7f02001a;
+        public static final int cob=0x7f02001b;
+        public static final int cog=0x7f02001c;
+        public static final int cop=0x7f02001d;
+        public static final int cot=0x7f02001e;
+        public static final int cub=0x7f02001f;
+        public static final int cup=0x7f020020;
+        public static final int cut=0x7f020021;
+        public static final int dad=0x7f020022;
+        public static final int dam=0x7f020023;
+        public static final int den=0x7f020024;
+        public static final int dig=0x7f020025;
+        public static final int dim=0x7f020026;
+        public static final int dip=0x7f020027;
+        public static final int dog=0x7f020028;
+        public static final int dot=0x7f020029;
+        public static final int duck_lr=0x7f02002a;
+        public static final int duck_rl=0x7f02002b;
+        public static final int fan=0x7f02002c;
+        public static final int fat_frog=0x7f02002d;
+        public static final int fed=0x7f02002e;
+        public static final int fib=0x7f02002f;
+        public static final int fig=0x7f020030;
+        public static final int fin=0x7f020031;
+        public static final int fish=0x7f020032;
+        public static final int fit=0x7f020033;
+        public static final int five=0x7f020034;
         public static final int flya=0x7f020035;
         public static final int flye=0x7f020036;
         public static final int flyi=0x7f020037;
@@ -569,112 +582,115 @@ public final class R {
         public static final int nag=0x7f020080;
         public static final int nap=0x7f020081;
         public static final int net=0x7f020082;
-        public static final int nip=0x7f020083;
-        public static final int nun=0x7f020084;
-        public static final int nut=0x7f020085;
-        public static final int pad=0x7f020086;
-        public static final int pan=0x7f020087;
-        public static final int peg=0x7f020088;
-        public static final int pen=0x7f020089;
-        public static final int pet=0x7f02008a;
-        public static final int pig=0x7f02008b;
-        public static final int pin=0x7f02008c;
-        public static final int pit=0x7f02008d;
-        public static final int play_btn_green=0x7f02008e;
-        public static final int pop=0x7f02008f;
-        public static final int pot=0x7f020090;
-        public static final int pup=0x7f020091;
-        public static final int rag=0x7f020092;
-        public static final int ram=0x7f020093;
-        public static final int ran=0x7f020094;
-        public static final int rap=0x7f020095;
-        public static final int rat=0x7f020096;
-        public static final int red=0x7f020097;
-        public static final int rib=0x7f020098;
-        public static final int rig=0x7f020099;
-        public static final int rim=0x7f02009a;
-        public static final int rip=0x7f02009b;
-        public static final int rob=0x7f02009c;
-        public static final int rot=0x7f02009d;
-        public static final int rub=0x7f02009e;
-        public static final int rug=0x7f02009f;
-        public static final int run=0x7f0200a0;
-        public static final int rut=0x7f0200a1;
-        public static final int sad=0x7f0200a2;
-        public static final int sag=0x7f0200a3;
-        public static final int sap=0x7f0200a4;
-        public static final int scene=0x7f0200a5;
-        public static final int set=0x7f0200a6;
-        public static final int settings_btn=0x7f0200a7;
-        public static final int sip=0x7f0200a8;
-        public static final int sit=0x7f0200a9;
-        public static final int sob=0x7f0200aa;
-        public static final int spitting_frog=0x7f0200ab;
-        public static final int star_banner=0x7f0200ac;
-        public static final int start_bg=0x7f0200ad;
-        public static final int status_hdpi=0x7f0200ae;
-        public static final int sub=0x7f0200af;
-        public static final int sum=0x7f0200b0;
-        public static final int sun=0x7f0200b1;
-        public static final int symb1=0x7f0200b2;
-        public static final int tab=0x7f0200b3;
-        public static final int tag=0x7f0200b4;
-        public static final int tap=0x7f0200b5;
-        public static final int ten=0x7f0200b6;
-        public static final int tin=0x7f0200b7;
-        public static final int tip=0x7f0200b8;
-        public static final int top=0x7f0200b9;
-        public static final int tub=0x7f0200ba;
-        public static final int tug=0x7f0200bb;
-        public static final int van=0x7f0200bc;
-        public static final int vet=0x7f0200bd;
-        public static final int view_data=0x7f0200be;
-        public static final int wag=0x7f0200bf;
-        public static final int web=0x7f0200c0;
-        public static final int wed=0x7f0200c1;
-        public static final int weeds=0x7f0200c2;
-        public static final int wet=0x7f0200c3;
-        public static final int wig=0x7f0200c4;
-        public static final int win=0x7f0200c5;
+        public static final int nine=0x7f020083;
+        public static final int nip=0x7f020084;
+        public static final int nun=0x7f020085;
+        public static final int nut=0x7f020086;
+        public static final int one=0x7f020087;
+        public static final int pad=0x7f020088;
+        public static final int pan=0x7f020089;
+        public static final int peg=0x7f02008a;
+        public static final int pen=0x7f02008b;
+        public static final int pet=0x7f02008c;
+        public static final int pig=0x7f02008d;
+        public static final int pin=0x7f02008e;
+        public static final int pit=0x7f02008f;
+        public static final int play_btn_green=0x7f020090;
+        public static final int pop=0x7f020091;
+        public static final int pot=0x7f020092;
+        public static final int pup=0x7f020093;
+        public static final int rag=0x7f020094;
+        public static final int ram=0x7f020095;
+        public static final int ran=0x7f020096;
+        public static final int rap=0x7f020097;
+        public static final int rat=0x7f020098;
+        public static final int red=0x7f020099;
+        public static final int rib=0x7f02009a;
+        public static final int rig=0x7f02009b;
+        public static final int rim=0x7f02009c;
+        public static final int rip=0x7f02009d;
+        public static final int rob=0x7f02009e;
+        public static final int rot=0x7f02009f;
+        public static final int rub=0x7f0200a0;
+        public static final int rug=0x7f0200a1;
+        public static final int run=0x7f0200a2;
+        public static final int rut=0x7f0200a3;
+        public static final int sad=0x7f0200a4;
+        public static final int sag=0x7f0200a5;
+        public static final int sap=0x7f0200a6;
+        public static final int scene=0x7f0200a7;
+        public static final int set=0x7f0200a8;
+        public static final int settings_btn=0x7f0200a9;
+        public static final int sip=0x7f0200aa;
+        public static final int sit=0x7f0200ab;
+        public static final int sob=0x7f0200ac;
+        public static final int spitting_frog=0x7f0200ad;
+        public static final int star_banner=0x7f0200ae;
+        public static final int start_bg=0x7f0200af;
+        public static final int status_hdpi=0x7f0200b0;
+        public static final int sub=0x7f0200b1;
+        public static final int sum=0x7f0200b2;
+        public static final int sun=0x7f0200b3;
+        public static final int symb1=0x7f0200b4;
+        public static final int tab=0x7f0200b5;
+        public static final int tag=0x7f0200b6;
+        public static final int tap=0x7f0200b7;
+        public static final int ten=0x7f0200b8;
+        public static final int tin=0x7f0200b9;
+        public static final int tip=0x7f0200ba;
+        public static final int top=0x7f0200bb;
+        public static final int tub=0x7f0200bc;
+        public static final int tug=0x7f0200bd;
+        public static final int two=0x7f0200be;
+        public static final int van=0x7f0200bf;
+        public static final int vet=0x7f0200c0;
+        public static final int wag=0x7f0200c1;
+        public static final int web=0x7f0200c2;
+        public static final int wed=0x7f0200c3;
+        public static final int weeds=0x7f0200c4;
+        public static final int wet=0x7f0200c5;
+        public static final int wig=0x7f0200c6;
+        public static final int win=0x7f0200c7;
     }
     public static final class id {
-        public static final int about=0x7f0b0015;
-        public static final int about_description1=0x7f0b0005;
-        public static final int about_description2=0x7f0b0007;
-        public static final int audio=0x7f0b0010;
-        public static final int audioName=0x7f0b0011;
-        public static final int backButton=0x7f0b0001;
-        public static final int developer=0x7f0b0009;
-        public static final int developerDescription=0x7f0b000a;
-        public static final int eduContent=0x7f0b000b;
-        public static final int eduContentName=0x7f0b000c;
-        public static final int exitButton=0x7f0b0014;
-        public static final int graphics=0x7f0b000d;
-        public static final int graphicsName=0x7f0b000f;
-        public static final int helpButton=0x7f0b0013;
-        public static final int imageView=0x7f0b001f;
-        public static final int imageView2=0x7f0b0002;
-        public static final int ingamemenuLinearLayout=0x7f0b0021;
-        public static final int ingamemenuNo=0x7f0b0023;
-        public static final int ingamemenuSettings=0x7f0b0024;
-        public static final int ingamemenuText=0x7f0b0020;
-        public static final int ingamemenuYes=0x7f0b0022;
-        public static final int linearLayout=0x7f0b0008;
-        public static final int linearLayout1=0x7f0b0018;
-        public static final int linearLayout2=0x7f0b0019;
-        public static final int mainLayout=0x7f0b001e;
-        public static final int muteButton=0x7f0b0017;
-        public static final int playButton=0x7f0b0016;
-        public static final int sbMusicVolume=0x7f0b001d;
-        public static final int sbSoundVolume=0x7f0b001b;
-        public static final int scrollView=0x7f0b0000;
-        public static final int settingsButton=0x7f0b0012;
-        public static final int tableLayout=0x7f0b0006;
-        public static final int textView=0x7f0b0003;
-        public static final int textView2=0x7f0b0004;
-        public static final int tvMusic=0x7f0b001c;
-        public static final int tvSound=0x7f0b001a;
-        public static final int version=0x7f0b000e;
+        public static final int about=0x7f0c0015;
+        public static final int about_description1=0x7f0c0005;
+        public static final int about_description2=0x7f0c0007;
+        public static final int action_settings=0x7f0c0025;
+        public static final int audio=0x7f0c0010;
+        public static final int audioName=0x7f0c0011;
+        public static final int backButton=0x7f0c0001;
+        public static final int developer=0x7f0c0009;
+        public static final int developerDescription=0x7f0c000a;
+        public static final int eduContent=0x7f0c000b;
+        public static final int eduContentName=0x7f0c000c;
+        public static final int exitButton=0x7f0c0014;
+        public static final int graphics=0x7f0c000d;
+        public static final int graphicsName=0x7f0c000f;
+        public static final int helpButton=0x7f0c0013;
+        public static final int imageView=0x7f0c001f;
+        public static final int imageView2=0x7f0c0002;
+        public static final int ingamemenuLinearLayout=0x7f0c0021;
+        public static final int ingamemenuNo=0x7f0c0023;
+        public static final int ingamemenuSettings=0x7f0c0024;
+        public static final int ingamemenuText=0x7f0c0020;
+        public static final int ingamemenuYes=0x7f0c0022;
+        public static final int linearLayout=0x7f0c0008;
+        public static final int linearLayout1=0x7f0c0018;
+        public static final int linearLayout2=0x7f0c0019;
+        public static final int mainLayout=0x7f0c001e;
+        public static final int muteButton=0x7f0c0017;
+        public static final int playButton=0x7f0c0016;
+        public static final int sbMusicVolume=0x7f0c001d;
+        public static final int sbSoundVolume=0x7f0c001b;
+        public static final int scrollView=0x7f0c0000;
+        public static final int settingsButton=0x7f0c0012;
+        public static final int tableLayout=0x7f0c0006;
+        public static final int textView=0x7f0c0003;
+        public static final int textView2=0x7f0c0004;
+        public static final int tvMusic=0x7f0c001c;
+        public static final int tvSound=0x7f0c001a;
+        public static final int version=0x7f0c000e;
     }
     public static final class integer {
         public static final int int_max_lines1=0x7f080000;
@@ -685,6 +701,9 @@ public final class R {
         public static final int config=0x7f030002;
         public static final int help=0x7f030003;
         public static final int ingamemenu=0x7f030004;
+    }
+    public static final class menu {
+        public static final int menu_game_board=0x7f0b0000;
     }
     public static final class raw {
         public static final int a=0x7f040000;
@@ -917,30 +936,75 @@ public final class R {
         public static final int create=0x7f09000b;
         public static final int developer=0x7f09000c;
         public static final int developer_=0x7f09000d;
-        public static final int exitbutton=0x7f09000e;
-        public static final int fly=0x7f09000f;
-        public static final int graphics=0x7f090010;
-        public static final int graphics_=0x7f090011;
-        public static final int hello_world=0x7f090012;
-        public static final int helpbutton=0x7f090013;
-        public static final int ingamemenu=0x7f090014;
-        public static final int ingamemenuSettingsButton=0x7f090015;
-        public static final int menu_settings=0x7f090016;
-        public static final int mute_button=0x7f090017;
-        public static final int mutebutton=0x7f090018;
-        public static final int no=0x7f090019;
-        public static final int playbutton=0x7f09001a;
-        public static final int settingsbutton=0x7f09001b;
-        public static final int title=0x7f09001c;
-        public static final int title_activity_main=0x7f09001d;
-        public static final int yes=0x7f09001e;
+        public static final int dummy_button=0x7f09000e;
+        public static final int dummy_content=0x7f09000f;
+        public static final int exitbutton=0x7f090010;
+        public static final int fly=0x7f090011;
+        public static final int graphics=0x7f090012;
+        public static final int graphics_=0x7f090013;
+        public static final int hello_world=0x7f090014;
+        public static final int helpbutton=0x7f090015;
+        public static final int ingamemenu=0x7f090016;
+        public static final int ingamemenuSettingsButton=0x7f090017;
+        public static final int menu_settings=0x7f090018;
+        public static final int mute_button=0x7f090019;
+        public static final int mutebutton=0x7f09001a;
+        public static final int no=0x7f09001b;
+        public static final int playbutton=0x7f09001c;
+        public static final int settingsbutton=0x7f09001d;
+        public static final int title=0x7f09001e;
+        public static final int title_activity_game_board=0x7f09001f;
+        public static final int title_activity_main=0x7f090020;
+        public static final int title_activity_score_board=0x7f090021;
+        public static final int yes=0x7f090022;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0002;
+        public static final int AppBaseTheme=0x7f0a0005;
         public static final int AppTheme=0x7f0a0000;
-        public static final int Theme_Transparent=0x7f0a0001;
+        public static final int ButtonBar=0x7f0a0001;
+        public static final int ButtonBarButton=0x7f0a0002;
+        public static final int FullscreenActionBarStyle=0x7f0a0006;
+        public static final int FullscreenTheme=0x7f0a0003;
+        public static final int Theme_Transparent=0x7f0a0004;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a ButtonBarContainerTheme.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarButtonStyle com.game.one:metaButtonBarButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarStyle com.game.one:metaButtonBarStyle}</code></td><td></td></tr>
+           </table>
+           @see #ButtonBarContainerTheme_metaButtonBarButtonStyle
+           @see #ButtonBarContainerTheme_metaButtonBarStyle
+         */
+        public static final int[] ButtonBarContainerTheme = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.game.one.R.attr#metaButtonBarButtonStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.game.one:metaButtonBarButtonStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.game.one.R.attr#metaButtonBarStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.game.one:metaButtonBarStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarStyle = 0;
+    };
 }

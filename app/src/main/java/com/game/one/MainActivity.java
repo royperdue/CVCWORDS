@@ -56,10 +56,10 @@ public class MainActivity extends Activity
             public void onClick(View v)
             {
                 if (Game.theGame != null)
-                        Game.theGame.getGameView().gameOver();
+                    Game.theGame.getGameView().gameOver();
 
                 // CHECK IF DATA IS AVAILABLE BEFORE LAUNCHING UTILITY APP.
-                if(isPackageInstalled() && prefs.getBoolean("HAS_DATA", false) == true)
+                if (isPackageInstalled() && prefs.getBoolean("HAS_DATA", false) == true)
                 {
                     edit = prefs.edit();
                     edit.putBoolean("HAS_DATA", false);

@@ -178,7 +178,7 @@ public class Game extends Activity implements OnTouchListener
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setDataSource(getApplicationContext(),
                     Uri.parse(Util.RES_PREFIX + resource));
-            mediaPlayer.setVolume(0.5f, 0.5f);
+            mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
             mediaPlayer.prepare();
 
             mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener()
@@ -239,7 +239,7 @@ public class Game extends Activity implements OnTouchListener
     private MediaPlayer createNewMediaPlayer(final int res) throws IOException
     {
         final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), res);
-        mPlayer.setVolume(0.5f, 0.5f);
+        mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
 
         mPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener()
         {
@@ -277,12 +277,14 @@ public class Game extends Activity implements OnTouchListener
         return mPlayer;
     }
 
-    private void destroyMediaPlayer()
+    public MediaPlayer getMediaPlayer()
     {
-        mediaPlayer.stop();
-        mediaPlayer.reset();
-        mediaPlayer.release();
-        mediaPlayer = null;
+        return mediaPlayer;
+    }
+
+    public void setMediaPlayer(MediaPlayer mediaPlayer)
+    {
+        this.mediaPlayer = mediaPlayer;
     }
 
     // ############## ONCREATE ###############
@@ -332,19 +334,28 @@ public class Game extends Activity implements OnTouchListener
                 return;
             }
 
+            Thread t = new Thread(new Runnable()
+            {
+                public void run()
+                {
+                    final MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level1);
+                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        @Override
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer.stop();
+                            mediaPlayer.reset();
+                            mediaPlayer.release();
+                        }
+                    });
+                    mediaPlayer.start();
+                }
+            });t.start();
+
             DBAdapter.init(sharedContext);
         }
-        if (rateBar.getRating() == 0)
-        {
-            try
-            {
-                this.initMediaPlayer(this.getResources().getIdentifier("level1", "raw", this.getPackageName()));
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
-
     }
 
     // ######### SETS UP THE DIALOG LAUNCHED BY THE PAUSE BUTTON ########
@@ -376,7 +387,6 @@ public class Game extends Activity implements OnTouchListener
                     public void onClick(View v)
                     {
                         theGame.view.gameOver();
-                        destroyMediaPlayer();
                         inGameMenu.dismiss();
                         finish();
                     }
@@ -622,6 +632,9 @@ public class Game extends Activity implements OnTouchListener
         {
             public void run()
             {
+
+                updateWordBoxText();
+
                 String[] audioFileNames = {"amazing", "awesome", "excellent", "fab", "fantastic", "good_job", "good_work",
                         "hopping", "out_of_this_world", "sooper", "super_duper", "stupendious", "yaaaa", "way_to_go", "wonderful",
                         "yes", "you_did_it", "you_got_it"};
@@ -637,111 +650,19 @@ public class Game extends Activity implements OnTouchListener
                     e.printStackTrace();
                 }
 
-               /* if (level == 2)
+                if(level == 11)
                 {
-                    try
-                    {
-                        MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier("level2", "raw", getApplicationContext().getPackageName()));
-                        mp.start();
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 3)
-                {
-                    try
-                    {
-                        MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier("level3", "raw", getApplicationContext().getPackageName()));
-                        mp.start();
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 4)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level4", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 5)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level5", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 6)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level6", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 7)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level7", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 8)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level8", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 9)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level9", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                } else if (level == 10)
-                {
-                    try
-                    {
-                        initMediaPlayer(getResources().getIdentifier("level10", "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
-                }*/
-                if (level == 11)
-                {
-                    view.getGameWon().setVisible(true);
+                    Util.musicPlayer.pause();
                     Util.musicPlayer.stop();
+                    Util.musicPlayer.reset();
+                    Util.musicPlayer.release();
+
                     wordTimer.cancel();
                     timer.setText("0:00");
 
-                    view.getFlyA().speedXDown(20);
-                    view.getFlyA().speedYDown(20);
-                    view.getFlyE().speedXDown(20);
-                    view.getFlyE().speedYDown(20);
-                    view.getFlyI().speedXDown(20);
-                    view.getFlyI().speedYDown(20);
-                    view.getFlyO().speedXDown(20);
-                    view.getFlyO().speedYDown(20);
-                    view.getFlyU().speedXDown(20);
-                    view.getFlyU().speedYDown(20);
-
-                    wordDuration = 70000;
-                } else
-                    updateWordBoxText();
+                    view.getGameWon().loadBitmap();
+                    view.getGameWon().setVisible(true);
+                }
             }
         });
     }
@@ -884,6 +805,11 @@ public class Game extends Activity implements OnTouchListener
                 }
             }
         });
+    }
+
+    public TextView getTimer()
+    {
+        return timer;
     }
 
     // ########## UPDATES SCORE FOR CORRECT SELECTION ###########
@@ -1070,7 +996,7 @@ public class Game extends Activity implements OnTouchListener
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.AliceBlue),
+                    getResources().getColor(R.color.CrystalBlue),
                     Mode.SRC_ATOP);
         }
 
@@ -1092,28 +1018,28 @@ public class Game extends Activity implements OnTouchListener
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.BlossomPink), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.Yellow), Mode.SRC_ATOP);
         }
 
         if (level == 8)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.CrystalBlue), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.Aquamarine), Mode.SRC_ATOP);
         }
 
         if (level == 9)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.SunYellow), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.White_Snow), Mode.SRC_ATOP);
         }
 
         if (level == 10)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.MangoOrange), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.orange), Mode.SRC_ATOP);
         }
     }
 
@@ -1497,7 +1423,6 @@ public class Game extends Activity implements OnTouchListener
     public void onBackPressed()
     {
         this.onPause();
-        this.destroyMediaPlayer();
         inGameMenu.show();
     }
 

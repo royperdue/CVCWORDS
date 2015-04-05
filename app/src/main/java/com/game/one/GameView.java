@@ -103,8 +103,6 @@ public class GameView extends SurfaceView implements Runnable
 		bg.setVisible(true);
 		weeds.loadBitmap();
 		weeds.setVisible(true);
-        gameWon.loadBitmap();
-        gameWon.setVisible(false);
 		status = new Status(this, this.getContext());
 	}
 
