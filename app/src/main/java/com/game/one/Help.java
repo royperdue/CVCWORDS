@@ -154,11 +154,11 @@ public class Help extends Activity
 
                     }
                 });
-
+        Typeface levelFont = Typeface.createFromAsset(getAssets(), "kidsFont.ttf");
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setGravity(Gravity.TOP);
-        mainLayout.setBackgroundColor(Color.BLUE);
+        mainLayout.setBackgroundColor(Color.WHITE);
 
         LinearLayout topLayout = new LinearLayout(this);
 
@@ -172,7 +172,7 @@ public class Help extends Activity
 
         wordLayout.setGravity(Gravity.CENTER_HORIZONTAL
                 | Gravity.CENTER_VERTICAL);
-        wordLayout.setBackgroundColor(Color.YELLOW);
+        wordLayout.setBackgroundColor(Color.TRANSPARENT);
         wordLayout.setPadding(20, 0, 20, 0);
         LinearLayout.LayoutParams wordParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -181,13 +181,14 @@ public class Help extends Activity
 
         topLayout.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         topLayout.setBackgroundColor(Color.TRANSPARENT);
-        topLayout.setPadding(10, 0, 0, 0);
+        topLayout.setBackground(getResources().getDrawable(R.drawable.score_bar));
+        topLayout.setPadding(30, 0, 0, 0);
 
         leftLetterBtn = new Button(this);
+        leftLetterBtn.setTypeface(levelFont);
         leftLetterBtn.setTextColor(Color.RED);
         leftLetterBtn.setPadding(0, 0, 20, 0);
-        leftLetterBtn.setTypeface(Typeface.DEFAULT_BOLD);
-        leftLetterBtn.setBackgroundColor(Color.YELLOW);
+        leftLetterBtn.setBackgroundColor(Color.TRANSPARENT);
         leftLetterBtn.setText("C");
         leftLetterBtn.setTextSize(getResources().getDimension(
                 R.dimen.textsize45sp));
@@ -218,10 +219,10 @@ public class Help extends Activity
 
 
         middleLetterBtn = new Button(this);
+        middleLetterBtn.setTypeface(levelFont);
         middleLetterBtn.setTextColor(Color.RED);
         middleLetterBtn.setPadding(0, 0, 0, 0);
-        middleLetterBtn.setTypeface(Typeface.DEFAULT_BOLD);
-        middleLetterBtn.setBackgroundColor(Color.YELLOW);
+        middleLetterBtn.setBackgroundColor(Color.TRANSPARENT);
         middleLetterBtn.setText("_");
         middleLetterBtn.setTextSize(getResources().getDimension(
                 R.dimen.textsize45sp));
@@ -252,10 +253,10 @@ public class Help extends Activity
         });
 
         rightLetterBtn = new Button(this);
+        rightLetterBtn.setTypeface(levelFont);
         rightLetterBtn.setTextColor(Color.RED);
         rightLetterBtn.setPadding(20, 0, 20, 0);
-        rightLetterBtn.setTypeface(Typeface.DEFAULT_BOLD);
-        rightLetterBtn.setBackgroundColor(Color.YELLOW);
+        rightLetterBtn.setBackgroundColor(Color.TRANSPARENT);
         rightLetterBtn.setText("T");
         rightLetterBtn.setTextSize(getResources().getDimension(
                 R.dimen.textsize45sp));
@@ -301,24 +302,26 @@ public class Help extends Activity
         });
 
         levelLayout.setOrientation(LinearLayout.VERTICAL);
-        levelLayout.setPadding(30, 0, 30, 0);
+        levelLayout.setPadding(30, 10, 30, 10);
 
         TextView levelLabel = new TextView(this);
+        levelLabel.setTypeface(levelFont);
         levelLabel.setTextSize(getResources()
                 .getDimension(R.dimen.textsize12sp));
         levelLabel.setTypeface(Typeface.DEFAULT_BOLD);
         levelLabel.setText("Level:");
-        levelLabel.setTextColor(Color.WHITE);
+        levelLabel.setTextColor(Color.BLACK);
         levelLabel.setBackgroundColor(Color.TRANSPARENT);
         levelLabel.setGravity(Gravity.CENTER_HORIZONTAL
                 | Gravity.CENTER_VERTICAL);
 
         TextView levelNumber = new TextView(this);
+        levelNumber.setTypeface(levelFont);
         levelNumber.setTextSize(getResources().getDimension(
                 R.dimen.textsize30sp));
         levelNumber.setGravity(Gravity.CENTER_HORIZONTAL
                 | Gravity.CENTER_VERTICAL);
-        levelNumber.setTextColor(Color.WHITE);
+        levelNumber.setTextColor(Color.BLACK);
         levelNumber.setBackgroundColor(Color.TRANSPARENT);
         levelNumber.setText(Integer.toString(1));
 
@@ -333,10 +336,14 @@ public class Help extends Activity
         timerLayout.setLayoutParams(timerParams);
 
         TextView timer = new TextView(this);
-        timer.setTextSize(getResources().getDimension(R.dimen.textsize35sp));
+        timer.setGravity(Gravity.CENTER_HORIZONTAL
+                | Gravity.CENTER_VERTICAL);
+        timer.setPadding(0, 0, 0, 15);
+        timer.setTextSize(getResources().getDimension(R.dimen.textsize45sp));
         timer.setBackgroundColor(Color.TRANSPARENT);
-        timer.setTextColor(Color.WHITE);
-        timer.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
+        Typeface timerFont = Typeface.createFromAsset(getAssets(), "open24Hr.ttf");
+        timer.setTextColor(getResources().getColor(R.color.HummingbirdGreen));
+        timer.setTypeface(timerFont);
 
         timerLayout.addView(timer);
 
@@ -359,12 +366,13 @@ public class Help extends Activity
         rateBar.setBackgroundColor(Color.TRANSPARENT);
         LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
         stars.getDrawable(2).setColorFilter(
-                getResources().getColor(R.color.HummingbirdGreen),
+                getResources().getColor(R.color.Blue),
                 PorterDuff.Mode.SRC_ATOP);
 
         TextView stats = new TextView(this);
+        stats.setTypeface(levelFont);
         stats.setTextSize(getResources().getDimension(R.dimen.textsize25sp));
-        stats.setTextColor(Color.WHITE);
+        stats.setTextColor(Color.BLACK);
 
         topLayout.addView(pauseButton);
         topLayout.addView(stats);

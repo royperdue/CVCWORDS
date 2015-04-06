@@ -10,13 +10,13 @@
         of reading foundational skills, specifically phonological awareness.  Freddy Frog is hungry for vowels, and he
         needs your help to identify the correct vowel flies to eat.  Use the consonants and image provided to determine
         the missing vowel and corresponding short vowel sound for each of the CVC words presented.  Hear the consonant
-        and missing vowel sounds by taping on the letters or blank space of the word presented.  Choose the incorrect
+        and missing vowel sounds by taping on the letters or blank space of the word shown.  Choose the incorrect
         vowel and Freddy will sip the fly right back out.  Choose the correct vowel and celebrate with Freddy as he
         enjoys his lunch, sends up stars, and sings your praises!</string>
-    <string name="a2">     Ten exciting levels are sure to keep you hopping.  Each level features faster flies and a shorter
-        time allotment for choosing the correct vowel, thus promoting more automatic responses and deeper level learning.
-        Six cumulative correct answers are needed to advance, while three consecutive incorrect answers will set you
-        back a level.  Play your way into literacy for the 21st century, with the CVC word frog educational app.</string>
+    <string name="a2">Ten exciting levels are sure to keep you hopping.  Each level features faster flies and a shorter
+        time allotment for choosing the correct vowel thus promoting more automatic responses and deeper level learning.
+        Each correct answer will earn you a star and four correct answers are needed to advance but beware an incorrect
+        answer will cost you a star. Play your way into literacy for the 21st century, with the CVC word frog educational app.</string>
     <string name="config_music_volume">Music volume</string>
     <string name="config_sound_volume">Sound volume</string>
     <string name="developer">Roy Perdue</string>

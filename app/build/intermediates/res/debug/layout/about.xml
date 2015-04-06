@@ -11,7 +11,9 @@
         android:id="@+id/scrollView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/backButton">
+        android:layout_alignBottom="@+id/backButton"
+        android:paddingLeft="@dimen/textsize15sp"
+        android:paddingRight="@dimen/textsize15sp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -22,38 +24,6 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/textsize45sp">
-
-                    <ImageView
-                        android:background="@drawable/symb1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageView2"
-                        android:layout_column="0"
-                        android:paddingLeft="@dimen/textsize40sp"
-                        android:paddingTop="@dimen/textsize10sp"
-                        android:layout_gravity="center_horizontal"/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="www.gradebookdynamics.com"
-                        android:id="@+id/textView"
-                        android:paddingTop="@dimen/textsize5sp"
-                        android:paddingLeft="@dimen/textsize5sp"
-                        android:textSize="@dimen/textsize10sp"
-                        android:textColor="@color/black"/>
-                </TableRow>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/about_description1"
                     android:gravity="left"
-                    android:paddingLeft="@dimen/textsize10sp"
+                    android:paddingLeft="@dimen/textsize15sp"
                     android:layout_below="@+id/tableLayout"
                     android:layout_alignRight="@+id/backButton"
                     android:layout_alignEnd="@+id/backButton"
@@ -78,7 +48,7 @@
                     android:textSize="@dimen/textsize30sp"
                     android:textColor="@color/black"
                     android:text="@string/a1"
-                    android:paddingRight="@dimen/textsize10sp"
+                    android:paddingRight="@dimen/textsize15sp"
                     android:paddingBottom="@dimen/textsize5sp"
                     android:paddingTop="@dimen/textsize5sp"/>
 
@@ -87,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/about_description2"
                     android:gravity="left"
-                    android:paddingLeft="@dimen/textsize10sp"
+                    android:paddingLeft="@dimen/textsize15sp"
                     android:layout_below="@+id/tableLayout"
                     android:layout_alignRight="@+id/backButton"
                     android:layout_alignEnd="@+id/backButton"
@@ -95,7 +65,7 @@
                     android:textSize="@dimen/textsize30sp"
                     android:textColor="@color/black"
                     android:text="@string/a2"
-                    android:paddingRight="@dimen/textsize10sp"
+                    android:paddingRight="@dimen/textsize15sp"
                     android:paddingBottom="@dimen/textsize15sp"
                     android:paddingTop="@dimen/textsize5sp"/>
             </LinearLayout>

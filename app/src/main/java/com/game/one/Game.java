@@ -132,7 +132,7 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onTick()
         {
-            if(mediaTimer.getElapsedTime() > duration)
+            if (mediaTimer.getElapsedTime() > duration)
             {
                 try
                 {
@@ -157,7 +157,7 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onTick()
         {
-            if (starTimer.getElapsedTime() >= 1000)
+            if (starTimer.getElapsedTime() >= 3000)
             {
                 onFinish();
             }
@@ -221,14 +221,12 @@ public class Game extends Activity implements OnTouchListener
                     mediaPlayer.reset();
                 }
             });
-        }
-        else if(mediaPlayer.isPlaying())
+        } else if (mediaPlayer.isPlaying())
         {
             this.duration = mediaPlayer.getDuration();
             this.resource = resource;
             mediaTimer.start();
-        }
-        else
+        } else
         {
             mediaPlayer.setDataSource(getApplicationContext(),
                     Uri.parse(Util.RES_PREFIX + resource));
@@ -334,27 +332,27 @@ public class Game extends Activity implements OnTouchListener
                 return;
             }
 
-            Thread t = new Thread(new Runnable()
-            {
-                public void run()
-                {
-                    final MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.level1);
-                    mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                    {
-                        @Override
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mediaPlayer.stop();
-                            mediaPlayer.reset();
-                            mediaPlayer.release();
-                        }
-                    });
-                    mediaPlayer.start();
-                }
-            });t.start();
-
             DBAdapter.init(sharedContext);
+
+            String attempt = Integer.toString(0);
+
+            String output = getDateTime() + " " + attempt + " " + "none" + " " + "none" + " false" +
+                    " 3_b" + " ENGLISH" + " CVC_WORD_FROG";
+
+            DBAdapter.addUserData(new UserData("com.game.one", output));
+
+            Intent intent = new Intent();
+            intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.TransmitData");
+
+            startService(intent);
+        }
+
+        try
+        {
+            initMediaPlayer(getResources().getIdentifier("level" + Integer.toString(level), "raw", getApplicationContext().getPackageName()));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -414,10 +412,11 @@ public class Game extends Activity implements OnTouchListener
     // ######### SETS UP THE GAME SCORE SECTION AT TOP OF SCREEN ########
     private void setLayouts()
     {
+        Typeface levelFont = Typeface.createFromAsset(getAssets(), "kidsFont.ttf");
         LinearLayout mainLayout = new LinearLayout(this);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setGravity(Gravity.TOP);
-        mainLayout.setBackgroundColor(Color.BLUE);
+        mainLayout.setBackgroundColor(Color.WHITE);
 
         LinearLayout topLayout = new LinearLayout(this);
 
@@ -431,22 +430,23 @@ public class Game extends Activity implements OnTouchListener
 
         wordLayout.setGravity(Gravity.CENTER_HORIZONTAL
                 | Gravity.CENTER_VERTICAL);
-        wordLayout.setBackgroundColor(Color.YELLOW);
+        wordLayout.setBackgroundColor(Color.TRANSPARENT);
         wordLayout.setPadding(20, 0, 20, 0);
         LayoutParams wordParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT);
-        wordParams.setMargins(40, 0, 40, 0);
+        wordParams.setMargins(20, 0, 20, 0);
         wordLayout.setLayoutParams(wordParams);
 
         topLayout.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         topLayout.setBackgroundColor(Color.TRANSPARENT);
-        topLayout.setPadding(10, 0, 0, 0);
+        topLayout.setBackground(getResources().getDrawable(R.drawable.score_bar));
+        topLayout.setPadding(30, 0, 0, 0);
 
         leftLetterBtn = new Button(this);
+        leftLetterBtn.setTypeface(levelFont);
         leftLetterBtn.setTextColor(Color.RED);
         leftLetterBtn.setPadding(0, 0, 20, 0);
-        leftLetterBtn.setTypeface(Typeface.DEFAULT_BOLD);
-        leftLetterBtn.setBackgroundColor(Color.YELLOW);
+        leftLetterBtn.setBackgroundColor(Color.TRANSPARENT);
         leftLetterBtn.setTextSize(getResources().getDimension(
                 R.dimen.textsize45sp));
         leftLetterBtn.setOnClickListener(new OnClickListener()
@@ -470,10 +470,10 @@ public class Game extends Activity implements OnTouchListener
         });
 
         middleLetterBtn = new Button(this);
+        middleLetterBtn.setTypeface(levelFont);
         middleLetterBtn.setTextColor(Color.RED);
         middleLetterBtn.setPadding(0, 0, 0, 0);
-        middleLetterBtn.setTypeface(Typeface.DEFAULT_BOLD);
-        middleLetterBtn.setBackgroundColor(Color.YELLOW);
+        middleLetterBtn.setBackgroundColor(Color.TRANSPARENT);
         middleLetterBtn.setTextSize(getResources().getDimension(
                 R.dimen.textsize45sp));
         middleLetterBtn.setOnClickListener(new OnClickListener()
@@ -496,10 +496,10 @@ public class Game extends Activity implements OnTouchListener
         });
 
         rightLetterBtn = new Button(this);
+        rightLetterBtn.setTypeface(levelFont);
         rightLetterBtn.setTextColor(Color.RED);
         rightLetterBtn.setPadding(20, 0, 20, 0);
-        rightLetterBtn.setTypeface(Typeface.DEFAULT_BOLD);
-        rightLetterBtn.setBackgroundColor(Color.YELLOW);
+        rightLetterBtn.setBackgroundColor(Color.TRANSPARENT);
         rightLetterBtn.setTextSize(getResources().getDimension(
                 R.dimen.textsize45sp));
         rightLetterBtn.setOnClickListener(new OnClickListener()
@@ -533,30 +533,30 @@ public class Game extends Activity implements OnTouchListener
         {
             public void onClick(View v)
             {
-                onPause();
                 inGameMenu.show();
             }
         });
 
         levelLayout.setOrientation(LinearLayout.VERTICAL);
-        levelLayout.setPadding(30, 0, 30, 0);
+        levelLayout.setPadding(20, 0, 20, 0);
 
         levelLabel = new TextView(this);
+        levelLabel.setTypeface(levelFont);
         levelLabel.setTextSize(getResources()
                 .getDimension(R.dimen.textsize12sp));
-        levelLabel.setTypeface(Typeface.DEFAULT_BOLD);
         levelLabel.setText("Level:");
-        levelLabel.setTextColor(Color.WHITE);
+        levelLabel.setTextColor(Color.BLACK);
         levelLabel.setBackgroundColor(Color.TRANSPARENT);
         levelLabel.setGravity(Gravity.CENTER_HORIZONTAL
                 | Gravity.CENTER_VERTICAL);
 
         levelNumber = new TextView(this);
+        levelNumber.setTypeface(levelFont);
         levelNumber.setTextSize(getResources().getDimension(
                 R.dimen.textsize30sp));
         levelNumber.setGravity(Gravity.CENTER_HORIZONTAL
                 | Gravity.CENTER_VERTICAL);
-        levelNumber.setTextColor(Color.WHITE);
+        levelNumber.setTextColor(Color.BLACK);
         levelNumber.setBackgroundColor(Color.TRANSPARENT);
         levelNumber.setText(Integer.toString(level));
 
@@ -567,15 +567,18 @@ public class Game extends Activity implements OnTouchListener
         timerLayout.setPadding(10, 10, 10, 10);
         LayoutParams timerParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT);
-        timerParams.setMargins(35, 0, 0, 0);
+        timerParams.setMargins(25, 0, 0, 0);
         timerLayout.setLayoutParams(timerParams);
 
         timer = new TextView(this);
-        timer.setTextSize(getResources().getDimension(R.dimen.textsize35sp));
+        timer.setGravity(Gravity.CENTER_HORIZONTAL
+                | Gravity.CENTER_VERTICAL);
+        timer.setPadding(0, 0, 0, 15);
+        timer.setTextSize(getResources().getDimension(R.dimen.textsize45sp));
         timer.setBackgroundColor(Color.TRANSPARENT);
-        timer.setTextColor(Color.WHITE);
-        timer.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
-
+        Typeface timerFont = Typeface.createFromAsset(getAssets(), "open24Hr.ttf");
+        timer.setTextColor(getResources().getColor(R.color.HummingbirdGreen));
+        timer.setTypeface(timerFont);
         this.resetTimeDisplay();
 
         timerLayout.addView(timer);
@@ -586,11 +589,12 @@ public class Game extends Activity implements OnTouchListener
                 | Gravity.CENTER_VERTICAL);
         LayoutParams starParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT);
-        starParams.setMargins(10, 10, 10, 10);
+        starParams.setMargins(10, 10, 0, 10);
         starLayout.setLayoutParams(starParams);
 
         rateBar = new RatingBar(this, null,
-                android.R.attr.ratingBarStyleIndicator);
+        android.R.attr.ratingBarStyleIndicator);
+
         rateBar.setStepSize((float) 1.0);
         rateBar.setMax(4);
         rateBar.setNumStars(4);
@@ -601,8 +605,11 @@ public class Game extends Activity implements OnTouchListener
         setStarColor();
 
         stats = new TextView(this);
+        stats.setTypeface(levelFont);
+        stats.setGravity(Gravity.CENTER_HORIZONTAL
+                | Gravity.CENTER_VERTICAL);
         stats.setTextSize(getResources().getDimension(R.dimen.textsize25sp));
-        stats.setTextColor(Color.WHITE);
+        stats.setTextColor(Color.BLACK);
 
         topLayout.addView(pauseButton);
         topLayout.addView(stats);
@@ -633,25 +640,36 @@ public class Game extends Activity implements OnTouchListener
             public void run()
             {
 
-                updateWordBoxText();
-
-                String[] audioFileNames = {"amazing", "awesome", "excellent", "fab", "fantastic", "good_job", "good_work",
-                        "hopping", "out_of_this_world", "sooper", "super_duper", "stupendious", "yaaaa", "way_to_go", "wonderful",
-                        "yes", "you_did_it", "you_got_it"};
-
-                Random r = new Random();
-                int pick = r.nextInt(18);
-
-                try
+                if (level < 11)
                 {
-                    initMediaPlayer(getResources().getIdentifier(audioFileNames[pick], "raw", getApplicationContext().getPackageName()));
-                } catch (IOException e)
-                {
-                    e.printStackTrace();
+                    String audioFileName = "level" + Integer.toString(level);
+
+                    try
+                    {
+                        initMediaPlayer(getResources().getIdentifier(audioFileName, "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    updateWordBoxText();
                 }
-
-                if(level == 11)
+                if (level == 11)
                 {
+                    String[] audioFileNames = {"good_job", "good_work",
+                            "hopping", "out_of_this_world", "sooper", "super_duper", "stupendious", "yaaaa",
+                            "way_to_go", "wonderful", "you_did_it", "you_got_it"};
+
+                    Random r = new Random();
+                    int pick = r.nextInt(12);
+
+                    try
+                    {
+                        initMediaPlayer(getResources().getIdentifier(audioFileNames[pick], "raw", getApplicationContext().getPackageName()));
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+
                     Util.musicPlayer.pause();
                     Util.musicPlayer.stop();
                     Util.musicPlayer.reset();
@@ -712,7 +730,7 @@ public class Game extends Activity implements OnTouchListener
                         String attempt = Integer.toString(getAttemptNumber());
 
                         String output = getDateTime() + " " + attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true" +
-                                " CORE_STANDARD_NAME" + " SUBJECT_NAME" + " CVC_WORD_FROG";
+                                " 3_b" + " ENGLISH" + " CVC_WORD_FROG";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
 
@@ -739,7 +757,7 @@ public class Game extends Activity implements OnTouchListener
                         String attempt = Integer.toString(getAttemptNumber());
 
                         String output = getDateTime() + " " + attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false" +
-                                " CORE_STANDARD_NAME" + " SUBJECT_NAME" + " CVC_WORD_FROG";
+                                " 3_b" + " ENGLISH" + " CVC_WORD_FROG";
 
                         DBAdapter.addUserData(new UserData("com.game.one", output));
                         edit = prefs.edit();
@@ -946,7 +964,7 @@ public class Game extends Activity implements OnTouchListener
 
     private void setLevelUp()
     {
-        if (level < 10)
+        if (level < 12)
             level++;
 
         if (level > 1 && level <= 10)
@@ -972,7 +990,7 @@ public class Game extends Activity implements OnTouchListener
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.HummingbirdGreen),
+                    getResources().getColor(R.color.Blue),
                     Mode.SRC_ATOP);
         }
 
@@ -980,7 +998,7 @@ public class Game extends Activity implements OnTouchListener
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.ConstructionConeOrange),
+                    getResources().getColor(R.color.Green_LimeGreen),
                     Mode.SRC_ATOP);
         }
 
@@ -996,7 +1014,7 @@ public class Game extends Activity implements OnTouchListener
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.CrystalBlue),
+                    getResources().getColor(R.color.Yellow),
                     Mode.SRC_ATOP);
         }
 
@@ -1011,35 +1029,35 @@ public class Game extends Activity implements OnTouchListener
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.AztechPurple), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.PurpleMonster), Mode.SRC_ATOP);
         }
 
         if (level == 7)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.Yellow), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.orange), Mode.SRC_ATOP);
         }
 
         if (level == 8)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.Aquamarine), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.Blue_DodgerBlue), Mode.SRC_ATOP);
         }
 
         if (level == 9)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.White_Snow), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.HotPink), Mode.SRC_ATOP);
         }
 
         if (level == 10)
         {
             LayerDrawable stars = (LayerDrawable) rateBar.getProgressDrawable();
             stars.getDrawable(2).setColorFilter(
-                    getResources().getColor(R.color.orange), Mode.SRC_ATOP);
+                    getResources().getColor(R.color.AlienGreen), Mode.SRC_ATOP);
         }
     }
 

@@ -22,16 +22,16 @@
         android:orientation="horizontal" >
          
 		<Button
+            style="@style/AppTheme"
 		    android:id="@+id/ingamemenuYes"
-		    style="@style/AppTheme"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:text="@string/yes"
 		    android:textSize="30sp" />
 		
 		<Button
+            style="@style/AppTheme"
 		    android:id="@+id/ingamemenuNo"
-		    style="@style/AppTheme"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:text="@string/no"
@@ -40,8 +40,8 @@
 	</LinearLayout>
 	
 	<Button
+        style="@style/AppTheme"
 	    android:id="@+id/ingamemenuSettings"
-	    style="@style/AppTheme"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_below="@id/ingamemenuLinearLayout"

@@ -415,7 +415,6 @@
     <color name="orange">#ff5500</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
-    <declare-styleable name="ButtonBarContainerTheme"><attr format="reference" name="metaButtonBarStyle"/><attr format="reference" name="metaButtonBarButtonStyle"/></declare-styleable>
     <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -448,13 +447,13 @@
         of reading foundational skills, specifically phonological awareness.  Freddy Frog is hungry for vowels, and he
         needs your help to identify the correct vowel flies to eat.  Use the consonants and image provided to determine
         the missing vowel and corresponding short vowel sound for each of the CVC words presented.  Hear the consonant
-        and missing vowel sounds by taping on the letters or blank space of the word presented.  Choose the incorrect
+        and missing vowel sounds by taping on the letters or blank space of the word shown.  Choose the incorrect
         vowel and Freddy will sip the fly right back out.  Choose the correct vowel and celebrate with Freddy as he
         enjoys his lunch, sends up stars, and sings your praises!</string>
-    <string name="a2">     Ten exciting levels are sure to keep you hopping.  Each level features faster flies and a shorter
-        time allotment for choosing the correct vowel, thus promoting more automatic responses and deeper level learning.
-        Six cumulative correct answers are needed to advance, while three consecutive incorrect answers will set you
-        back a level.  Play your way into literacy for the 21st century, with the CVC word frog educational app.</string>
+    <string name="a2">Ten exciting levels are sure to keep you hopping.  Each level features faster flies and a shorter
+        time allotment for choosing the correct vowel thus promoting more automatic responses and deeper level learning.
+        Each correct answer will earn you a star and four correct answers are needed to advance but beware an incorrect
+        answer will cost you a star. Play your way into literacy for the 21st century, with the CVC word frog educational app.</string>
     <string name="about">About</string>
     <string name="aboutbutton">aboutbutton</string>
     <string name="action_settings">Settings</string>
@@ -491,20 +490,6 @@
     <!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Light"/>
-    <style name="ButtonBar">
-        <item name="android:paddingLeft">2dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingRight">2dp</item>
-        <item name="android:paddingBottom">0dp</item>
-        <item name="android:background">@android:drawable/bottom_bar</item>
-    </style>
-    <style name="ButtonBarButton"/>
-    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@null</item>
-        <item name="metaButtonBarStyle">@style/ButtonBar</item>
-        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
-    </style>
     <style name="Theme.Transparent" parent="android:Theme">
 		<item name="android:windowIsTranslucent">true</item>
 		<item name="android:windowBackground">@android:color/transparent</item>

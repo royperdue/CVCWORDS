@@ -14,4 +14,4 @@
     <!--click the button in the corner to exit!-->
     <item android:drawable="@drawable/help_animation_six" android:duration="4000" />
 
-</animation-list><!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/drawable-hdpi/help_animation.xml -->
+</animation-list><!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/drawable/help_animation.xml -->
