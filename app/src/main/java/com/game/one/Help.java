@@ -176,7 +176,7 @@ public class Help extends Activity
         wordLayout.setPadding(20, 0, 20, 0);
         LinearLayout.LayoutParams wordParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        wordParams.setMargins(40, 0, 40, 0);
+        wordParams.setMargins(20, 0, 30, 0);
         wordLayout.setLayoutParams(wordParams);
 
         topLayout.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
@@ -302,7 +302,7 @@ public class Help extends Activity
         });
 
         levelLayout.setOrientation(LinearLayout.VERTICAL);
-        levelLayout.setPadding(30, 10, 30, 10);
+        levelLayout.setPadding(20, 10, 30, 10);
 
         TextView levelLabel = new TextView(this);
         levelLabel.setTypeface(levelFont);
