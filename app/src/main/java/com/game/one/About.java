@@ -67,8 +67,6 @@ public class About extends Activity
         ((TextView) findViewById(R.id.audioName)).setTypeface(kidsFont);
         ((TextView) findViewById(R.id.about_description1)).setTextSize(Util.getTextSize());
         ((TextView) findViewById(R.id.about_description1)).setTypeface(kidsFont);
-        ((TextView) findViewById(R.id.about_description2)).setTextSize(Util.getTextSize());
-        ((TextView) findViewById(R.id.about_description2)).setTypeface(kidsFont);
 	}
 
 	@Override

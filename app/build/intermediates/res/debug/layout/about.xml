@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    android:background="@color/PaleBlueLily"
+    android:background="@color/LightGoldenrodYellow"
     android:gravity="left">
 
     <ScrollView
@@ -32,8 +32,9 @@
                     android:id="@+id/textView2"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/textsize30sp"
-                    android:textStyle="bold"/>
+                    android:textSize="@dimen/textsize45sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/textsize15sp"/>
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -44,7 +45,7 @@
                     android:layout_below="@+id/tableLayout"
                     android:layout_alignRight="@+id/backButton"
                     android:layout_alignEnd="@+id/backButton"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="@dimen/textsize20sp"
                     android:textSize="@dimen/textsize30sp"
                     android:textColor="@color/black"
                     android:text="@string/a1"
@@ -52,22 +53,6 @@
                     android:paddingBottom="@dimen/textsize5sp"
                     android:paddingTop="@dimen/textsize5sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/about_description2"
-                    android:gravity="left"
-                    android:paddingLeft="@dimen/textsize15sp"
-                    android:layout_below="@+id/tableLayout"
-                    android:layout_alignRight="@+id/backButton"
-                    android:layout_alignEnd="@+id/backButton"
-                    android:layout_marginTop="48dp"
-                    android:textSize="@dimen/textsize30sp"
-                    android:textColor="@color/black"
-                    android:text="@string/a2"
-                    android:paddingRight="@dimen/textsize15sp"
-                    android:paddingBottom="@dimen/textsize15sp"
-                    android:paddingTop="@dimen/textsize5sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -78,7 +63,8 @@
                 android:weightSum="1"
                 android:layout_alignParentBottom="true"
                 android:layout_alignRight="@+id/scrollView"
-                android:layout_alignEnd="@+id/scrollView">
+                android:layout_alignEnd="@+id/scrollView"
+                android:layout_marginTop="@dimen/textsize20sp">
 
                 <TableRow
                     android:layout_width="match_parent"
