@@ -62,13 +62,13 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="20.293785" vertical-offset="1351" max-vertical-offset="26985">
-              <caret line="653" column="40" selection-start-line="653" selection-start-column="40" selection-end-line="653" selection-end-column="40" />
+            <state vertical-scroll-proportion="-18.559322" vertical-offset="25215" max-vertical-offset="26955">
+              <caret line="1360" column="78" selection-start-line="1360" selection-start-column="78" selection-end-line="1360" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#18258#18402#0" expanded="true" />
-                <element signature="e#18391#18392#0" expanded="true" />
-                <element signature="e#19994#20043#0" expanded="true" />
+                <element signature="e#18249#18393#0" expanded="true" />
+                <element signature="e#18382#18383#0" expanded="true" />
+                <element signature="e#19985#20034#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1851,7 +1851,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="705" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2303,13 +2303,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="20.293785" vertical-offset="1351" max-vertical-offset="26985">
-          <caret line="653" column="40" selection-start-line="653" selection-start-column="40" selection-end-line="653" selection-end-column="40" />
+        <state vertical-scroll-proportion="-18.559322" vertical-offset="25215" max-vertical-offset="26955">
+          <caret line="1360" column="78" selection-start-line="1360" selection-start-column="78" selection-end-line="1360" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18258#18402#0" expanded="true" />
-            <element signature="e#18391#18392#0" expanded="true" />
-            <element signature="e#19994#20043#0" expanded="true" />
+            <element signature="e#18249#18393#0" expanded="true" />
+            <element signature="e#18382#18383#0" expanded="true" />
+            <element signature="e#19985#20034#0" expanded="true" />
           </folding>
         </state>
       </provider>

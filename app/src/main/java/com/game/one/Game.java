@@ -96,8 +96,8 @@ public class Game extends Activity implements OnTouchListener
                     "J I G", "K E G", "L A D", "L E G", "L I T", "L O T", "M O B",
                     "M O M", "M U M", "N A G", "N E T", "N I P", "N U N", "N U T",
                     "P E G", "P E T", "R A N", "R A P", "R I B", "R I G", "R I M",
-                    "R O B", "R O T", "R U B", "R U T", "S A G", "S A P", "S E T",
-                    "S U B", "S U M", "T A B", "T A P", "T I N"};
+                    "R O B", "R O T", "R U B", "R U T", "S A P", "S E T", "S U B",
+                    "S U M", "T A B", "T A P", "T I N"};
 
     TimerExec spriteTimer = new TimerExec(100, -1, new TimerExecTask()
     {
@@ -1359,8 +1359,6 @@ public class Game extends Activity implements OnTouchListener
             b = createBitmap(this.getResources().getDrawable(R.drawable.rub));
         if (word.equals("R U T"))
             b = createBitmap(this.getResources().getDrawable(R.drawable.rut));
-        if (word.equals("S A G"))
-            b = createBitmap(this.getResources().getDrawable(R.drawable.sag));
         if (word.equals("S A P"))
             b = createBitmap(this.getResources().getDrawable(R.drawable.sap));
         if (word.equals("S E T"))

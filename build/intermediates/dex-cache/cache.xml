@@ -9,18 +9,18 @@
         <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-93ec38250a8e06c22c83ed1154ebde1fe0cf5994.jar" />
     </item>
     <item
-        jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/classes-64830dc7fd8b2c1e60e4aa1964ff59d3c85a6e1d.jar" />
-    </item>
-    <item
         jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
         <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-4a9ef59dbf78aa5e2e8afbf2c5e2c0cfc965ca6c.jar" />
+    </item>
+    <item
+        jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/classes-64830dc7fd8b2c1e60e4aa1964ff59d3c85a6e1d.jar" />
     </item>
 
 </items>
