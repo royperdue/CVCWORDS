@@ -84,8 +84,11 @@ public class MainActivity extends Activity
         {
             public void onClick(View v)
             {
-                Util.musicPlayer.pause();
-                startActivity(new Intent("com.game.one.Help"));
+                if (Util.musicPlayer != null)
+                {
+                    Util.musicPlayer.pause();
+                }
+                startActivity(new Intent(getApplicationContext(), Help.class));
             }
         });
 
@@ -96,7 +99,7 @@ public class MainActivity extends Activity
         {
             public void onClick(View v)
             {
-                startActivity(new Intent("com.game.one.Config"));
+                startActivity(new Intent(getApplicationContext(), Config.class));
             }
         });
 
@@ -121,7 +124,7 @@ public class MainActivity extends Activity
         {
             public void onClick(View v)
             {
-                startActivity(new Intent("com.game.one.About"));
+                startActivity(new Intent(getApplicationContext(), About.class));
             }
         });
     }

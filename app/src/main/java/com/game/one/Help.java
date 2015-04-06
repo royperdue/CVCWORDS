@@ -33,6 +33,7 @@ public class Help extends Activity
     private LinearLayout wordLayout;
     private MediaPlayer mediaPlayer;
     private boolean start = true;
+    private boolean exit = false;
 
     TimerExec mediaTimer = new TimerExec(500, -1, new TimerExecTask()
     {
@@ -123,7 +124,7 @@ public class Help extends Activity
         {
             public void onDismiss(DialogInterface dialog)
             {
-                onResume();
+                //onResume();
             }
         });
 
@@ -132,6 +133,9 @@ public class Help extends Activity
         {
             public void onClick(View v)
             {
+                exit = true;
+                mediaPlayer.release();
+                mediaPlayer = null;
                 Util.musicPlayer.start();
                 inGameMenu.dismiss();
                 finish();
@@ -412,7 +416,7 @@ public class Help extends Activity
 
     private void welcome()
     {
-        runOnUiThread(new Runnable()
+        Thread t = new Thread(new Runnable()
         {
             public void run()
             {
@@ -438,12 +442,12 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });
+        });t.start();
     }
 
     private void howToPlay()
     {
-        runOnUiThread(new Runnable()
+        Thread t = new Thread(new Runnable()
         {
             public void run()
             {
@@ -469,12 +473,12 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });
+        });t.start();
     }
 
     private void needHelp()
     {
-        runOnUiThread(new Runnable()
+        Thread t = new Thread(new Runnable()
         {
             public void run()
             {
@@ -500,12 +504,12 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });
+        });t.start();
     }
 
     private void toExit()
     {
-        runOnUiThread(new Runnable()
+        Thread t = new Thread(new Runnable()
         {
             public void run()
             {
@@ -530,7 +534,7 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });
+        });t.start();
     }
 
     private void clickLeftButton()
@@ -666,12 +670,6 @@ public class Help extends Activity
         }
     }
 
-    protected void onDestroy()
-    {
-        mediaPlayer.release();
-        mediaPlayer = null;
-        super.onDestroy();
-    }
 
     public static Bitmap createBitmap(Drawable drawable)
     {
@@ -681,5 +679,28 @@ public class Help extends Activity
                 (int) ((Util.getScaleFactor() * Util.PIXEL_HEIGHT) / 11.8),
                 (int) ((Util.getScaleFactor() * Util.PIXEL_HEIGHT) / 11.8),
                 false);
+    }
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        if(mediaPlayer != null)
+        {
+            mediaPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onPause()
+    {
+        if(!exit)
+        {
+            if (mediaPlayer != null)
+            {
+                mediaPlayer.pause();
+            }
+        }
+        super.onPause();
     }
 }

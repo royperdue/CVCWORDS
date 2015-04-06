@@ -275,16 +275,6 @@ public class Game extends Activity implements OnTouchListener
         return mPlayer;
     }
 
-    public MediaPlayer getMediaPlayer()
-    {
-        return mediaPlayer;
-    }
-
-    public void setMediaPlayer(MediaPlayer mediaPlayer)
-    {
-        this.mediaPlayer = mediaPlayer;
-    }
-
     // ############## ONCREATE ###############
     @Override
     @SuppressLint("WorldReadableFiles")
@@ -346,14 +336,31 @@ public class Game extends Activity implements OnTouchListener
 
             startService(intent);
         }
-
-        try
+        Thread t = new Thread(new Runnable()
         {
-            initMediaPlayer(getResources().getIdentifier("level" + Integer.toString(level), "raw", getApplicationContext().getPackageName()));
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+            @Override
+            public void run()
+            {
+                try
+                {
+                    MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier("level1", "raw", getApplicationContext().getPackageName()));
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        @Override
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mp.stop();
+                            mp.reset();
+                            mp.release();
+                        }
+                    });
+                    mp.start();
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        });t.start();
     }
 
     // ######### SETS UP THE DIALOG LAUNCHED BY THE PAUSE BUTTON ########
@@ -384,7 +391,7 @@ public class Game extends Activity implements OnTouchListener
                 {
                     public void onClick(View v)
                     {
-                        theGame.view.gameOver();
+                        //theGame.view.gameOver();
                         inGameMenu.dismiss();
                         finish();
                     }
@@ -460,6 +467,16 @@ public class Game extends Activity implements OnTouchListener
                 try
                 {
                     MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier(letters[0], "raw", getApplicationContext().getPackageName()));
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        @Override
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mp.stop();
+                            mp.reset();
+                            mp.release();
+                        }
+                    });
                     mp.start();
                 } catch (IOException e)
                 {
@@ -487,6 +504,16 @@ public class Game extends Activity implements OnTouchListener
                 try
                 {
                     MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier(letters[1], "raw", getApplicationContext().getPackageName()));
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        @Override
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mp.stop();
+                            mp.reset();
+                            mp.release();
+                        }
+                    });
                     mp.start();
                 } catch (IOException e)
                 {
@@ -514,6 +541,16 @@ public class Game extends Activity implements OnTouchListener
                 try
                 {
                     MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier(letters[2], "raw", getApplicationContext().getPackageName()));
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    {
+                        @Override
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mp.stop();
+                            mp.reset();
+                            mp.release();
+                        }
+                    });
                     mp.start();
                 } catch (IOException e)
                 {
@@ -1440,15 +1477,20 @@ public class Game extends Activity implements OnTouchListener
     {
         this.onPause();
         inGameMenu.show();
+
     }
 
     @Override
     protected void onPause()
     {
-        view.pause();
+        //view.pause();
         if (Util.musicPlayer != null)
         {
             Util.musicPlayer.pause();
+        }
+        if (mediaPlayer != null)
+        {
+            mediaPlayer.pause();
         }
         super.onPause();
     }
@@ -1456,11 +1498,15 @@ public class Game extends Activity implements OnTouchListener
     @Override
     protected void onResume()
     {
-        inGameMenu.cancel();
+        //inGameMenu.cancel();
         view.resume();
         if (Util.musicPlayer != null)
         {
             Util.musicPlayer.start();
+        }
+        if (mediaPlayer != null)
+        {
+            mediaPlayer.pause();
         }
         super.onResume();
     }
