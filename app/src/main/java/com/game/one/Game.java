@@ -48,14 +48,16 @@ import java.util.Random;
 public class Game extends Activity implements OnTouchListener
 {
     public static Game theGame;
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer1;
+    private MediaPlayer mediaPlayer2;
+    private MediaPlayer mediaPlayer3;
     private MediaPlayer mPlayerLevelOne;
+    private boolean runAudio = true;
     private boolean isResuming = false;
     private boolean isPaused = false;
     private RunAudioLevelOne runLevelOneAudio;
     private int resource = 0;
     private long duration = 0;
-    private boolean updateLevel = false;
     volatile private long wordDuration = 0L;
     private int level = 0;
     volatile private int starPoints = 0;
@@ -157,13 +159,16 @@ public class Game extends Activity implements OnTouchListener
         }
     });
 
-    TimerExec starTimer = new TimerExec(1000, -1, new TimerExecTask()
+    TimerExec gameTimer1 = new TimerExec(500, -1, new TimerExecTask()
     {
         @Override
         public void onTick()
         {
-            if (starTimer.getElapsedTime() >= 3000)
+            if (gameTimer1.getElapsedTime() == 1000)
             {
+                Game.theGame.runWordSound();
+                updateWordBoxText();
+                updateStars();
                 onFinish();
             }
         }
@@ -171,22 +176,40 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onFinish()
         {
-            updateStars();
-            starTimer.cancel();
+            gameTimer1.cancel();
+        }
+    });
+
+    TimerExec gameTimer2 = new TimerExec(200, -1, new TimerExecTask()
+    {
+        @Override
+        public void onTick()
+        {
+            if (gameTimer2.getElapsedTime() == 400)
+            {
+                Game.theGame.runSpitSound();
+                onFinish();
+            }
+        }
+
+        @Override
+        public void onFinish()
+        {
+            gameTimer2.cancel();
         }
     });
 
     private void initMediaPlayer(final int resource) throws IOException
     {
-        if (mediaPlayer == null)
+        if (mediaPlayer1 == null)
         {
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setDataSource(getApplicationContext(),
+            mediaPlayer1 = new MediaPlayer();
+            mediaPlayer1.setDataSource(getApplicationContext(),
                     Uri.parse(Util.RES_PREFIX + resource));
-            mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-            mediaPlayer.prepare();
+            mediaPlayer1.setVolume(Util.soundVolume, Util.soundVolume);
+            mediaPlayer1.prepare();
 
-            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener()
+            mediaPlayer1.setOnErrorListener(new MediaPlayer.OnErrorListener()
             {
                 @Override
                 public boolean onError(MediaPlayer mp, int what, int extra)
@@ -208,34 +231,34 @@ public class Game extends Activity implements OnTouchListener
                 }
             });
 
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+            mediaPlayer1.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
             {
                 @Override
                 public void onPrepared(MediaPlayer mp)
                 {
-                    mediaPlayer.start();
+                    mediaPlayer1.start();
                 }
             });
 
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+            mediaPlayer1.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
             {
                 @Override
                 public void onCompletion(MediaPlayer mp)
                 {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
+                    mediaPlayer1.stop();
+                    mediaPlayer1.reset();
                 }
             });
-        } else if (mediaPlayer.isPlaying())
+        } else if (mediaPlayer1.isPlaying())
         {
-            this.duration = mediaPlayer.getDuration();
+            this.duration = mediaPlayer1.getDuration();
             this.resource = resource;
             mediaTimer.start();
         } else
         {
-            mediaPlayer.setDataSource(getApplicationContext(),
+            mediaPlayer1.setDataSource(getApplicationContext(),
                     Uri.parse(Util.RES_PREFIX + resource));
-            mediaPlayer.prepare();
+            mediaPlayer1.prepare();
         }
     }
 
@@ -332,7 +355,7 @@ public class Game extends Activity implements OnTouchListener
             startService(intent);
         }
 
-        if(level == 1 && mPlayerLevelOne == null)
+        if (level == 1 && mPlayerLevelOne == null)
         {
             runLevelOneAudio = new RunAudioLevelOne();
             runLevelOneAudio.execute();
@@ -416,12 +439,12 @@ public class Game extends Activity implements OnTouchListener
                     {
                         isResuming = false;
                         inGameMenu.dismiss();
-                        if(mediaPlayer != null)
+                        if (mediaPlayer1 != null)
                         {
-                            mediaPlayer.release();
-                            mediaPlayer = null;
+                            mediaPlayer1.release();
+                            mediaPlayer1 = null;
                         }
-                        if(mPlayerLevelOne != null)
+                        if (mPlayerLevelOne != null)
                             runLevelOneAudio.cancel(true);
 
                         finish();
@@ -441,8 +464,8 @@ public class Game extends Activity implements OnTouchListener
                     public void onClick(View v)
                     {
                         inGameMenu.dismiss();
-                        mediaPlayer.release();
-                        mediaPlayer = null;
+                        mediaPlayer1.release();
+                        mediaPlayer1 = null;
                         startActivity(new Intent("com.game.one.Config"));
                         finish();
                     }
@@ -716,7 +739,7 @@ public class Game extends Activity implements OnTouchListener
 
                     try
                     {
-                        if(!isPaused)
+                        if (!isPaused)
                             initMediaPlayer(getResources().getIdentifier(audioFileName, "raw", getApplicationContext().getPackageName()));
                     } catch (IOException e)
                     {
@@ -735,7 +758,7 @@ public class Game extends Activity implements OnTouchListener
 
                     try
                     {
-                        if(!isPaused)
+                        if (!isPaused)
                             initMediaPlayer(getResources().getIdentifier(audioFileNames[pick], "raw", getApplicationContext().getPackageName()));
                     } catch (IOException e)
                     {
@@ -840,6 +863,7 @@ public class Game extends Activity implements OnTouchListener
 
                 stats.setText("\t" + getPoints() + "/" + getAttemptNumber()
                         + " ");
+
             }
         });
 
@@ -913,6 +937,7 @@ public class Game extends Activity implements OnTouchListener
                 setStarColor();
                 resetTimeDisplay();
                 starPoints = 0;
+                updateLevel();
             }
         });
     }
@@ -961,11 +986,10 @@ public class Game extends Activity implements OnTouchListener
         {
             e.printStackTrace();
         }
+
         float rate = rateBar.getRating();
         float newRate = rate + 1.0f;
         rateBar.setRating(newRate);
-
-        starTimer.start();
     }
 
 
@@ -975,18 +999,7 @@ public class Game extends Activity implements OnTouchListener
         {
             updateScoreUp();
             this.wordDuration = wordDuration - 5000;
-            setUpdateLevel(true);
         }
-    }
-
-    public void setUpdateLevel(boolean b)
-    {
-        this.updateLevel = b;
-    }
-
-    public boolean getUpdateLevel()
-    {
-        return this.updateLevel;
     }
 
     private void decreaseStarPoints()
@@ -1527,13 +1540,29 @@ public class Game extends Activity implements OnTouchListener
         {
             Util.musicPlayer.pause();
         }
-        if (mediaPlayer != null)
+        if (mediaPlayer1 != null)
         {
-            mediaPlayer.pause();
+            mediaPlayer1.pause();
         }
+
+        if (mediaPlayer2 != null && mediaPlayer2.isPlaying())
+        {
+            mediaPlayer2.pause();
+        }
+
+        if(mediaPlayer2 == null)
+            runAudio = false;
+
+        if (mediaPlayer3 != null && mediaPlayer3.isPlaying())
+        {
+           mediaPlayer3.pause();
+        }
+
+        if(mediaPlayer3 == null)
+            runAudio = false;
+
         wordTimer.pause();
         spriteTimer.pause();
-        view.getFrog().stopAudio();
         view.pause();
 
         super.onPause();
@@ -1546,15 +1575,21 @@ public class Game extends Activity implements OnTouchListener
         view.resume();
         spriteTimer.start();
         wordTimer.start();
+        runAudio = true;
 
         if (Util.musicPlayer != null)
         {
             Util.musicPlayer.start();
         }
 
-        if (mediaPlayer != null)
+        if (mediaPlayer1 != null)
         {
-            mediaPlayer.start();
+            mediaPlayer1.start();
+        }
+
+        if (mediaPlayer2 != null)
+        {
+            mediaPlayer2.start();
         }
 
         if (mPlayerLevelOne != null && isResuming == true)
@@ -2023,4 +2058,89 @@ public class Game extends Activity implements OnTouchListener
             view.getLizzardCrawlDown().unloadBitmap();
         }
     }
+
+    public void runWordSound()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                int resID = getApplicationContext().getResources().getIdentifier(
+                        word.toLowerCase().replaceAll(" ", ""), "raw",
+                        getApplicationContext().getPackageName());
+
+                mediaPlayer2 = MediaPlayer.create(getApplicationContext(), resID);
+
+                mediaPlayer2.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mediaPlayer2.stop();
+                        mediaPlayer2.reset();
+                        mediaPlayer2.release();
+                        mediaPlayer2 = null;
+                    }
+                });
+
+                try
+                {
+                    mediaPlayer2.setVolume(Util.soundVolume, Util.soundVolume);
+                } catch (IllegalStateException e)
+                {
+                }
+                mediaPlayer2.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+                {
+                    @Override
+                    public void onPrepared(MediaPlayer mp)
+                    {
+                        if(runAudio)
+                            mediaPlayer2.start();
+                    }
+                });
+            }
+        });
+    }
+
+    public void runSpitSound()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                int resID = getApplicationContext().getResources().getIdentifier("cartoon_spit",
+                        "raw", getApplicationContext().getPackageName());
+
+                mediaPlayer3 = MediaPlayer.create(getApplicationContext(), resID);
+
+                mediaPlayer3.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                {
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mediaPlayer3.stop();
+                        mediaPlayer3.reset();
+                        mediaPlayer3.release();
+                        mediaPlayer3 = null;
+                    }
+                });
+
+                try
+                {
+                    mediaPlayer3.setVolume(Util.soundVolume, Util.soundVolume);
+                } catch (IllegalStateException e)
+                {
+                }
+                mediaPlayer3.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+                {
+                    @Override
+                    public void onPrepared(MediaPlayer mp)
+                    {
+                        if(runAudio)
+                            mediaPlayer3.start();
+                    }
+                });
+            }
+        });
+    }
 }
+
+

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.media.MediaPlayer;
 
 public class Frog extends Sprite
 {
@@ -16,9 +15,7 @@ public class Frog extends Sprite
     private int currentFrame = 0;
     private int count = 0;
     private Game game;
-    private MediaPlayer mediaPlayer;
     private boolean visible = false;
-    private long duration = 0;
 
     public Frog(GameView view, Context context)
     {
@@ -96,7 +93,8 @@ public class Frog extends Sprite
 
             v.getStatus().setVisible(true);
 
-            gameTimer1.start();
+            Game.theGame.gameTimer1.start();
+            this.gameTimer1.start();
 
             return true;
         } else
@@ -108,9 +106,8 @@ public class Frog extends Sprite
 
             v.getChompingFrog().setVisible(false);
             v.getChompingFrog().unloadBitmap();
-
-            playSpitAudio();
-            gameTimer2.start();
+            Game.theGame.gameTimer2.start();
+            this.gameTimer2.start();
             return true;
         }
     }
@@ -120,16 +117,10 @@ public class Frog extends Sprite
         @Override
         public void onTick()
         {
-            if (gameTimer1.getElapsedTime() == 1200)
-            {
-                playWordAudio();
-            }
-
-            if (gameTimer1.getElapsedTime() > duration + 1500)
+            if (gameTimer1.getElapsedTime() > 2500)
             {
                 onFinish();
             }
-
         }
 
         @Override
@@ -142,13 +133,6 @@ public class Frog extends Sprite
             v.getFatFrog().unloadBitmap();
             v.resetFlys();
 
-            if (game.getUpdateLevel() == true)
-            {
-                game.setUpdateLevel(false);
-                game.updateLevel();
-            } else
-                game.updateWordBoxText();
-
             v.getStatus().setVisible(false);
             gameTimer1.cancel();
         }
@@ -159,15 +143,12 @@ public class Frog extends Sprite
         @Override
         public void onTick()
         {
-            if (gameTimer2.getElapsedTime() == 300)
+            if (gameTimer2.getElapsedTime() > 300)
             {
-                playSpitAudio();
                 loadBitmap();
                 setVisible(true);
-
                 v.getSpittingFrog().setVisible(false);
                 v.getSpittingFrog().unloadBitmap();
-
                 v.setSpitOut(true);
                 v.resetFlys();
 
@@ -203,101 +184,4 @@ public class Frog extends Sprite
         this.setVisible(false);
         this.unloadBitmap();
     }
-
-    private void playWordAudio()
-    {
-        int resID = context.getResources().getIdentifier(
-                game.getWord().toLowerCase().replaceAll(" ", ""), "raw",
-                context.getPackageName());
-
-        mediaPlayer = MediaPlayer.create(context, resID);
-
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-        {
-            public void onCompletion(MediaPlayer mp)
-            {
-                mediaPlayer.stop();
-                mediaPlayer.reset();
-                mediaPlayer.release();
-            }
-        });
-
-        try
-        {
-            mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-        } catch (IllegalStateException e)
-        {
-        }
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override
-            public void onPrepared(MediaPlayer mp)
-            {
-                mediaPlayer.start();
-                duration = mediaPlayer.getDuration();
-            }
-        });
-    }
-
-    private void playSpitAudio()
-    {
-        int resID = context.getResources().getIdentifier("cartoon_spit",
-                "raw", context.getPackageName());
-
-        mediaPlayer = MediaPlayer.create(context, resID);
-
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-        {
-            public void onCompletion(MediaPlayer mp)
-            {
-                mediaPlayer.stop();
-                mediaPlayer.reset();
-                mediaPlayer.release();
-            }
-        });
-
-        try
-        {
-            mediaPlayer.setVolume(Util.soundVolume, Util.soundVolume);
-        } catch (IllegalStateException e)
-        {
-        }
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override
-            public void onPrepared(MediaPlayer mp)
-            {
-                mediaPlayer.start();
-                duration = mediaPlayer.getDuration();
-            }
-        });
-    }
-
-    public void stopAudio()
-    {
-        if (mediaPlayer != null)
-        {
-            mediaPlayer.release();
-            mediaPlayer = null;
-
-            loadBitmap();
-            setVisible(true);
-            v.getStatus().setVisible(false);
-
-            if(v.getFatFrog().getVisible() == true)
-            {
-                v.getFatFrog().setVisible(false);
-                v.getFatFrog().unloadBitmap();
-            }
-
-            if(v.getSpittingFrog().getVisible() == true)
-            {
-                v.getSpittingFrog().setVisible(false);
-                v.getSpittingFrog().unloadBitmap();
-                v.setSpitOut(true);
-            }
-            v.resetFlys();
-        }
-    }
-
 }

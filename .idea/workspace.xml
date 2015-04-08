@@ -62,62 +62,170 @@
       <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="20355" max-vertical-offset="27915">
-              <caret line="1544" column="25" selection-start-line="1544" selection-start-column="25" selection-end-line="1544" selection-end-column="25" />
-              <folding>
-                <element signature="e#12084#12338#0" expanded="true" />
-                <element signature="e#12319#12320#0" expanded="true" />
-                <element signature="e#13442#13599#0" expanded="true" />
-                <element signature="e#13588#13589#0" expanded="true" />
-                <element signature="e#13701#14285#0" expanded="true" />
-                <element signature="e#14266#14267#0" expanded="true" />
-                <element signature="e#14386#14581#0" expanded="true" />
-                <element signature="e#14562#14563#0" expanded="true" />
-                <element signature="e#14688#15082#0" expanded="true" />
-                <element signature="e#15063#15064#0" expanded="true" />
-                <element signature="e#56227#56228#0" expanded="true" />
-                <element signature="e#56260#56261#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Help.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5949" max-vertical-offset="8805">
-              <caret line="530" column="0" selection-start-line="530" selection-start-column="0" selection-end-line="530" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1449" max-vertical-offset="5970">
-              <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Frog.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8607595" vertical-offset="3909" max-vertical-offset="4500">
-              <caret line="298" column="26" selection-start-line="298" selection-start-column="26" selection-end-line="298" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="31732" max-vertical-offset="32280">
+              <caret line="2127" column="24" selection-start-line="2127" selection-start-column="24" selection-end-line="2127" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4765#4766#0" expanded="true" />
-                <element signature="e#4792#4793#0" expanded="true" />
-                <element signature="e#4845#4846#0" expanded="true" />
-                <element signature="e#4875#4876#0" expanded="true" />
-                <element signature="e#5840#6088#0" expanded="true" />
-                <element signature="e#6077#6078#0" expanded="true" />
-                <element signature="e#6816#7064#0" expanded="true" />
-                <element signature="e#7053#7054#0" expanded="true" />
+                <element signature="e#4718#4719#0" expanded="true" />
+                <element signature="e#4753#4754#0" expanded="true" />
+                <element signature="e#4975#4976#0" expanded="true" />
+                <element signature="e#5012#5013#0" expanded="true" />
+                <element signature="e#5608#5609#0" expanded="true" />
+                <element signature="e#5651#5652#0" expanded="true" />
+                <element signature="e#6085#6086#0" expanded="true" />
+                <element signature="e#6128#6129#0" expanded="true" />
+                <element signature="e#6493#6494#0" expanded="true" />
+                <element signature="e#6536#6537#0" expanded="true" />
+                <element signature="e#6992#7764#0" expanded="true" />
+                <element signature="e#7749#7750#0" expanded="true" />
+                <element signature="e#7815#8038#0" expanded="true" />
+                <element signature="e#8023#8024#0" expanded="true" />
+                <element signature="e#8091#8359#0" expanded="true" />
+                <element signature="e#8344#8345#0" expanded="true" />
+                <element signature="e#9015#9710#0" expanded="true" />
+                <element signature="e#9699#9700#0" expanded="true" />
+                <element signature="e#9850#9882#0" expanded="true" />
+                <element signature="e#12126#12531#0" expanded="true" />
+                <element signature="e#12512#12513#0" expanded="true" />
+                <element signature="e#12669#12923#0" expanded="true" />
+                <element signature="e#12904#12905#0" expanded="true" />
+                <element signature="e#14027#14184#0" expanded="true" />
+                <element signature="e#14173#14174#0" expanded="true" />
+                <element signature="e#14286#14875#0" expanded="true" />
+                <element signature="e#14856#14857#0" expanded="true" />
+                <element signature="e#14976#15171#0" expanded="true" />
+                <element signature="e#15152#15153#0" expanded="true" />
+                <element signature="e#15278#15674#0" expanded="true" />
+                <element signature="e#15655#15656#0" expanded="true" />
+                <element signature="e#17337#17403#0" expanded="true" />
+                <element signature="e#17447#18438#0" expanded="true" />
+                <element signature="e#17908#18262#0" expanded="true" />
+                <element signature="e#18239#18240#0" expanded="true" />
+                <element signature="e#18427#18428#0" expanded="true" />
+                <element signature="e#18730#18796#0" expanded="true" />
+                <element signature="e#18842#19832#0" expanded="true" />
+                <element signature="e#19303#19657#0" expanded="true" />
+                <element signature="e#19634#19635#0" expanded="true" />
+                <element signature="e#19821#19822#0" expanded="true" />
+                <element signature="e#20120#20186#0" expanded="true" />
+                <element signature="e#20231#21222#0" expanded="true" />
+                <element signature="e#20693#21047#0" expanded="true" />
+                <element signature="e#21024#21025#0" expanded="true" />
+                <element signature="e#21211#21212#0" expanded="true" />
+                <element signature="e#21450#21516#0" expanded="true" />
+                <element signature="e#21606#21750#0" expanded="true" />
+                <element signature="e#21739#21740#0" expanded="true" />
+                <element signature="e#21975#22041#0" expanded="true" />
+                <element signature="e#22405#22471#0" expanded="true" />
+                <element signature="e#23342#23391#0" expanded="true" />
+                <element signature="e#24690#24739#0" expanded="true" />
+                <element signature="e#25436#27136#0" expanded="true" />
+                <element signature="e#27125#27126#0" expanded="true" />
+                <element signature="e#27269#27617#0" expanded="true" />
+                <element signature="e#27606#27607#0" expanded="true" />
+                <element signature="e#27751#30377#0" expanded="true" />
+                <element signature="e#30366#30367#0" expanded="true" />
+                <element signature="e#30891#31905#0" expanded="true" />
+                <element signature="e#31894#31895#0" expanded="true" />
+                <element signature="e#31950#31951#0" expanded="true" />
+                <element signature="e#31978#31979#0" expanded="true" />
+                <element signature="e#32108#32402#0" expanded="true" />
+                <element signature="e#32391#32392#0" expanded="true" />
+                <element signature="e#32543#32808#0" expanded="true" />
+                <element signature="e#32797#32798#0" expanded="true" />
+                <element signature="e#33150#33151#0" expanded="true" />
+                <element signature="e#33182#33183#0" expanded="true" />
+                <element signature="e#38396#38428#0" expanded="true" />
+                <element signature="e#55983#55984#0" expanded="true" />
+                <element signature="e#56019#56020#0" expanded="true" />
+                <element signature="e#56060#56061#0" expanded="true" />
+                <element signature="e#56087#56088#0" expanded="true" />
+                <element signature="e#56122#56123#0" expanded="true" />
+                <element signature="e#56149#56150#0" expanded="true" />
+                <element signature="e#56191#56192#0" expanded="true" />
+                <element signature="e#56216#56217#0" expanded="true" />
+                <element signature="e#56250#56251#0" expanded="true" />
+                <element signature="e#56279#56280#0" expanded="true" />
+                <element signature="e#56312#56313#0" expanded="true" />
+                <element signature="e#56340#56341#0" expanded="true" />
+                <element signature="e#56625#56626#0" expanded="true" />
+                <element signature="e#56658#56659#0" expanded="true" />
+                <element signature="e#58611#58643#0" expanded="true" />
+                <element signature="e#73486#74853#0" expanded="true" />
+                <element signature="e#73913#74276#0" expanded="true" />
+                <element signature="e#74257#74258#0" expanded="true" />
+                <element signature="e#74535#74827#0" expanded="true" />
+                <element signature="e#74808#74809#0" expanded="true" />
+                <element signature="e#74842#74843#0" expanded="true" />
+                <element signature="e#74922#76240#0" expanded="true" />
+                <element signature="e#75300#75663#0" expanded="true" />
+                <element signature="e#75644#75645#0" expanded="true" />
+                <element signature="e#75922#76214#0" expanded="true" />
+                <element signature="e#76195#76196#0" expanded="true" />
+                <element signature="e#76229#76230#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Frog.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="2790">
+              <caret line="96" column="27" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlyA.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="729" max-vertical-offset="1710">
+              <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlyE.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyE.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1665">
+              <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlyI.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1680">
+              <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlyO.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5882353" vertical-offset="480" max-vertical-offset="1680">
+              <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlyU.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyU.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1665">
+              <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1198,11 +1306,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/helpers/SizeUnit.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Storage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/AbstractDiskStorage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/ResponseReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/PassData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_file_provider.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/FileProviderActivity.java" />
@@ -1249,6 +1352,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/FlyA.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/FlyE.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/FlyI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/FlyO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/FlyU.java" />
       </list>
     </option>
   </component>
@@ -1831,7 +1939,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5018868" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5500849" sideWeight="0.3529887" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5500849" sideWeight="0.3529887" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1840,7 +1948,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.49811321" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.4184168" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.36106622" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5500849" sideWeight="0.6470113" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1905,39 +2013,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6660" max-vertical-offset="10680">
-          <caret line="444" column="21" selection-start-line="444" selection-start-column="21" selection-end-line="444" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6240" max-vertical-offset="7155">
-          <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-21/android/database/sqlite/SQLiteConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33101046" vertical-offset="12655" max-vertical-offset="21870">
-          <caret line="888" column="0" selection-start-line="888" selection-start-column="0" selection-end-line="888" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/config.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4894434" vertical-offset="105" max-vertical-offset="1185">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.045592707" vertical-offset="0" max-vertical-offset="1215">
@@ -1990,20 +2065,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10695187" vertical-offset="0" max-vertical-offset="1185">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/TimerExec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2994652" vertical-offset="1350" max-vertical-offset="1965">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/TimerExecTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13368984" vertical-offset="0" max-vertical-offset="561">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -2252,72 +2313,198 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FatFrog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26737967" vertical-offset="0" max-vertical-offset="1230">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.7593583" vertical-offset="234" max-vertical-offset="1230">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/TimerExecTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13368984" vertical-offset="0" max-vertical-offset="561">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/TimerExec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.326203" vertical-offset="1365" max-vertical-offset="1965">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14081997" vertical-offset="2831" max-vertical-offset="5970">
+          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5949" max-vertical-offset="8805">
-          <caret line="530" column="0" selection-start-line="530" selection-start-column="0" selection-end-line="530" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5721925" vertical-offset="7539" max-vertical-offset="8805">
+          <caret line="666" column="0" selection-start-line="666" selection-start-column="0" selection-end-line="666" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20355" max-vertical-offset="27915">
-          <caret line="1544" column="25" selection-start-line="1544" selection-start-column="25" selection-end-line="1544" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="31732" max-vertical-offset="32280">
+          <caret line="2127" column="24" selection-start-line="2127" selection-start-column="24" selection-end-line="2127" selection-end-column="24" />
           <folding>
-            <element signature="e#12084#12338#0" expanded="true" />
-            <element signature="e#12319#12320#0" expanded="true" />
-            <element signature="e#13442#13599#0" expanded="true" />
-            <element signature="e#13588#13589#0" expanded="true" />
-            <element signature="e#13701#14285#0" expanded="true" />
-            <element signature="e#14266#14267#0" expanded="true" />
-            <element signature="e#14386#14581#0" expanded="true" />
-            <element signature="e#14562#14563#0" expanded="true" />
-            <element signature="e#14688#15082#0" expanded="true" />
-            <element signature="e#15063#15064#0" expanded="true" />
-            <element signature="e#56227#56228#0" expanded="true" />
-            <element signature="e#56260#56261#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4718#4719#0" expanded="true" />
+            <element signature="e#4753#4754#0" expanded="true" />
+            <element signature="e#4975#4976#0" expanded="true" />
+            <element signature="e#5012#5013#0" expanded="true" />
+            <element signature="e#5608#5609#0" expanded="true" />
+            <element signature="e#5651#5652#0" expanded="true" />
+            <element signature="e#6085#6086#0" expanded="true" />
+            <element signature="e#6128#6129#0" expanded="true" />
+            <element signature="e#6493#6494#0" expanded="true" />
+            <element signature="e#6536#6537#0" expanded="true" />
+            <element signature="e#6992#7764#0" expanded="true" />
+            <element signature="e#7749#7750#0" expanded="true" />
+            <element signature="e#7815#8038#0" expanded="true" />
+            <element signature="e#8023#8024#0" expanded="true" />
+            <element signature="e#8091#8359#0" expanded="true" />
+            <element signature="e#8344#8345#0" expanded="true" />
+            <element signature="e#9015#9710#0" expanded="true" />
+            <element signature="e#9699#9700#0" expanded="true" />
+            <element signature="e#9850#9882#0" expanded="true" />
+            <element signature="e#12126#12531#0" expanded="true" />
+            <element signature="e#12512#12513#0" expanded="true" />
+            <element signature="e#12669#12923#0" expanded="true" />
+            <element signature="e#12904#12905#0" expanded="true" />
+            <element signature="e#14027#14184#0" expanded="true" />
+            <element signature="e#14173#14174#0" expanded="true" />
+            <element signature="e#14286#14875#0" expanded="true" />
+            <element signature="e#14856#14857#0" expanded="true" />
+            <element signature="e#14976#15171#0" expanded="true" />
+            <element signature="e#15152#15153#0" expanded="true" />
+            <element signature="e#15278#15674#0" expanded="true" />
+            <element signature="e#15655#15656#0" expanded="true" />
+            <element signature="e#17337#17403#0" expanded="true" />
+            <element signature="e#17447#18438#0" expanded="true" />
+            <element signature="e#17908#18262#0" expanded="true" />
+            <element signature="e#18239#18240#0" expanded="true" />
+            <element signature="e#18427#18428#0" expanded="true" />
+            <element signature="e#18730#18796#0" expanded="true" />
+            <element signature="e#18842#19832#0" expanded="true" />
+            <element signature="e#19303#19657#0" expanded="true" />
+            <element signature="e#19634#19635#0" expanded="true" />
+            <element signature="e#19821#19822#0" expanded="true" />
+            <element signature="e#20120#20186#0" expanded="true" />
+            <element signature="e#20231#21222#0" expanded="true" />
+            <element signature="e#20693#21047#0" expanded="true" />
+            <element signature="e#21024#21025#0" expanded="true" />
+            <element signature="e#21211#21212#0" expanded="true" />
+            <element signature="e#21450#21516#0" expanded="true" />
+            <element signature="e#21606#21750#0" expanded="true" />
+            <element signature="e#21739#21740#0" expanded="true" />
+            <element signature="e#21975#22041#0" expanded="true" />
+            <element signature="e#22405#22471#0" expanded="true" />
+            <element signature="e#23342#23391#0" expanded="true" />
+            <element signature="e#24690#24739#0" expanded="true" />
+            <element signature="e#25436#27136#0" expanded="true" />
+            <element signature="e#27125#27126#0" expanded="true" />
+            <element signature="e#27269#27617#0" expanded="true" />
+            <element signature="e#27606#27607#0" expanded="true" />
+            <element signature="e#27751#30377#0" expanded="true" />
+            <element signature="e#30366#30367#0" expanded="true" />
+            <element signature="e#30891#31905#0" expanded="true" />
+            <element signature="e#31894#31895#0" expanded="true" />
+            <element signature="e#31950#31951#0" expanded="true" />
+            <element signature="e#31978#31979#0" expanded="true" />
+            <element signature="e#32108#32402#0" expanded="true" />
+            <element signature="e#32391#32392#0" expanded="true" />
+            <element signature="e#32543#32808#0" expanded="true" />
+            <element signature="e#32797#32798#0" expanded="true" />
+            <element signature="e#33150#33151#0" expanded="true" />
+            <element signature="e#33182#33183#0" expanded="true" />
+            <element signature="e#38396#38428#0" expanded="true" />
+            <element signature="e#55983#55984#0" expanded="true" />
+            <element signature="e#56019#56020#0" expanded="true" />
+            <element signature="e#56060#56061#0" expanded="true" />
+            <element signature="e#56087#56088#0" expanded="true" />
+            <element signature="e#56122#56123#0" expanded="true" />
+            <element signature="e#56149#56150#0" expanded="true" />
+            <element signature="e#56191#56192#0" expanded="true" />
+            <element signature="e#56216#56217#0" expanded="true" />
+            <element signature="e#56250#56251#0" expanded="true" />
+            <element signature="e#56279#56280#0" expanded="true" />
+            <element signature="e#56312#56313#0" expanded="true" />
+            <element signature="e#56340#56341#0" expanded="true" />
+            <element signature="e#56625#56626#0" expanded="true" />
+            <element signature="e#56658#56659#0" expanded="true" />
+            <element signature="e#58611#58643#0" expanded="true" />
+            <element signature="e#73486#74853#0" expanded="true" />
+            <element signature="e#73913#74276#0" expanded="true" />
+            <element signature="e#74257#74258#0" expanded="true" />
+            <element signature="e#74535#74827#0" expanded="true" />
+            <element signature="e#74808#74809#0" expanded="true" />
+            <element signature="e#74842#74843#0" expanded="true" />
+            <element signature="e#74922#76240#0" expanded="true" />
+            <element signature="e#75300#75663#0" expanded="true" />
+            <element signature="e#75644#75645#0" expanded="true" />
+            <element signature="e#75922#76214#0" expanded="true" />
+            <element signature="e#76195#76196#0" expanded="true" />
+            <element signature="e#76229#76230#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3294" max-vertical-offset="5970">
-          <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2459893" vertical-offset="1149" max-vertical-offset="1710">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8607595" vertical-offset="3909" max-vertical-offset="4500">
-          <caret line="298" column="26" selection-start-line="298" selection-start-column="26" selection-end-line="298" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="2790">
+          <caret line="96" column="27" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4765#4766#0" expanded="true" />
-            <element signature="e#4792#4793#0" expanded="true" />
-            <element signature="e#4845#4846#0" expanded="true" />
-            <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#5840#6088#0" expanded="true" />
-            <element signature="e#6077#6078#0" expanded="true" />
-            <element signature="e#6816#7064#0" expanded="true" />
-            <element signature="e#7053#7054#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="729" max-vertical-offset="1710">
+          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1665">
+          <caret line="56" column="43" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1680">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1665">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5882353" vertical-offset="480" max-vertical-offset="1680">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

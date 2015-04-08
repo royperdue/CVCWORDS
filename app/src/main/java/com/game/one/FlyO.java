@@ -1,8 +1,9 @@
 package com.game.one;
 
-import java.util.Random;
 import android.content.Context;
 import android.graphics.Bitmap;
+
+import java.util.Random;
 
 public class FlyO extends Sprite
 {
