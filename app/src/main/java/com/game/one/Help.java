@@ -34,6 +34,9 @@ public class Help extends Activity
     private MediaPlayer mediaPlayer;
     private boolean start = true;
     private boolean exit = false;
+    private MediaPlayer mPlayerR;
+    private MediaPlayer mPlayerM;
+    private MediaPlayer mPlayerL;
 
     TimerExec mediaTimer = new TimerExec(500, -1, new TimerExecTask()
     {
@@ -73,7 +76,7 @@ public class Help extends Activity
 
             if (mediaTimer.getElapsedTime() == 11500)
             {
-               clickOpenDialogButton();
+                clickOpenDialogButton();
             }
 
             if (mediaTimer.getElapsedTime() == 13000)
@@ -129,18 +132,37 @@ public class Help extends Activity
         });
 
         ((Button) inGameMenu.findViewById(R.id.ingamemenuYes))
-        .setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                exit = true;
-                mediaPlayer.release();
-                mediaPlayer = null;
-                Util.musicPlayer.start();
-                inGameMenu.dismiss();
-                finish();
-            }
-        });
+                .setOnClickListener(new View.OnClickListener()
+                {
+                    public void onClick(View v)
+                    {
+                        exit = true;
+                        mediaPlayer.release();
+                        mediaPlayer = null;
+
+                        if(mPlayerR != null)
+                        {
+                            mPlayerR.release();
+                            mPlayerR = null;
+                        }
+
+                        if(mPlayerM != null)
+                        {
+                            mPlayerM.release();
+                            mPlayerM = null;
+                        }
+
+                        if(mPlayerL != null)
+                        {
+                            mPlayerL.release();
+                            mPlayerL = null;
+                        }
+
+                        Util.musicPlayer.start();
+                        inGameMenu.dismiss();
+                        finish();
+                    }
+                });
 
         ((Button) inGameMenu.findViewById(R.id.ingamemenuNo))
                 .setOnClickListener(new View.OnClickListener()
@@ -201,23 +223,23 @@ public class Help extends Activity
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.c);
+                mPlayerL = MediaPlayer.create(getApplicationContext(), R.raw.c);
                 try
                 {
-                    mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
+                    mPlayerL.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mPlayerL.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mPlayerL.stop();
+                        mPlayerL.reset();
+                        mPlayerL.release();
                     }
                 });
-                mPlayer.start();
+                mPlayerL.start();
             }
         });
 
@@ -235,24 +257,24 @@ public class Help extends Activity
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.a);
+                mPlayerM = MediaPlayer.create(getApplicationContext(), R.raw.a);
                 try
                 {
-                    mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
+                    mPlayerM.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
 
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mPlayerM.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mPlayerM.stop();
+                        mPlayerM.reset();
+                        mPlayerM.release();
                     }
                 });
-                mPlayer.start();
+                mPlayerM.start();
             }
         });
 
@@ -269,24 +291,24 @@ public class Help extends Activity
             @SuppressLint("DefaultLocale")
             public void onClick(View v)
             {
-                final MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.t);
+                mPlayerR = MediaPlayer.create(getApplicationContext(), R.raw.t);
                 try
                 {
-                    mPlayer.setVolume(Util.soundVolume, Util.soundVolume);
+                    mPlayerR.setVolume(Util.soundVolume, Util.soundVolume);
                 } catch (IllegalStateException e)
                 {
                 }
 
-                mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                mPlayerR.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
                     public void onCompletion(MediaPlayer mp)
                     {
-                        mPlayer.stop();
-                        mPlayer.reset();
-                        mPlayer.release();
+                        mPlayerR.stop();
+                        mPlayerR.reset();
+                        mPlayerR.release();
                     }
                 });
-                mPlayer.start();
+                mPlayerR.start();
             }
         });
 

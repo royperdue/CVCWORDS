@@ -35,7 +35,6 @@ public class GameView extends SurfaceView implements Runnable
 	private FlyU flyU;
 	private Background bg;
 	private Weeds weeds;
-    private GameWon gameWon;
 	private Status status;
 
 	private GameView(Context context)
@@ -64,7 +63,6 @@ public class GameView extends SurfaceView implements Runnable
 		
 		bg = new Background(this, activity);
 		weeds = new Weeds(this, activity);
-        gameWon = new GameWon(this, activity);
 		
 		frog = new Frog(this, activity);
 		fatty = new FatFrog(this, activity);
@@ -220,7 +218,6 @@ public class GameView extends SurfaceView implements Runnable
 		flyO.draw(canvas);
 		flyU.draw(canvas);
 		status.draw(canvas);
-        gameWon.draw(canvas);
 	}
 
 	private void checkTimeOut()
@@ -418,11 +415,6 @@ public class GameView extends SurfaceView implements Runnable
 	{
 		return weeds;
 	}
-
-    public GameWon getGameWon()
-    {
-        return gameWon;
-    }
 	
 	public LizzardCrawlUp getLizzardCrawlUp()
 	{

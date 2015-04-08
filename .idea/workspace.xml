@@ -62,78 +62,61 @@
       <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="21412" max-vertical-offset="28560">
-              <caret line="345" column="20" selection-start-line="345" selection-start-column="20" selection-end-line="345" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="20355" max-vertical-offset="27915">
+              <caret line="1544" column="25" selection-start-line="1544" selection-start-column="25" selection-end-line="1544" selection-end-column="25" />
               <folding>
-                <element signature="e#9376#9408#0" expanded="true" />
-                <element signature="e#11117#11970#0" expanded="true" />
-                <element signature="e#11441#11795#0" expanded="true" />
-                <element signature="e#11772#11773#0" expanded="true" />
-                <element signature="e#11959#11960#0" expanded="true" />
-                <element signature="e#12741#12898#0" expanded="true" />
-                <element signature="e#12887#12888#0" expanded="true" />
-                <element signature="e#13000#13280#0" expanded="true" />
-                <element signature="e#13261#13262#0" expanded="true" />
-                <element signature="e#13381#13576#0" expanded="true" />
-                <element signature="e#13557#13558#0" expanded="true" />
-                <element signature="e#13683#13986#0" expanded="true" />
-                <element signature="e#13967#13968#0" expanded="true" />
-                <element signature="e#15649#15715#0" expanded="true" />
-                <element signature="e#15759#16750#0" expanded="true" />
-                <element signature="e#16220#16574#0" expanded="true" />
-                <element signature="e#16551#16552#0" expanded="true" />
-                <element signature="e#16739#16740#0" expanded="true" />
-                <element signature="e#17042#17108#0" expanded="true" />
-                <element signature="e#17154#18144#0" expanded="true" />
-                <element signature="e#17615#17969#0" expanded="true" />
-                <element signature="e#17946#17947#0" expanded="true" />
-                <element signature="e#18133#18134#0" expanded="true" />
-                <element signature="e#18432#18498#0" expanded="true" />
-                <element signature="e#18543#19534#0" expanded="true" />
-                <element signature="e#19005#19359#0" expanded="true" />
-                <element signature="e#19336#19337#0" expanded="true" />
-                <element signature="e#19523#19524#0" expanded="true" />
-                <element signature="e#19762#19828#0" expanded="true" />
-                <element signature="e#19918#20062#0" expanded="true" />
-                <element signature="e#20051#20052#0" expanded="true" />
-                <element signature="e#20287#20353#0" expanded="true" />
-                <element signature="e#20717#20783#0" expanded="true" />
-                <element signature="e#21654#21703#0" expanded="true" />
-                <element signature="e#22994#23043#0" expanded="true" />
-                <element signature="e#23740#25461#0" expanded="true" />
-                <element signature="e#25450#25451#0" expanded="true" />
-                <element signature="e#25594#25942#0" expanded="true" />
-                <element signature="e#25931#25932#0" expanded="true" />
-                <element signature="e#26076#28701#0" expanded="true" />
-                <element signature="e#28690#28691#0" expanded="true" />
-                <element signature="e#29215#30229#0" expanded="true" />
-                <element signature="e#30218#30219#0" expanded="true" />
-                <element signature="e#30274#30275#0" expanded="true" />
-                <element signature="e#30302#30303#0" expanded="true" />
-                <element signature="e#30432#30695#0" expanded="true" />
-                <element signature="e#30684#30685#0" expanded="true" />
-                <element signature="e#30836#31101#0" expanded="true" />
-                <element signature="e#31090#31091#0" expanded="true" />
-                <element signature="e#31443#31444#0" expanded="true" />
-                <element signature="e#31475#31476#0" expanded="true" />
-                <element signature="e#32196#32197#0" expanded="true" />
-                <element signature="e#32232#32233#0" expanded="true" />
-                <element signature="e#32275#32276#0" expanded="true" />
-                <element signature="e#32314#32315#0" expanded="true" />
-                <element signature="e#36917#36949#0" expanded="true" />
-                <element signature="e#54504#54505#0" expanded="true" />
-                <element signature="e#54540#54541#0" expanded="true" />
-                <element signature="e#54581#54582#0" expanded="true" />
-                <element signature="e#54608#54609#0" expanded="true" />
-                <element signature="e#54643#54644#0" expanded="true" />
-                <element signature="e#54670#54671#0" expanded="true" />
-                <element signature="e#54712#54713#0" expanded="true" />
-                <element signature="e#54737#54738#0" expanded="true" />
-                <element signature="e#54771#54772#0" expanded="true" />
-                <element signature="e#54800#54801#0" expanded="true" />
-                <element signature="e#54833#54834#0" expanded="true" />
-                <element signature="e#54861#54862#0" expanded="true" />
-                <element signature="e#56268#56300#0" expanded="true" />
+                <element signature="e#12084#12338#0" expanded="true" />
+                <element signature="e#12319#12320#0" expanded="true" />
+                <element signature="e#13442#13599#0" expanded="true" />
+                <element signature="e#13588#13589#0" expanded="true" />
+                <element signature="e#13701#14285#0" expanded="true" />
+                <element signature="e#14266#14267#0" expanded="true" />
+                <element signature="e#14386#14581#0" expanded="true" />
+                <element signature="e#14562#14563#0" expanded="true" />
+                <element signature="e#14688#15082#0" expanded="true" />
+                <element signature="e#15063#15064#0" expanded="true" />
+                <element signature="e#56227#56228#0" expanded="true" />
+                <element signature="e#56260#56261#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Help.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5949" max-vertical-offset="8805">
+              <caret line="530" column="0" selection-start-line="530" selection-start-column="0" selection-end-line="530" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1449" max-vertical-offset="5970">
+              <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Frog.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.8607595" vertical-offset="3909" max-vertical-offset="4500">
+              <caret line="298" column="26" selection-start-line="298" selection-start-column="26" selection-end-line="298" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4765#4766#0" expanded="true" />
+                <element signature="e#4792#4793#0" expanded="true" />
+                <element signature="e#4845#4846#0" expanded="true" />
+                <element signature="e#4875#4876#0" expanded="true" />
+                <element signature="e#5840#6088#0" expanded="true" />
+                <element signature="e#6077#6078#0" expanded="true" />
+                <element signature="e#6816#7064#0" expanded="true" />
+                <element signature="e#7053#7054#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,42 +125,9 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="2355">
-              <caret line="101" column="78" selection-start-line="101" selection-start-column="78" selection-end-line="101" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="2370">
+              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="About.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/About.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1275">
-              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Help.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29411766" vertical-offset="1545" max-vertical-offset="8715">
-              <caret line="137" column="35" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
-              <folding>
-                <element signature="e#2541#2542#0" expanded="true" />
-                <element signature="e#2584#2585#0" expanded="true" />
-                <element signature="e#3451#3626#0" expanded="true" />
-                <element signature="e#3615#3616#0" expanded="true" />
-                <element signature="e#6252#6318#0" expanded="true" />
-                <element signature="e#7534#7600#0" expanded="true" />
-                <element signature="e#8813#8879#0" expanded="true" />
-                <element signature="e#9981#10047#0" expanded="true" />
-                <element signature="e#10522#10588#0" expanded="true" />
-                <element signature="e#11016#11082#0" expanded="true" />
-                <element signature="e#12010#12059#0" expanded="true" />
-                <element signature="e#13496#13545#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1248,9 +1198,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/simple-storage/src/main/java/com/gradebookdynamics/simple_storage/src/Storage.java" />
-        <option value="$PROJECT_DIR$/simple-storage/src/main/java/com/gradebookdynamics/simple_storage/src/InternalStorage.java" />
-        <option value="$PROJECT_DIR$/simple-storage/src/main/java/com/gradebookdynamics/simple_storage/src/ExternalStorage.java" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/helpers/SizeUnit.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Storage.java" />
@@ -1273,7 +1220,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/AudioClips.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/AudioClipPlayer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Util.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/NextLevelFly.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_score_board.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
@@ -1281,8 +1227,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_game_board.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/GameBoardActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Config.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/rating_bar_custom_empty.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/rating_bar_custom.xml" />
@@ -1296,9 +1240,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/About.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/about.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/anim/star_animation.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/GameOver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_game_over.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java" />
       </list>
     </option>
   </component>
@@ -1333,8 +1283,45 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="one" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1471,36 +1458,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CVCWORDS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="raw" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1587,66 +1544,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable-hdpi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CVCWORDS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CVCWORDS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1683,44 +1580,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ANDROID_TEMPLATE_ANDROID_STUDIO" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="one" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1751,6 +1611,9 @@
       <recent name="$PROJECT_DIR$/app/src/main/res/values" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/raw" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.game.one" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.game.one" />
@@ -1968,7 +1831,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5018868" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5500849" sideWeight="0.3529887" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5500849" sideWeight="0.3529887" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1982,8 +1845,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2042,18 +1905,18 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20400" max-vertical-offset="28980">
-          <caret line="1360" column="78" selection-start-line="1360" selection-start-column="78" selection-end-line="1360" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6660" max-vertical-offset="10680">
+          <caret line="444" column="21" selection-start-line="444" selection-start-column="21" selection-end-line="444" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9840">
-          <caret line="178" column="31" selection-start-line="178" selection-start-column="31" selection-end-line="178" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6240" max-vertical-offset="7155">
+          <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -2103,7 +1966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39325842" vertical-offset="0" max-vertical-offset="930">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2142,27 +2004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13368984" vertical-offset="0" max-vertical-offset="561">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="1710">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FatFrog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42780748" vertical-offset="780" max-vertical-offset="3765">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2213,11 +2054,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-nodpi/star_banner.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/util/SystemUiHider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2835">
@@ -2236,13 +2072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7379679" vertical-offset="534" max-vertical-offset="1095">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameWon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2025317" vertical-offset="0" max-vertical-offset="750">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -2312,14 +2141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53467155" vertical-offset="337" max-vertical-offset="1230">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
@@ -2358,11 +2179,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3480">
           <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-          <folding>
-            <element signature="e#591#612#0" expanded="false" />
-            <element signature="e#642#663#0" expanded="false" />
-            <element signature="e#1391#1412#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2370,7 +2186,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="750">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2378,7 +2193,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="495">
           <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2390,127 +2204,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="2891" max-vertical-offset="6150">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3862" max-vertical-offset="28560">
-          <caret line="345" column="20" selection-start-line="345" selection-start-column="20" selection-end-line="345" selection-end-column="20" />
-          <folding>
-            <element signature="e#9376#9408#0" expanded="true" />
-            <element signature="e#11117#11970#0" expanded="true" />
-            <element signature="e#11441#11795#0" expanded="true" />
-            <element signature="e#11772#11773#0" expanded="true" />
-            <element signature="e#11959#11960#0" expanded="true" />
-            <element signature="e#12741#12898#0" expanded="true" />
-            <element signature="e#12887#12888#0" expanded="true" />
-            <element signature="e#13000#13280#0" expanded="true" />
-            <element signature="e#13261#13262#0" expanded="true" />
-            <element signature="e#13381#13576#0" expanded="true" />
-            <element signature="e#13557#13558#0" expanded="true" />
-            <element signature="e#13683#13986#0" expanded="true" />
-            <element signature="e#13967#13968#0" expanded="true" />
-            <element signature="e#15649#15715#0" expanded="true" />
-            <element signature="e#15759#16750#0" expanded="true" />
-            <element signature="e#16220#16574#0" expanded="true" />
-            <element signature="e#16551#16552#0" expanded="true" />
-            <element signature="e#16739#16740#0" expanded="true" />
-            <element signature="e#17042#17108#0" expanded="true" />
-            <element signature="e#17154#18144#0" expanded="true" />
-            <element signature="e#17615#17969#0" expanded="true" />
-            <element signature="e#17946#17947#0" expanded="true" />
-            <element signature="e#18133#18134#0" expanded="true" />
-            <element signature="e#18432#18498#0" expanded="true" />
-            <element signature="e#18543#19534#0" expanded="true" />
-            <element signature="e#19005#19359#0" expanded="true" />
-            <element signature="e#19336#19337#0" expanded="true" />
-            <element signature="e#19523#19524#0" expanded="true" />
-            <element signature="e#19762#19828#0" expanded="true" />
-            <element signature="e#19918#20062#0" expanded="true" />
-            <element signature="e#20051#20052#0" expanded="true" />
-            <element signature="e#20287#20353#0" expanded="true" />
-            <element signature="e#20717#20783#0" expanded="true" />
-            <element signature="e#21654#21703#0" expanded="true" />
-            <element signature="e#22994#23043#0" expanded="true" />
-            <element signature="e#23740#25461#0" expanded="true" />
-            <element signature="e#25450#25451#0" expanded="true" />
-            <element signature="e#25594#25942#0" expanded="true" />
-            <element signature="e#25931#25932#0" expanded="true" />
-            <element signature="e#26076#28701#0" expanded="true" />
-            <element signature="e#28690#28691#0" expanded="true" />
-            <element signature="e#29215#30229#0" expanded="true" />
-            <element signature="e#30218#30219#0" expanded="true" />
-            <element signature="e#30274#30275#0" expanded="true" />
-            <element signature="e#30302#30303#0" expanded="true" />
-            <element signature="e#30432#30695#0" expanded="true" />
-            <element signature="e#30684#30685#0" expanded="true" />
-            <element signature="e#30836#31101#0" expanded="true" />
-            <element signature="e#31090#31091#0" expanded="true" />
-            <element signature="e#31443#31444#0" expanded="true" />
-            <element signature="e#31475#31476#0" expanded="true" />
-            <element signature="e#32196#32197#0" expanded="true" />
-            <element signature="e#32232#32233#0" expanded="true" />
-            <element signature="e#32275#32276#0" expanded="true" />
-            <element signature="e#32314#32315#0" expanded="true" />
-            <element signature="e#36917#36949#0" expanded="true" />
-            <element signature="e#54504#54505#0" expanded="true" />
-            <element signature="e#54540#54541#0" expanded="true" />
-            <element signature="e#54581#54582#0" expanded="true" />
-            <element signature="e#54608#54609#0" expanded="true" />
-            <element signature="e#54643#54644#0" expanded="true" />
-            <element signature="e#54670#54671#0" expanded="true" />
-            <element signature="e#54712#54713#0" expanded="true" />
-            <element signature="e#54737#54738#0" expanded="true" />
-            <element signature="e#54771#54772#0" expanded="true" />
-            <element signature="e#54800#54801#0" expanded="true" />
-            <element signature="e#54833#54834#0" expanded="true" />
-            <element signature="e#54861#54862#0" expanded="true" />
-            <element signature="e#56268#56300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/About.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1275">
+        <state vertical-scroll-proportion="1.1604278" vertical-offset="534" max-vertical-offset="1275">
           <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5620438" vertical-offset="127" max-vertical-offset="1215">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding>
+            <element signature="e#701#719#0" expanded="true" />
+            <element signature="e#907#936#0" expanded="true" />
+            <element signature="e#1290#1319#0" expanded="true" />
+            <element signature="e#1665#1694#0" expanded="true" />
+            <element signature="e#2226#2255#0" expanded="true" />
+            <element signature="e#2600#2629#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/LizzardCrawlDown.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="2355">
-          <caret line="101" column="78" selection-start-line="101" selection-start-column="78" selection-end-line="101" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="2370">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/SpittingFrog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2727273" vertical-offset="774" max-vertical-offset="1335">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FatFrog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26737967" vertical-offset="0" max-vertical-offset="1230">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Help.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29411766" vertical-offset="1545" max-vertical-offset="8715">
-          <caret line="137" column="35" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5949" max-vertical-offset="8805">
+          <caret line="530" column="0" selection-start-line="530" selection-start-column="0" selection-end-line="530" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="20355" max-vertical-offset="27915">
+          <caret line="1544" column="25" selection-start-line="1544" selection-start-column="25" selection-end-line="1544" selection-end-column="25" />
           <folding>
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2584#2585#0" expanded="true" />
-            <element signature="e#3451#3626#0" expanded="true" />
-            <element signature="e#3615#3616#0" expanded="true" />
-            <element signature="e#6252#6318#0" expanded="true" />
-            <element signature="e#7534#7600#0" expanded="true" />
-            <element signature="e#8813#8879#0" expanded="true" />
-            <element signature="e#9981#10047#0" expanded="true" />
-            <element signature="e#10522#10588#0" expanded="true" />
-            <element signature="e#11016#11082#0" expanded="true" />
-            <element signature="e#12010#12059#0" expanded="true" />
-            <element signature="e#13496#13545#0" expanded="true" />
+            <element signature="e#12084#12338#0" expanded="true" />
+            <element signature="e#12319#12320#0" expanded="true" />
+            <element signature="e#13442#13599#0" expanded="true" />
+            <element signature="e#13588#13589#0" expanded="true" />
+            <element signature="e#13701#14285#0" expanded="true" />
+            <element signature="e#14266#14267#0" expanded="true" />
+            <element signature="e#14386#14581#0" expanded="true" />
+            <element signature="e#14562#14563#0" expanded="true" />
+            <element signature="e#14688#15082#0" expanded="true" />
+            <element signature="e#15063#15064#0" expanded="true" />
+            <element signature="e#56227#56228#0" expanded="true" />
+            <element signature="e#56260#56261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3294" max-vertical-offset="5970">
+          <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/FlyA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2459893" vertical-offset="1149" max-vertical-offset="1710">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/game/one/Frog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8607595" vertical-offset="3909" max-vertical-offset="4500">
+          <caret line="298" column="26" selection-start-line="298" selection-start-column="26" selection-end-line="298" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4765#4766#0" expanded="true" />
+            <element signature="e#4792#4793#0" expanded="true" />
+            <element signature="e#4845#4846#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
+            <element signature="e#5840#6088#0" expanded="true" />
+            <element signature="e#6077#6078#0" expanded="true" />
+            <element signature="e#6816#7064#0" expanded="true" />
+            <element signature="e#7053#7054#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -484,6 +484,7 @@
     <string name="settingsbutton">settingsbutton</string>
     <string name="title">CVC Words</string>
     <string name="title_activity_game_board">GameBoardActivity</string>
+    <string name="title_activity_game_over">GameOver</string>
     <string name="title_activity_main">CVC Words</string>
     <string name="title_activity_score_board">ScoreBoardActivity</string>
     <string name="yes">yes</string>

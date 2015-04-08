@@ -28,9 +28,12 @@ public class MainActivity extends Activity
         setDisplaySpecs();
         setContentView(R.layout.activity_main);
         setUp();
-        Config.readVolume(this);
-        Util.initMusicPlayer(this);
-        Util.musicPlayer.start();
+        if(Util.musicPlayer == null)
+        {
+            Config.readVolume(this);
+            Util.initMusicPlayer(this);
+            Util.musicPlayer.start();
+        }
         prefs = getApplicationContext().getSharedPreferences("com.came.one",
                 Context.MODE_PRIVATE);
     }
@@ -111,8 +114,6 @@ public class MainActivity extends Activity
             public void onClick(View v)
             {
                 Intent i = new Intent(getApplicationContext(), Game.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(i);
             }
         });

@@ -18,6 +18,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -48,6 +49,10 @@ public class Game extends Activity implements OnTouchListener
 {
     public static Game theGame;
     private MediaPlayer mediaPlayer;
+    private MediaPlayer mPlayerLevelOne;
+    private boolean isResuming = false;
+    private boolean isPaused = false;
+    private RunAudioLevelOne runLevelOneAudio;
     private int resource = 0;
     private long duration = 0;
     private boolean updateLevel = false;
@@ -261,17 +266,6 @@ public class Game extends Activity implements OnTouchListener
             }
         });
 
-        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-        {
-            @Override
-            public void onCompletion(MediaPlayer mp)
-            {
-                mPlayer.stop();
-                mPlayer.reset();
-                mPlayer.release();
-
-            }
-        });
         return mPlayer;
     }
 
@@ -284,6 +278,10 @@ public class Game extends Activity implements OnTouchListener
         super.onCreate(savedInstanceState);
 
         theGame = this;
+
+        prefs = getApplicationContext().getSharedPreferences("com.came.one",
+                Context.MODE_PRIVATE);
+
         wordDuration = 70000;
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
@@ -299,9 +297,6 @@ public class Game extends Activity implements OnTouchListener
         view.setOnTouchListener(this);
         spriteTimer.start();
         wordTimer.start();
-
-        prefs = getApplicationContext().getSharedPreferences("com.came.one",
-                Context.MODE_PRIVATE);
 
         edit = prefs.edit();
         edit.putBoolean("HAS_DATA", false);
@@ -336,31 +331,59 @@ public class Game extends Activity implements OnTouchListener
 
             startService(intent);
         }
-        Thread t = new Thread(new Runnable()
+
+        if(level == 1 && mPlayerLevelOne == null)
         {
-            @Override
-            public void run()
+            runLevelOneAudio = new RunAudioLevelOne();
+            runLevelOneAudio.execute();
+        }
+    }
+
+    private class RunAudioLevelOne extends AsyncTask<Void, Void, Void>
+    {
+        @Override
+        protected Void doInBackground(Void... params)
+        {
+            try
             {
-                try
+                mPlayerLevelOne = createNewMediaPlayer(getResources().getIdentifier("level1", "raw", getApplicationContext().getPackageName()));
+                mPlayerLevelOne.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
-                    MediaPlayer mp = createNewMediaPlayer(getResources().getIdentifier("level1", "raw", getApplicationContext().getPackageName()));
-                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    @Override
+                    public void onCompletion(MediaPlayer mp)
                     {
-                        @Override
-                        public void onCompletion(MediaPlayer mp)
-                        {
-                            mp.stop();
-                            mp.reset();
-                            mp.release();
-                        }
-                    });
-                    mp.start();
-                } catch (IOException e)
+                        mPlayerLevelOne.stop();
+                        mPlayerLevelOne.reset();
+                        mPlayerLevelOne.release();
+                        mPlayerLevelOne = null;
+                    }
+                });
+
+                mPlayerLevelOne.setVolume(Util.soundVolume, Util.soundVolume);
+
+                mPlayerLevelOne.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
                 {
-                    e.printStackTrace();
-                }
+                    @Override
+                    public void onPrepared(MediaPlayer mp)
+                    {
+                        mPlayerLevelOne.start();
+                    }
+                });
+
+            } catch (IOException e)
+            {
+                e.printStackTrace();
             }
-        });t.start();
+            return null;
+        }
+
+        protected void onCancelled()
+        {
+            mPlayerLevelOne.stop();
+            mPlayerLevelOne.reset();
+            mPlayerLevelOne.release();
+            mPlayerLevelOne = null;
+        }
     }
 
     // ######### SETS UP THE DIALOG LAUNCHED BY THE PAUSE BUTTON ########
@@ -391,8 +414,16 @@ public class Game extends Activity implements OnTouchListener
                 {
                     public void onClick(View v)
                     {
-                        //theGame.view.gameOver();
+                        isResuming = false;
                         inGameMenu.dismiss();
+                        if(mediaPlayer != null)
+                        {
+                            mediaPlayer.release();
+                            mediaPlayer = null;
+                        }
+                        if(mPlayerLevelOne != null)
+                            runLevelOneAudio.cancel(true);
+
                         finish();
                     }
                 });
@@ -410,6 +441,8 @@ public class Game extends Activity implements OnTouchListener
                     public void onClick(View v)
                     {
                         inGameMenu.dismiss();
+                        mediaPlayer.release();
+                        mediaPlayer = null;
                         startActivity(new Intent("com.game.one.Config"));
                         finish();
                     }
@@ -630,7 +663,7 @@ public class Game extends Activity implements OnTouchListener
         starLayout.setLayoutParams(starParams);
 
         rateBar = new RatingBar(this, null,
-        android.R.attr.ratingBarStyleIndicator);
+                android.R.attr.ratingBarStyleIndicator);
 
         rateBar.setStepSize((float) 1.0);
         rateBar.setMax(4);
@@ -683,7 +716,8 @@ public class Game extends Activity implements OnTouchListener
 
                     try
                     {
-                        initMediaPlayer(getResources().getIdentifier(audioFileName, "raw", getApplicationContext().getPackageName()));
+                        if(!isPaused)
+                            initMediaPlayer(getResources().getIdentifier(audioFileName, "raw", getApplicationContext().getPackageName()));
                     } catch (IOException e)
                     {
                         e.printStackTrace();
@@ -701,7 +735,8 @@ public class Game extends Activity implements OnTouchListener
 
                     try
                     {
-                        initMediaPlayer(getResources().getIdentifier(audioFileNames[pick], "raw", getApplicationContext().getPackageName()));
+                        if(!isPaused)
+                            initMediaPlayer(getResources().getIdentifier(audioFileNames[pick], "raw", getApplicationContext().getPackageName()));
                     } catch (IOException e)
                     {
                         e.printStackTrace();
@@ -715,8 +750,7 @@ public class Game extends Activity implements OnTouchListener
                     wordTimer.cancel();
                     timer.setText("0:00");
 
-                    view.getGameWon().loadBitmap();
-                    view.getGameWon().setVisible(true);
+
                 }
             }
         });
@@ -1475,15 +1509,20 @@ public class Game extends Activity implements OnTouchListener
     @Override
     public void onBackPressed()
     {
-        this.onPause();
         inGameMenu.show();
-
     }
 
     @Override
     protected void onPause()
     {
-        //view.pause();
+        isPaused = true;
+
+        if (mPlayerLevelOne != null && mPlayerLevelOne.isPlaying())
+        {
+            mPlayerLevelOne.pause();
+            isResuming = true;
+        }
+
         if (Util.musicPlayer != null)
         {
             Util.musicPlayer.pause();
@@ -1492,22 +1531,37 @@ public class Game extends Activity implements OnTouchListener
         {
             mediaPlayer.pause();
         }
+        wordTimer.pause();
+        spriteTimer.pause();
+        view.getFrog().stopAudio();
+        view.pause();
+
         super.onPause();
     }
 
     @Override
     protected void onResume()
     {
-        //inGameMenu.cancel();
+        isPaused = false;
         view.resume();
+        spriteTimer.start();
+        wordTimer.start();
+
         if (Util.musicPlayer != null)
         {
             Util.musicPlayer.start();
         }
+
         if (mediaPlayer != null)
         {
-            mediaPlayer.pause();
+            mediaPlayer.start();
         }
+
+        if (mPlayerLevelOne != null && isResuming == true)
+        {
+            mPlayerLevelOne.start();
+        }
+
         super.onResume();
     }
 
