@@ -17,7 +17,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,18 +50,17 @@ public class Game extends Activity implements OnTouchListener
     private MediaPlayer mediaPlayer1;
     private MediaPlayer mediaPlayer2;
     private MediaPlayer mediaPlayer3;
+    private MediaPlayer mediaPlayer4;
     private MediaPlayer mPlayerLevelOne;
-    private MediaPlayer mPlayerEnd;
-    private boolean runAudio = true;
+    private boolean runAudio1 = true;
+    private boolean runAudio2 = true;
+    private boolean runAudio3 = true;
+    private boolean runAudio4 = true;
     private boolean isResuming = false;
-    private boolean isPaused = false;
     private RunAudioLevelOne runLevelOneAudio;
-    private int resource = 0;
-    private long duration = 0;
     volatile private long wordDuration = 0L;
     private int level = 0;
     volatile private int starPoints = 0;
-    private boolean OK = true;
     private GameView view;
     private String flyId = "X";
     private TextView stats;
@@ -135,31 +133,6 @@ public class Game extends Activity implements OnTouchListener
         }
     });
 
-    TimerExec mediaTimer = new TimerExec(100, -1, new TimerExecTask()
-    {
-        @Override
-        public void onTick()
-        {
-            if (mediaTimer.getElapsedTime() > duration)
-            {
-                try
-                {
-                    initMediaPlayer(resource);
-                } catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
-                onFinish();
-            }
-        }
-
-        @Override
-        public void onFinish()
-        {
-            mediaTimer.cancel();
-        }
-    });
-
     TimerExec gameTimer1 = new TimerExec(500, -1, new TimerExecTask()
     {
         @Override
@@ -199,71 +172,6 @@ public class Game extends Activity implements OnTouchListener
             gameTimer2.cancel();
         }
     });
-
-    private void initMediaPlayer(final int resource) throws IOException
-    {
-        if (mediaPlayer1 == null)
-        {
-            mediaPlayer1 = new MediaPlayer();
-            mediaPlayer1.setDataSource(getApplicationContext(),
-                    Uri.parse(Util.RES_PREFIX + resource));
-            mediaPlayer1.setVolume(Util.soundVolume, Util.soundVolume);
-            mediaPlayer1.prepare();
-
-            mediaPlayer1.setOnErrorListener(new MediaPlayer.OnErrorListener()
-            {
-                @Override
-                public boolean onError(MediaPlayer mp, int what, int extra)
-                {
-                    Log.e(getPackageName(), String.format("Error(%s%s)", what, extra));
-
-                    if (what == MediaPlayer.MEDIA_ERROR_SERVER_DIED || what == MediaPlayer.MEDIA_ERROR_UNKNOWN)
-                    {
-                        mp.reset();
-                        try
-                        {
-                            initMediaPlayer(resource);
-                        } catch (IOException e)
-                        {
-                            e.printStackTrace();
-                        }
-                    }
-                    return false;
-                }
-            });
-
-            mediaPlayer1.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-            {
-                @Override
-                public void onPrepared(MediaPlayer mp)
-                {
-                    mediaPlayer1.start();
-                }
-            });
-
-            mediaPlayer1.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-            {
-                @Override
-                public void onCompletion(MediaPlayer mp)
-                {
-                    mediaPlayer1.stop();
-                    mediaPlayer1.reset();
-                    mediaPlayer1.release();
-                    mediaPlayer1 = null;
-                }
-            });
-        } else if (mediaPlayer1.isPlaying())
-        {
-            this.duration = mediaPlayer1.getDuration();
-            this.resource = resource;
-            mediaTimer.start();
-        } else
-        {
-            mediaPlayer1.setDataSource(getApplicationContext(),
-                    Uri.parse(Util.RES_PREFIX + resource));
-            mediaPlayer1.prepare();
-        }
-    }
 
     private MediaPlayer createNewMediaPlayer(final int res) throws IOException
     {
@@ -739,14 +647,36 @@ public class Game extends Activity implements OnTouchListener
                 {
                     String audioFileName = "level" + Integer.toString(level);
 
-                    try
+                    int resID = getApplicationContext().getResources().getIdentifier(audioFileName,
+                            "raw", getApplicationContext().getPackageName());
+
+
+                    mediaPlayer4 = MediaPlayer.create(getApplicationContext(), resID);
+
+                    mediaPlayer4.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                     {
-                        if (!isPaused)
-                            initMediaPlayer(getResources().getIdentifier(audioFileName, "raw", getApplicationContext().getPackageName()));
-                    } catch (IOException e)
+                        @Override
+                        public void onCompletion(MediaPlayer mp)
+                        {
+                            mediaPlayer4.stop();
+                            mediaPlayer4.reset();
+                            mediaPlayer4.release();
+                            mediaPlayer4 = null;
+                        }
+                    });
+
+                    mediaPlayer4.setVolume(Util.soundVolume, Util.soundVolume);
+
+                    mediaPlayer4.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
                     {
-                        e.printStackTrace();
-                    }
+                        @Override
+                        public void onPrepared(MediaPlayer mp)
+                        {
+                            if (runAudio4)
+                                mediaPlayer4.start();
+                        }
+                    });
+
                     updateWordBoxText();
                 }
                 if (level == 11)
@@ -765,44 +695,47 @@ public class Game extends Activity implements OnTouchListener
                     Random r = new Random();
                     int pick = r.nextInt(9);
 
-                    if(pick == 0)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.hopping);
-                    if(pick == 1)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.out_of_this_world);
-                    if(pick == 2)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.sooper);
-                    if(pick == 3)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.super_duper);
-                    if(pick == 4)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.stupendious);
-                    if(pick == 5)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.yaaaa);
-                    if(pick == 6)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.way_to_go);
-                    if(pick == 7)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.wonderful);
-                    if(pick == 8)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.you_did_it);
-                    if(pick == 9)
-                        mPlayerEnd =  MediaPlayer.create(getApplicationContext(), R.raw.you_got_it);
+                    if (pick == 0)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.hopping);
+                    if (pick == 1)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.out_of_this_world);
+                    if (pick == 2)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.sooper);
+                    if (pick == 3)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.super_duper);
+                    if (pick == 4)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.stupendious);
+                    if (pick == 5)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.yaaaa);
+                    if (pick == 6)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.way_to_go);
+                    if (pick == 7)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.wonderful);
+                    if (pick == 8)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.you_did_it);
+                    if (pick == 9)
+                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.you_got_it);
 
-                    mPlayerEnd.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+                    mediaPlayer4.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                     {
                         @Override
                         public void onCompletion(MediaPlayer mp)
                         {
-                            mPlayerEnd.stop();
-                            mPlayerEnd.reset();
-                            mPlayerEnd.release();
+                            mediaPlayer4.stop();
+                            mediaPlayer4.reset();
+                            mediaPlayer4.release();
+                            mediaPlayer4 = null;
                         }
                     });
 
-                    mPlayerEnd.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+                    mediaPlayer4.setVolume(Util.soundVolume, Util.soundVolume);
+
+                    mediaPlayer4.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
                     {
                         @Override
                         public void onPrepared(MediaPlayer mp)
                         {
-                            mPlayerEnd.start();
+                            mediaPlayer4.start();
                         }
                     });
 
@@ -1028,14 +961,30 @@ public class Game extends Activity implements OnTouchListener
     {
         wordTimer.cancel();
 
-        try
+        mediaPlayer1 = MediaPlayer.create(getApplicationContext(), R.raw.applause);
+        mediaPlayer1.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
         {
-            initMediaPlayer(getResources().getIdentifier("applause", "raw", getApplicationContext().getPackageName()));
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+            @Override
+            public void onCompletion(MediaPlayer mp)
+            {
+                mediaPlayer1.stop();
+                mediaPlayer1.reset();
+                mediaPlayer1.release();
+                mediaPlayer1 = null;
+            }
+        });
 
+        mediaPlayer1.setVolume(Util.soundVolume, Util.soundVolume);
+
+        mediaPlayer1.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+                if (runAudio1)
+                    mediaPlayer1.start();
+            }
+        });
         float rate = rateBar.getRating();
         float newRate = rate + 1.0f;
         rateBar.setRating(newRate);
@@ -1577,8 +1526,6 @@ public class Game extends Activity implements OnTouchListener
     @Override
     protected void onPause()
     {
-        isPaused = true;
-
         if (mPlayerLevelOne != null && mPlayerLevelOne.isPlaying())
         {
             mPlayerLevelOne.pause();
@@ -1589,26 +1536,33 @@ public class Game extends Activity implements OnTouchListener
         {
             Util.musicPlayer.pause();
         }
-        if (mediaPlayer1 != null)
+        if (mediaPlayer1 != null && mediaPlayer1.isPlaying())
         {
             mediaPlayer1.pause();
         }
+        if (mediaPlayer1 == null)
+            runAudio1 = false;
 
         if (mediaPlayer2 != null && mediaPlayer2.isPlaying())
         {
             mediaPlayer2.pause();
         }
-
-        if(mediaPlayer2 == null)
-            runAudio = false;
+        if (mediaPlayer2 == null)
+            runAudio2 = false;
 
         if (mediaPlayer3 != null && mediaPlayer3.isPlaying())
         {
-           mediaPlayer3.pause();
+            mediaPlayer3.pause();
         }
+        if (mediaPlayer3 == null)
+            runAudio3 = false;
 
-        if(mediaPlayer3 == null)
-            runAudio = false;
+        if (mediaPlayer4 != null && mediaPlayer4.isPlaying())
+        {
+            mediaPlayer4.pause();
+        }
+        if (mediaPlayer4 == null)
+            runAudio4 = false;
 
         wordTimer.pause();
         spriteTimer.pause();
@@ -1620,11 +1574,13 @@ public class Game extends Activity implements OnTouchListener
     @Override
     protected void onResume()
     {
-        isPaused = false;
         view.resume();
         spriteTimer.start();
         wordTimer.start();
-        runAudio = true;
+        runAudio1 = true;
+        runAudio2 = true;
+        runAudio3 = true;
+        runAudio4 = true;
 
         if (Util.musicPlayer != null)
         {
@@ -1639,6 +1595,11 @@ public class Game extends Activity implements OnTouchListener
         if (mediaPlayer2 != null)
         {
             mediaPlayer2.start();
+        }
+
+        if (mediaPlayer4 != null)
+        {
+            mediaPlayer4.start();
         }
 
         if (mPlayerLevelOne != null && isResuming == true)
@@ -2142,7 +2103,7 @@ public class Game extends Activity implements OnTouchListener
                     @Override
                     public void onPrepared(MediaPlayer mp)
                     {
-                        if(runAudio)
+                        if (runAudio2)
                             mediaPlayer2.start();
                     }
                 });
@@ -2183,7 +2144,7 @@ public class Game extends Activity implements OnTouchListener
                     @Override
                     public void onPrepared(MediaPlayer mp)
                     {
-                        if(runAudio)
+                        if (runAudio3)
                             mediaPlayer3.start();
                     }
                 });
