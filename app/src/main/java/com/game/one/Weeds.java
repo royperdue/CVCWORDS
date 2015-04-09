@@ -7,50 +7,50 @@ import android.graphics.Rect;
 
 public class Weeds extends Sprite
 {
-	private Bitmap globalBitmap;
-	private boolean visible = false;
+    private Bitmap globalBitmap;
+    private boolean visible = false;
 
-	public Weeds(GameView view, Context context)
-	{
-		super(view, context);
+    public Weeds(GameView view, Context context)
+    {
+        super(view, context);
 
-		this.v = view;
-	}
+        this.v = view;
+    }
 
-	public void loadBitmap()
-	{
-		globalBitmap = createBitmap(context.getResources().getDrawable(
-				R.drawable.weeds));
+    public void loadBitmap()
+    {
+        globalBitmap = createBitmap(context.getResources().getDrawable(
+                R.drawable.weeds));
 
-		this.bitmap = globalBitmap;
-		this.width = this.bitmap.getWidth();
-		this.height = this.bitmap.getHeight();
-	}
+        this.bitmap = globalBitmap;
+        this.width = this.bitmap.getWidth();
+        this.height = this.bitmap.getHeight();
+    }
 
-	@Override
-	public void draw(Canvas canvas)
-	{
-		if(visible == true)
-		{
-			Rect dst = new Rect(0, 0, v.getWidth(), v.getHeight());
-			canvas.drawBitmap(this.globalBitmap, null, dst, null);
-		}
-	}
-	
-	@Override
-	public void setVisible(boolean v)
-	{
-		visible = v;
-	}
+    @Override
+    public void draw(Canvas canvas)
+    {
+        if (visible == true)
+        {
+            Rect dst = new Rect(0, 0, v.getWidth(), v.getHeight());
+            canvas.drawBitmap(this.globalBitmap, null, dst, null);
+        }
+    }
 
-	@Override
-	public boolean getVisible()
-	{
-		return visible;
-	}
+    @Override
+    public void setVisible(boolean v)
+    {
+        visible = v;
+    }
 
-	public Bitmap getBitmap()
-	{
-		return bitmap;
-	}
+    @Override
+    public boolean getVisible()
+    {
+        return visible;
+    }
+
+    public Bitmap getBitmap()
+    {
+        return bitmap;
+    }
 }

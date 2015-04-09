@@ -202,7 +202,7 @@ public class GameView extends SurfaceView implements Runnable
 
         bg.draw(canvas);
 
-        if(!endGame)
+        if (!endGame)
         {
             duckLR.draw(canvas);
             duckRL.draw(canvas);
@@ -222,7 +222,7 @@ public class GameView extends SurfaceView implements Runnable
             flyU.draw(canvas);
             status.draw(canvas);
         }
-        if(endGame)
+        if (endGame)
         {
             gameOver.draw(canvas);
         }

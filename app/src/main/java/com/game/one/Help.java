@@ -134,19 +134,19 @@ public class Help extends Activity
                         mediaPlayer.release();
                         mediaPlayer = null;
 
-                        if(mPlayerR != null)
+                        if (mPlayerR != null)
                         {
                             mPlayerR.release();
                             mPlayerR = null;
                         }
 
-                        if(mPlayerM != null)
+                        if (mPlayerM != null)
                         {
                             mPlayerM.release();
                             mPlayerM = null;
                         }
 
-                        if(mPlayerL != null)
+                        if (mPlayerL != null)
                         {
                             mPlayerL.release();
                             mPlayerL = null;
@@ -459,7 +459,8 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });t.start();
+        });
+        t.start();
     }
 
     private void howToPlay()
@@ -490,7 +491,8 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });t.start();
+        });
+        t.start();
     }
 
     private void needHelp()
@@ -521,7 +523,8 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });t.start();
+        });
+        t.start();
     }
 
     private void toExit()
@@ -551,7 +554,8 @@ public class Help extends Activity
 
                 mediaPlayer.start();
             }
-        });t.start();
+        });
+        t.start();
     }
 
     private void clickLeftButton()
@@ -680,7 +684,7 @@ public class Help extends Activity
         AnimationDrawable helpAnimation = (AnimationDrawable) imageView.getBackground();
         helpAnimation.start();
 
-        if(hasFocus == true && start == true)
+        if (hasFocus == true && start == true)
         {
             start = false;
             welcome();
@@ -697,6 +701,7 @@ public class Help extends Activity
                 (int) ((Util.getScaleFactor() * Util.PIXEL_HEIGHT) / 11.8),
                 false);
     }
+
     @Override
     protected void onResume()
     {
@@ -704,7 +709,7 @@ public class Help extends Activity
 
         try
         {
-            if(mediaPlayer != null)
+            if (mediaPlayer != null)
             {
                 mediaPlayer.start();
             }
@@ -717,7 +722,7 @@ public class Help extends Activity
     @Override
     protected void onPause()
     {
-        if(!exit)
+        if (!exit)
         {
             try
             {

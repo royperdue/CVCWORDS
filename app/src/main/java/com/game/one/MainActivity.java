@@ -28,7 +28,7 @@ public class MainActivity extends Activity
         setDisplaySpecs();
         setContentView(R.layout.activity_main);
         setUp();
-        if(Util.musicPlayer == null)
+        if (Util.musicPlayer == null)
         {
             Config.readVolume(this);
             Util.initMusicPlayer(this);
