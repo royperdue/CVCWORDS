@@ -138,11 +138,9 @@ public class Game extends Activity implements OnTouchListener
         @Override
         public void onTick()
         {
-            if (gameTimer1.getElapsedTime() == 1000)
+            if (gameTimer1.getElapsedTime() == 3500)
             {
                 Game.theGame.runWordSound();
-                updateWordBoxText();
-                updateStars();
                 onFinish();
             }
         }
@@ -375,9 +373,16 @@ public class Game extends Activity implements OnTouchListener
                     public void onClick(View v)
                     {
                         inGameMenu.dismiss();
-                        mediaPlayer1.release();
-                        mediaPlayer1 = null;
-                        startActivity(new Intent("com.game.one.Config"));
+                        if (mediaPlayer1 != null)
+                        {
+                            mediaPlayer1.release();
+                            mediaPlayer1 = null;
+                        }
+                        if (mPlayerLevelOne != null)
+                            runLevelOneAudio.cancel(true);
+
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), Config.class));
                         finish();
                     }
                 });
@@ -689,11 +694,11 @@ public class Game extends Activity implements OnTouchListener
                     word = "- - -";
                     updateWordBoxText();
 
-                    String[] audioFileNames = {"hopping", "out_of_this_world", "sooper", "super_duper", "stupendious", "yaaaa",
+                    String[] audioFileNames = {"hopping", "out_of_this_world", "sooper", "super_duper", "stupendious",
                             "way_to_go", "wonderful", "you_did_it", "you_got_it"};
 
                     Random r = new Random();
-                    int pick = r.nextInt(9);
+                    int pick = r.nextInt(8);
 
                     if (pick == 0)
                         mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.hopping);
@@ -706,14 +711,12 @@ public class Game extends Activity implements OnTouchListener
                     if (pick == 4)
                         mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.stupendious);
                     if (pick == 5)
-                        mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.yaaaa);
-                    if (pick == 6)
                         mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.way_to_go);
-                    if (pick == 7)
+                    if (pick == 6)
                         mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.wonderful);
-                    if (pick == 8)
+                    if (pick == 7)
                         mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.you_did_it);
-                    if (pick == 9)
+                    if (pick == 8)
                         mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.you_got_it);
 
                     mediaPlayer4.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
@@ -2089,6 +2092,8 @@ public class Game extends Activity implements OnTouchListener
                         mediaPlayer2.reset();
                         mediaPlayer2.release();
                         mediaPlayer2 = null;
+                        updateWordBoxText();
+                        updateStars();
                     }
                 });
 
