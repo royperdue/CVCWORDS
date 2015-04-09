@@ -693,8 +693,12 @@ public class Game extends Activity implements OnTouchListener
                 }
                 if (level == 11)
                 {
-                    mediaPlayer2.release();
-                    mediaPlayer2 = null;
+                    if(mediaPlayer2 != null)
+                    {
+                        mediaPlayer2.release();
+                        mediaPlayer2 = null;
+                    }
+                    
                     spriteTimer.cancel();
                     wordTimer.cancel();
                     timer.setText("00;00");
