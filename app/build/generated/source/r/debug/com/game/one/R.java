@@ -424,23 +424,30 @@ public final class R {
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
-        public static final int textsize100sp=0x7f070002;
-        public static final int textsize10sp=0x7f070003;
-        public static final int textsize120sp=0x7f070004;
-        public static final int textsize12sp=0x7f070005;
-        public static final int textsize140sp=0x7f070006;
-        public static final int textsize15sp=0x7f070007;
-        public static final int textsize20sp=0x7f070008;
-        public static final int textsize25sp=0x7f070009;
-        public static final int textsize2sp=0x7f07000a;
-        public static final int textsize30sp=0x7f07000b;
-        public static final int textsize35sp=0x7f07000c;
-        public static final int textsize40sp=0x7f07000d;
-        public static final int textsize45sp=0x7f07000e;
-        public static final int textsize50sp=0x7f07000f;
-        public static final int textsize5sp=0x7f070010;
-        public static final int textsize80sp=0x7f070011;
-        public static final int textsize8sp=0x7f070012;
+        public static final int size10dip=0x7f070002;
+        public static final int size15dip=0x7f070003;
+        public static final int size20dip=0x7f070004;
+        public static final int size25dip=0x7f070005;
+        public static final int size30dip=0x7f070006;
+        public static final int size35dip=0x7f070007;
+        public static final int size40dip=0x7f070008;
+        public static final int textsize100sp=0x7f070009;
+        public static final int textsize10sp=0x7f07000a;
+        public static final int textsize120sp=0x7f07000b;
+        public static final int textsize12sp=0x7f07000c;
+        public static final int textsize140sp=0x7f07000d;
+        public static final int textsize15sp=0x7f07000e;
+        public static final int textsize20sp=0x7f07000f;
+        public static final int textsize25sp=0x7f070010;
+        public static final int textsize2sp=0x7f070011;
+        public static final int textsize30sp=0x7f070012;
+        public static final int textsize35sp=0x7f070013;
+        public static final int textsize40sp=0x7f070014;
+        public static final int textsize45sp=0x7f070015;
+        public static final int textsize50sp=0x7f070016;
+        public static final int textsize5sp=0x7f070017;
+        public static final int textsize80sp=0x7f070018;
+        public static final int textsize8sp=0x7f070019;
     }
     public static final class drawable {
         public static final int about=0x7f020000;

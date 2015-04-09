@@ -17,4 +17,12 @@
     <dimen name="textsize100sp">100sp</dimen>
     <dimen name="textsize120sp">120sp</dimen>
     <dimen name="textsize140sp">140sp</dimen>
+
+    <dimen name="size10dip">10dip</dimen>
+    <dimen name="size15dip">15dip</dimen>
+    <dimen name="size20dip">20dip</dimen>
+    <dimen name="size25dip">25dip</dimen>
+    <dimen name="size30dip">30dip</dimen>
+    <dimen name="size35dip">35dip</dimen>
+    <dimen name="size40dip">40dip</dimen>
 </resources>
