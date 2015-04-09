@@ -3,7 +3,6 @@ package com.game.one;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -11,8 +10,10 @@ import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -108,6 +109,10 @@ public class Help extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help);
 
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(Color.WHITE);
+        border.setStroke(5, Color.YELLOW);
+
         imageView = (ImageView) findViewById(R.id.imageView);
 
         inGameMenu = new Dialog(this);
@@ -118,18 +123,7 @@ public class Help extends Activity
                 .getTextSize());
         ((Button) inGameMenu.findViewById(R.id.ingamemenuNo)).setTextSize(Util
                 .getTextSize());
-        ((Button) inGameMenu.findViewById(R.id.ingamemenuSettings))
-                .setTextSize(Util.getTextSize());
-        ((TextView) inGameMenu.findViewById(R.id.ingamemenuText))
-                .setTextSize(Util.getTextSize());
-
-        inGameMenu.setOnDismissListener(new DialogInterface.OnDismissListener()
-        {
-            public void onDismiss(DialogInterface dialog)
-            {
-                //onResume();
-            }
-        });
+        ((Button) inGameMenu.findViewById(R.id.ingamemenuSettings)).setVisibility(View.INVISIBLE);
 
         ((Button) inGameMenu.findViewById(R.id.ingamemenuYes))
                 .setOnClickListener(new View.OnClickListener()
@@ -172,14 +166,7 @@ public class Help extends Activity
                         inGameMenu.dismiss();
                     }
                 });
-        ((Button) inGameMenu.findViewById(R.id.ingamemenuSettings))
-                .setOnClickListener(new View.OnClickListener()
-                {
-                    public void onClick(View v)
-                    {
 
-                    }
-                });
         Typeface levelFont = Typeface.createFromAsset(getAssets(), "kidsFont.ttf");
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
@@ -207,8 +194,16 @@ public class Help extends Activity
 
         topLayout.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         topLayout.setBackgroundColor(Color.TRANSPARENT);
-        topLayout.setBackground(getResources().getDrawable(R.drawable.score_bar));
-        topLayout.setPadding(30, 0, 0, 0);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+        {
+            topLayout.setBackgroundDrawable(border);
+        } else
+        {
+            topLayout.setBackground(border);
+        }
+
+        topLayout.setPadding(20, 0, 0, 0);
 
         leftLetterBtn = new Button(this);
         leftLetterBtn.setTypeface(levelFont);
@@ -707,9 +702,15 @@ public class Help extends Activity
     {
         super.onResume();
 
-        if(mediaPlayer != null)
+        try
         {
-            mediaPlayer.start();
+            if(mediaPlayer != null)
+            {
+                mediaPlayer.start();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -718,9 +719,15 @@ public class Help extends Activity
     {
         if(!exit)
         {
-            if (mediaPlayer != null)
+            try
             {
-                mediaPlayer.pause();
+                if (mediaPlayer != null)
+                {
+                    mediaPlayer.pause();
+                }
+            } catch (IllegalStateException e)
+            {
+                e.printStackTrace();
             }
         }
         super.onPause();

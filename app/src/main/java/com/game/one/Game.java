@@ -15,9 +15,11 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -373,17 +375,8 @@ public class Game extends Activity implements OnTouchListener
                     public void onClick(View v)
                     {
                         inGameMenu.dismiss();
-                        if (mediaPlayer1 != null)
-                        {
-                            mediaPlayer1.release();
-                            mediaPlayer1 = null;
-                        }
-                        if (mPlayerLevelOne != null)
-                            runLevelOneAudio.cancel(true);
-
-                        finish();
+                        onPause();
                         startActivity(new Intent(getApplicationContext(), Config.class));
-                        finish();
                     }
                 });
     }
@@ -392,6 +385,12 @@ public class Game extends Activity implements OnTouchListener
     private void setLayouts()
     {
         Typeface levelFont = Typeface.createFromAsset(getAssets(), "kidsFont.ttf");
+
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(Color.WHITE);
+        border.setStroke(5, Color.YELLOW);
+
+
         LinearLayout mainLayout = new LinearLayout(this);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setGravity(Gravity.TOP);
@@ -418,8 +417,16 @@ public class Game extends Activity implements OnTouchListener
 
         topLayout.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         topLayout.setBackgroundColor(Color.TRANSPARENT);
-        topLayout.setBackground(getResources().getDrawable(R.drawable.score_bar));
-        topLayout.setPadding(30, 0, 0, 0);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+        {
+            topLayout.setBackgroundDrawable(border);
+        } else
+        {
+            topLayout.setBackground(border);
+        }
+
+        topLayout.setPadding(20, 0, 0, 0);
 
         leftLetterBtn = new Button(this);
         leftLetterBtn.setTypeface(levelFont);
@@ -1529,43 +1536,103 @@ public class Game extends Activity implements OnTouchListener
     @Override
     protected void onPause()
     {
-        if (mPlayerLevelOne != null && mPlayerLevelOne.isPlaying())
+        try
         {
-            mPlayerLevelOne.pause();
-            isResuming = true;
+            if (mPlayerLevelOne != null && mPlayerLevelOne.isPlaying())
+            {
+                mPlayerLevelOne.pause();
+                isResuming = true;
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
 
-        if (Util.musicPlayer != null)
+        try
         {
-            Util.musicPlayer.pause();
-        }
-        if (mediaPlayer1 != null && mediaPlayer1.isPlaying())
+            if (Util.musicPlayer != null)
+            {
+                Util.musicPlayer.pause();
+            }
+        } catch (IllegalStateException e)
         {
-            mediaPlayer1.pause();
+            e.printStackTrace();
         }
-        if (mediaPlayer1 == null)
-            runAudio1 = false;
+        try
+        {
+            if (mediaPlayer1 != null && mediaPlayer1.isPlaying())
+            {
+                mediaPlayer1.pause();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
+        }
+        try
+        {
+            if (mediaPlayer1 == null)
+                runAudio1 = false;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
-        if (mediaPlayer2 != null && mediaPlayer2.isPlaying())
+        try
         {
-            mediaPlayer2.pause();
+            if (mediaPlayer2 != null && mediaPlayer2.isPlaying())
+            {
+                mediaPlayer2.pause();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
-        if (mediaPlayer2 == null)
-            runAudio2 = false;
+        try
+        {
+            if (mediaPlayer2 == null)
+                runAudio2 = false;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
-        if (mediaPlayer3 != null && mediaPlayer3.isPlaying())
+        try
         {
-            mediaPlayer3.pause();
+            if (mediaPlayer3 != null && mediaPlayer3.isPlaying())
+            {
+                mediaPlayer3.pause();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
-        if (mediaPlayer3 == null)
-            runAudio3 = false;
+        try
+        {
+            if (mediaPlayer3 == null)
+                runAudio3 = false;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
-        if (mediaPlayer4 != null && mediaPlayer4.isPlaying())
+        try
         {
-            mediaPlayer4.pause();
+            if (mediaPlayer4 != null && mediaPlayer4.isPlaying())
+            {
+                mediaPlayer4.pause();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
-        if (mediaPlayer4 == null)
-            runAudio4 = false;
+        try
+        {
+            if (mediaPlayer4 == null)
+                runAudio4 = false;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         wordTimer.pause();
         spriteTimer.pause();
@@ -1585,29 +1652,59 @@ public class Game extends Activity implements OnTouchListener
         runAudio3 = true;
         runAudio4 = true;
 
-        if (Util.musicPlayer != null)
+        try
         {
-            Util.musicPlayer.start();
+            if (Util.musicPlayer != null)
+            {
+                Util.musicPlayer.start();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
 
-        if (mediaPlayer1 != null)
+        try
         {
-            mediaPlayer1.start();
+            if (mediaPlayer1 != null)
+            {
+                mediaPlayer1.start();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
 
-        if (mediaPlayer2 != null)
+        try
         {
-            mediaPlayer2.start();
+            if (mediaPlayer2 != null)
+            {
+                mediaPlayer2.start();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
 
-        if (mediaPlayer4 != null)
+        try
         {
-            mediaPlayer4.start();
+            if (mediaPlayer4 != null)
+            {
+                mediaPlayer4.start();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
 
-        if (mPlayerLevelOne != null && isResuming == true)
+        try
         {
-            mPlayerLevelOne.start();
+            if (mPlayerLevelOne != null && isResuming == true)
+            {
+                mPlayerLevelOne.start();
+            }
+        } catch (IllegalStateException e)
+        {
+            e.printStackTrace();
         }
 
         super.onResume();

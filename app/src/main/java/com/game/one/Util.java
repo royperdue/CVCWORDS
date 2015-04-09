@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 
 public class Util
 {
@@ -40,7 +39,6 @@ public class Util
 	public static float soundVolume = 0.5f;
 	public static float FLY_COLLISION_FACTOR = DISTANCE_COLLISION_FACTOR;
 	public static float FLY_SPEED_FACTOR = 1f;
-	public static SoundPool soundPool;
 	public static MediaPlayer musicPlayer;
 
 	public static void initMusicPlayer(Context context)
