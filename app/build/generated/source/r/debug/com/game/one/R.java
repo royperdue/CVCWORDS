@@ -898,9 +898,8 @@ public final class R {
         public static final int wig=0x7f0400c7;
         public static final int win=0x7f0400c8;
         public static final int wonderful=0x7f0400c9;
-        public static final int yaaaa=0x7f0400ca;
-        public static final int you_did_it=0x7f0400cb;
-        public static final int you_got_it=0x7f0400cc;
+        public static final int you_did_it=0x7f0400ca;
+        public static final int you_got_it=0x7f0400cb;
     }
     public static final class string {
         public static final int a1=0x7f090000;

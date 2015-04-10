@@ -869,9 +869,8 @@ int raw wet 0x7f0400c6
 int raw wig 0x7f0400c7
 int raw win 0x7f0400c8
 int raw wonderful 0x7f0400c9
-int raw yaaaa 0x7f0400ca
-int raw you_did_it 0x7f0400cb
-int raw you_got_it 0x7f0400cc
+int raw you_did_it 0x7f0400ca
+int raw you_got_it 0x7f0400cb
 int string a1 0x7f090000
 int string about 0x7f090001
 int string aboutbutton 0x7f090002

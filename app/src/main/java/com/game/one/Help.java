@@ -203,7 +203,7 @@ public class Help extends Activity
             topLayout.setBackground(border);
         }
 
-        topLayout.setPadding(20, 0, 0, 0);
+        topLayout.setPadding(20, 5, 0, 5);
 
         leftLetterBtn = new Button(this);
         leftLetterBtn.setTypeface(levelFont);
