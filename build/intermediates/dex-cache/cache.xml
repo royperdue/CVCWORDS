@@ -2,25 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/royperdue/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-93ec38250a8e06c22c83ed1154ebde1fe0cf5994.jar" />
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/classes-64830dc7fd8b2c1e60e4aa1964ff59d3c85a6e1d.jar" />
     </item>
     <item
         jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-4a9ef59dbf78aa5e2e8afbf2c5e2c0cfc965ca6c.jar" />
+        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/internal_impl-22.0.0-4a9ef59dbf78aa5e2e8afbf2c5e2c0cfc965ca6c.jar" />
     </item>
     <item
-        jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/Users/royperdue/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/debug/classes-64830dc7fd8b2c1e60e4aa1964ff59d3c85a6e1d.jar" />
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/support-annotations-22.0.0-93ec38250a8e06c22c83ed1154ebde1fe0cf5994.jar" />
+    </item>
+    <item
+        jar="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/exploded-aar/CVCWORDS/library/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9f3351274551c5bb293fe34605db4eb4fb16bad5">
+        <dex dex="/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/classes-9c4c9b2d9e95fb03c39e040a79d1ddf641bcea9d.jar" />
     </item>
 
 </items>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CVC Words</string>
-    <string name="title">CVC Words</string>
-    <string name="title_activity_main">CVC Words</string>
+    <string name="app_name">CVC Frog</string>
+    <string name="title">CVC Frog</string>
+    <string name="title_activity_main">CVC Frog</string>
     <string name="back_button">back</string>
     <string name="mute_button">Mute</string>
     <string name="a1">Leap into literacy with CVC word frog!  This innovative educational app fosters the development
@@ -41,11 +41,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="audio">Audio</string>
+    <!-- License checking status messages -->
+    <string name="check_license">Check license</string>
+    <string name="checking_license">Checking license...</string>
+    <string name="dont_allow">Don\'t allow the user access</string>
+    <string name="allow">Allow the user access</string>
+    <string name="application_error">Application error: %1$s</string>
 
-    <string name="title_activity_score_board">ScoreBoardActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_game_board">GameBoardActivity</string>
-    <string name="title_activity_game_over">GameOver</string>
+    <!-- Unlicensed dialog messages -->
+    <string name="unlicensed_dialog_title">Application not licensed</string>
+    <string name="unlicensed_dialog_body">This application is not licensed. Please purchase it from Android Market.</string>
+    <string name="unlicensed_dialog_retry_body">Unable to validate license. Check to see if a network connection is available.</string>
+    <string name="buy_button">Buy app</string>
+    <string name="retry_button">Retry</string>
+    <string name="quit_button">Exit</string>
+    <string name="title_activity_license_check">CVC Frog</string>
 
 </resources>

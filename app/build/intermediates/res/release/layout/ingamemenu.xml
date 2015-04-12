@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/black" >
+       
+    <TextView
+        android:id="@+id/ingamemenuText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ingamemenu"
+        android:textColor="@color/SlateGray"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ingamemenuLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ingamemenuText"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+         
+		<Button
+            style="@style/AppTheme"
+		    android:id="@+id/ingamemenuYes"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/yes"
+		    android:textSize="30sp" />
+		
+		<Button
+            style="@style/AppTheme"
+		    android:id="@+id/ingamemenuNo"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/no"
+		    android:textSize="30sp" />
+
+	</LinearLayout>
+	
+	<Button
+        style="@style/AppTheme"
+	    android:id="@+id/ingamemenuSettings"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/ingamemenuLinearLayout"
+	    android:layout_centerHorizontal="true"
+	    android:text="@string/ingamemenuSettingsButton"
+	    android:textSize="30sp" />
+
+</RelativeLayout><!-- From: file:/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/src/main/res/layout/ingamemenu.xml -->

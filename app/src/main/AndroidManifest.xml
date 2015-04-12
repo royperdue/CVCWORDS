@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.game.one"
+    package="com.gbdynamicsgame.one"
     android:sharedUserId="com.gradebookdynamics.utility"
-    android:versionCode="9"
+    android:versionCode="2"
     android:versionName="1.00" >
 
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -23,18 +24,13 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Help"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
             <intent-filter>
-                <action android:name="com.game.one.Help" />
+                <action android:name="com.gbdynamicsgame.one.Help" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -44,7 +40,7 @@
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
             <intent-filter>
-                <action android:name="com.game.one.Config" />
+                <action android:name="com.gbdynamicsgame.one.Config" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -55,7 +51,7 @@
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
             <intent-filter>
-                <action android:name="com.game.one.Game" />
+                <action android:name="com.gbdynamicsgame.one.Game" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -65,9 +61,18 @@
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
             <intent-filter>
-                <action android:name="com.game.one.About" />
+                <action android:name="com.gbdynamicsgame.one.About" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gbdynamicsgame.one.LicenseCheckActivity"
+            android:label="@string/title_activity_license_check" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

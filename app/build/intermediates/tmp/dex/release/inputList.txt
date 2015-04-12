@@ -1,0 +1,5 @@
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/classes/release
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/support-annotations-22.0.0-93ec38250a8e06c22c83ed1154ebde1fe0cf5994.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/classes-9c4c9b2d9e95fb03c39e040a79d1ddf641bcea9d.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/internal_impl-22.0.0-4a9ef59dbf78aa5e2e8afbf2c5e2c0cfc965ca6c.jar
+/Users/royperdue/Documents/School_Work/Senior_Project/GRADEBOOK_BACKEND/CVCWORDS/app/build/intermediates/pre-dexed/release/classes-64830dc7fd8b2c1e60e4aa1964ff59d3c85a6e1d.jar
