@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gbdynamicsgame.one"
     android:sharedUserId="com.gradebookdynamics.utility"
-    android:versionCode="2"
+    android:versionCode="3"
     android:versionName="1.00" >
 
     <uses-sdk
@@ -12,7 +12,6 @@
     <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
