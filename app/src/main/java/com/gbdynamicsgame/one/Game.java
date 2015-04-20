@@ -258,10 +258,10 @@ public class Game extends Activity implements OnTouchListener
             String output = getDateTime() + " " + attempt + " " + "none" + " " + "none" + " false" +
                     " 3_b" + " ENGLISH" + " CVC_WORD_FROG";
 
-            DBAdapter.addUserData(new UserData("com.game.one", output));
+            DBAdapter.addUserData(new UserData("com.gbdynamicsgame.one", output));
 
             Intent intent = new Intent();
-            intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.TransmitData");
+            intent.setClassName("com.gradebookdynamics.utility", "com.gradebookdynamics.utility.NotifyServer");
 
             startService(intent);
         }
@@ -822,7 +822,7 @@ public class Game extends Activity implements OnTouchListener
                         String output = getDateTime() + " " + attempt + " " + word.replaceAll(" ", "") + " " + flyId + " true" +
                                 " 3_b" + " ENGLISH" + " CVC_WORD_FROG";
 
-                        DBAdapter.addUserData(new UserData("com.game.one", output));
+                        DBAdapter.addUserData(new UserData("com.gbdynamicsgame.one", output));
 
                         edit = prefs.edit();
                         edit.putBoolean("HAS_DATA", true);
@@ -849,7 +849,7 @@ public class Game extends Activity implements OnTouchListener
                         String output = getDateTime() + " " + attempt + " " + word.replaceAll(" ", "") + " " + flyId + " false" +
                                 " 3_b" + " ENGLISH" + " CVC_WORD_FROG";
 
-                        DBAdapter.addUserData(new UserData("com.game.one", output));
+                        DBAdapter.addUserData(new UserData("com.gbdynamicsgame.one", output));
                         edit = prefs.edit();
                         edit.putBoolean("HAS_DATA", true);
                         edit.commit();

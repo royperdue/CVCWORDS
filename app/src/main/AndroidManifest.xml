@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gbdynamicsgame.one"
     android:sharedUserId="com.gradebookdynamics.utility"
-    android:versionCode="3"
+    android:versionCode="4"
     android:versionName="1.00" >
 
     <uses-sdk
