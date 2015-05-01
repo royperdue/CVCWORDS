@@ -36,6 +36,16 @@ public class MainActivity extends Activity
         }
         prefs = getApplicationContext().getSharedPreferences("com.came.one",
                 Context.MODE_PRIVATE);
+
+        if (getIntent() != null && getIntent().getExtras() != null)
+        {
+            Intent intent = getIntent();
+
+            if (intent.getStringExtra("action").equals("CLOSE"))
+            {
+                processExtraData();
+            }
+        }
     }
 
     private void setDisplaySpecs()
@@ -175,5 +185,28 @@ public class MainActivity extends Activity
             Util.musicPlayer.release();
             Util.musicPlayer = null;
         }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent)
+    {
+        super.onNewIntent(intent);
+
+        if (intent.getStringExtra("action").equals("CLOSE"))
+        {
+            processExtraData();
+        }
+    }
+
+    private void processExtraData()
+    {
+        runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                exitButton.performClick();
+                exitButton.invalidate();
+            }
+        });
     }
 }

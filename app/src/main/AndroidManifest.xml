@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gbdynamicsgame.one"
     android:sharedUserId="com.gradebookdynamics.utility"
-    android:versionCode="4"
+    android:versionCode="1"
     android:versionName="1.00" >
 
     <uses-sdk
@@ -22,6 +22,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape" >
         </activity>
         <activity
@@ -66,7 +67,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gbdynamicsgame.one.LicenseCheckActivity"
+            android:name=".LicenseCheckActivity"
             android:label="@string/title_activity_license_check" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

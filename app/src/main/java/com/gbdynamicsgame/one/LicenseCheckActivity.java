@@ -20,8 +20,7 @@ import com.google.android.vending.licensing.ServerManagedPolicy;
 
 public class LicenseCheckActivity extends Activity
 {
-    private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAidH2/GPJ0U8PF9cv3Fuh+/I1AiF7ips0qU200Mc99LtZ1KHFebw6qTWQZRVg/yNm7A1vz/YuV3txLCKalf+Fg4mffCGsdK4NKDqrGfrNzO5r2k6HgZiyKvelxTQBm6uIUiRo7YAstFpsnQd7hm0cg7Dp43tQ13Xqo+1vee+kYdpyX3gIf4ZFMcMFcPoH/B2pjZeN8GfHB1E443X74rRDbFvTgM4MJi5tR1wk3aZ5OdmwKiarNf3/o8ckt38fFjyLXNpV46FA7Gl0E9OWB4a8+pVgO10MsF7y66hGiLuhDSToUDhjGkWIgjrGkILQNs/iZnpNHXVTxuH5cPuOg9n1cQIDAQAB";
-
+    private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjTvUVCSvPT1YXcC32kYvaKcggxNVtxYdz8GMvbDnUilGV6Yu41AMtL6DRl8sQ0sRADZtR7HXXKpTlwTtjNnWt687V39UkqcQguZ9Oz9Ccrd3y195/03+ilIyXQCX5eQFGGE9o9zXEl8WL8m7SK3uJkTK8I3T5uA4224PY3pv9Lqu+XDE5jrn1n3EK2EifTVgD7HkP1JpBo9Ub27JomhQu8VAwyBa2zk3LkLRMy1I0h0PMG3A5YXWFfcXuj7xuVTX1/YrnnYHwSmACKb5L2PSUKmxpK2RYJ5FajIfTcfRRKzPn71ej5b/AJJHa4+FHivf8sR3sMXusANsYi/BW6zxpQIDAQAB";
     private static final byte[] SALT = new byte[]{
             -26, 65, 50, -128, -103, -57, 74, -64, 53, 88, -95, -45, 79, -117, -36, -113, -11, 34, -64,
             89
@@ -139,7 +138,6 @@ public class LicenseCheckActivity extends Activity
                 return;
             }
             displayResult(getString(R.string.dont_allow));
-
             displayDialog(policyReason == Policy.RETRY);
         }
 
