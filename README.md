@@ -5,4 +5,4 @@ It’s a multi-tiered system that provides teachers the ability to utilize table
 from which teachers can monitor and assess student performance using game results that are stored on google’s cloud datastore. Additionally teachers can control the 
 launching or closing of games on each student tablet (Android client) from the admin panel.  
 
-Uses: Android SDK, Java, JavaScript, jQuery, Bootstrap, CSS, HTML, XML, SQL. 
+Uses: Android SDK, Java, JavaScript, jQuery, Bootstrap, CSS, HTML, XML, SQLite. 
